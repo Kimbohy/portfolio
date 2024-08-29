@@ -16,11 +16,14 @@ function NavBut({ text, to, D_lay }) {
   return (
     <motion.span
       variants={containerVariants}
-      initial={"hidden"}
-      animate={"visible"}
-      whileHover={{ scale: 1.1, transition: { stiffness: 300 } }}
+      initial="hidden"
+      animate="visible"
+      whileHover={{
+        scale: 1.1,
+        transition: { stiffness: 300 },
+      }}
       transition={{ type: "spring", stiffness: 40, delay: D_lay }}
-      className="cursor-default"
+      className="cursor-default relative inline-block text-white"
     >
       {text}
     </motion.span>

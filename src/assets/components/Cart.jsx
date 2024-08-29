@@ -16,7 +16,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       type: "spring",
-      delay: 0.7,
+      delay: 0.5,
       stiffness: 30,
     },
   },
