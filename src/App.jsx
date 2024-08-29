@@ -1,16 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FirstPage from './assets/components/FirstPage'
 import Cursus from './assets/components/Cursus'
-import Test from './assets/components/test'
+import Work from './assets/components/Work'
+import Loading from './assets/components/Loading'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+      setLoading(false)
+  }, [])
 
   return (
     <>
-    {/* <Test /> */}
+    {loading && <Loading />}
     <FirstPage />
     <Cursus />
+    <Work />
     </>
   )
 }

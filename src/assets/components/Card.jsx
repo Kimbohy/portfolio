@@ -22,13 +22,13 @@ const containerVariants = {
   },
 };
 
-function Cart({ title, description, position }) {
+function Card({ title, description, position }) {
   const ref = useRef(null); 
   const isInView = useInView(ref, { once: true }); 
 
   const class_name = clsx(
     "w-56 h-72 p-6 bg-third flex flex-col gap-5 rounded-2xl cursor-default relative",
-    position ? "left-[-11rem]" : "left-44"
+    position ? "left-[-12rem]" : "left-48"
   );
   const finalPosition = position ? "hidden_l" : "hidden_r";
 
@@ -48,4 +48,4 @@ function Cart({ title, description, position }) {
   );
 }
 
-export default Cart;
+export default Card;
