@@ -11,11 +11,11 @@ function FirstPage() {
       <Boxes />
       <Header />
       <div className="flex">
-        <img
+        {/* <img
           src={face}
           alt="face"
           className="h-svh w-auto top-[40px] z-30 pointer-events-none"
-        />
+        /> */}
         <p className="absolute top-96 right-72 text-white text-[6em] z-[21] pointer-events-none w-[30rem]">
           Developer
         <FlipWordsCp />
