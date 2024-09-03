@@ -11,8 +11,8 @@ export default {
     extend: {
       colors: {
         first: "#8d9aa0",
-        second: "#cfd9cc",
-        third: "#d9a78b",
+        second: "#f2f8fc",
+        third: "#f2f8fcad",
         fourth: "#d9a78b",
         fifth: "#0d0d0d",
       },

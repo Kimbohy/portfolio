@@ -23,7 +23,7 @@ function NavBut({ text, to, D_lay }) {
         transition: { stiffness: 300 },
       }}
       transition={{ type: "spring", stiffness: 40, delay: D_lay }}
-      className="cursor-default relative inline-block text-white"
+      className="cursor-default relative inline-block text-second"
     >
       {text}
     </motion.span>

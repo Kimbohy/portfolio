@@ -23,8 +23,8 @@ const containerVariants = {
 };
 
 function Card({ title, description, position }) {
-  const ref = useRef(null); 
-  const isInView = useInView(ref, { once: true }); 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const class_name = clsx(
     "w-56 h-72 p-6 bg-third flex flex-col gap-5 rounded-2xl cursor-default relative",
@@ -34,16 +34,16 @@ function Card({ title, description, position }) {
 
   return (
     <motion.div
-      ref={ref} 
+      ref={ref}
       variants={containerVariants}
       initial={finalPosition}
-      animate={isInView ? "visible" : finalPosition} 
+      animate={isInView ? "visible" : finalPosition}
       className={class_name}
     >
-      <h3 className="text-white text-3xl underline underline-offset-auto">
+      <h3 className="text-second text-3xl underline underline-offset-auto">
         {title}
       </h3>
-      <p className="text-white text-1xl">{description}</p>
+      <p className="text-second text-1xl">{description}</p>
     </motion.div>
   );
 }

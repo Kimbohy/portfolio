@@ -38,10 +38,10 @@ function WorkCard({ title, description, images, tech }) {
                   x: 0, // Animate to x: 0
                   y: 0, // Animate to y: 0
                   opacity: 1, // Animate to full opacity
-                  transition: { 
+                  transition: {
                     // duration: 1,
                     // delay: index * 0.1 // Stagger animations by index
-                  }
+                  },
                 }}
                 exit={{ x: "100vw", opacity: 0 }} // Exit animation
                 whileHover={
@@ -55,9 +55,9 @@ function WorkCard({ title, description, images, tech }) {
           })}
         </div>
         <div className="flex items-start flex-col p-10">
-          <h3 className="text-white text-5xl">{title}</h3>
-          <p className="text-white text-xl">{description}</p>
-          <div className="bg-white w-60 h-11 rounded-2xl mt-5 px-2 py-[5px] flex gap-1">
+          <h3 className="text-second text-5xl">{title}</h3>
+          <p className="text-second text-xl">{description}</p>
+          <div className="bg-second w-60 h-11 rounded-2xl mt-5 px-2 py-[5px] flex gap-1">
             {tech.map((t, index) => (
               <img
                 key={index} // Add a unique key for each icon
@@ -69,7 +69,7 @@ function WorkCard({ title, description, images, tech }) {
           </div>
         </div>
       </div>
-      <div className="w-1/2 h-[2px] bg-white opacity-50"></div>
+      <div className="w-1/2 h-[2px] bg-second opacity-50"></div>
     </div>
   );
 }

@@ -27,7 +27,7 @@ export default function TextChangeOneHover() {
   }, []);
 
   return (
-    <div className="hoveElement text-white text-4xl flex cursor-default gap-2">
+    <div className="hoveElement text-second text-4xl flex cursor-default gap-2">
       <span className="text2">{text[1]}</span>
       <div
         className={`text1 overflow-hidden ${isHovering ? "w-full" : "w-0"}`}

@@ -16,7 +16,7 @@ import WorkCard from "./WorkCard";
 function Work() {
   return (
     <>
-      <h2 className="text-white text-6xl p-5 bg-slate-900">Work</h2>
+      <h2 className="text-second text-6xl p-5 bg-slate-900">Work</h2>
       <div className="bg-slate-900 h-max flex flex-col gap-24">
         <WorkCard
           title="Cards-tor"

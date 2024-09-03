@@ -19,7 +19,7 @@ function App() {
       <Cursus />
       <Work />
       <Tech />
-      {/* <Contact /> */}
+      <Contact />
     </>
   );
 }

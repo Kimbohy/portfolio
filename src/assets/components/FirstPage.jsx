@@ -16,11 +16,11 @@ function FirstPage() {
           alt="face"
           className="h-svh w-auto top-[40px] z-30 pointer-events-none"
         /> */}
-        <p className="absolute top-96 right-72 text-white text-[6em] z-[21] pointer-events-none w-[30rem]">
+        <p className="absolute top-96 right-72 text-second text-[6em] z-[21] pointer-events-none w-[30rem]">
           Developer
-        <FlipWordsCp />
+          <FlipWordsCp />
         </p>
-        <TextHoverEffect text="Developer"/>
+        <TextHoverEffect text="Developer" />
       </div>
     </div>
   );
