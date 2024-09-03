@@ -1,44 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 function WorkCard({ title, description, images, tech }) {
   const [imagesList, setImagesList] = useState(images);
-// change the clickied image to be the first image
-  const handleExchange = () => {
+
+  // Change the clicked image to be the first image
+  const handleExchange = (clickedIndex) => {
     const newImagesList = [...imagesList];
-    const clickedImage = newImagesList.pop();
-    newImagesList.unshift(clickedImage);
+    const [clickedImage] = newImagesList.splice(clickedIndex, 1); // Remove the clicked image
+    newImagesList.unshift(clickedImage); // Add it to the beginning
     setImagesList(newImagesList);
-  }
+  };
 
   return (
     <div className="flex flex-col items-center h-96 justify-end gap-28">
       <div className="w-full h-fit rounded-lg flex pl-20">
-        <div className="relative w-[700px] h-fit left-[-80px] ">
+        <div className="relative w-[700px] h-fit left-[-80px]">
           {imagesList.map((image, index) => {
             const position = (-0.5 + index + 1) * -12; // Calculate position dynamically
             const zIndex = 10 - index; // Calculate z-index dynamically
-            const brightness = index == 0 ? 1 : 1 / (index + 1);
+            const brightness = index === 0 ? 1 : 1 / (index + 1);
             return (
               <motion.img
-                whileHover={
-                  index != 0 && {
-                    x: 10,
-                    y: -10,
-                  }
-                }
                 key={index} // Add a unique key for each image
                 src={image}
                 alt="work"
-                className="w-[600px] rounded-xl absolute" // Apply static Tailwind classes
+                className="w-[600px] rounded-xl absolute cursor-pointer" // Apply static Tailwind classes
                 style={{
                   right: `${position}px`, // Apply dynamic styles
                   top: `${position}px`, // Apply dynamic styles
                   zIndex: zIndex, // Apply dynamic styles
                   filter: `brightness(${brightness})`,
                 }}
-                onClick={handleExchange}
+                onClick={() => handleExchange(index)}
+                // initial={{ x: "-100vw", opacity: 0 }} // Initial state for animation
+                animate={{
+                  x: 0, // Animate to x: 0
+                  y: 0, // Animate to y: 0
+                  opacity: 1, // Animate to full opacity
+                  transition: { 
+                    // duration: 1,
+                    // delay: index * 0.1 // Stagger animations by index
+                  }
+                }}
+                exit={{ x: "100vw", opacity: 0 }} // Exit animation
+                whileHover={
+                  index !== 0 && {
+                    x: 10,
+                    y: -10,
+                  }
+                }
               />
             );
           })}
