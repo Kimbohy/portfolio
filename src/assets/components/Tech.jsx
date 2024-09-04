@@ -1,3 +1,4 @@
+import { rand } from "three/webgpu";
 import { InfiniteMovingItems } from "./ui/infinite-moving-items";
 
 function Tech() {
@@ -16,13 +17,14 @@ function Tech() {
     "css",
     "git",
     "powershell",
-    "github"
+    "github",
+    "photoshop"
   ]; // need to add github
 
-  function shuffleArray(array) {
+  function shuffleArray(array, value) {
     for (let i = array.length - 1; i > 0; i--) {
       // Generate a random index between 0 and i
-      const j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(Math.random(value) * (i + 1));
       // Swap elements array[i] and array[j]
       [array[i], array[j]] = [array[j], array[i]];
     }
@@ -32,12 +34,12 @@ function Tech() {
   return (
     <div className="bg-slate-900 pt-10 flex justify-center flex-col items-center">
       <InfiniteMovingItems
-        items={(techList)}
+        items={shuffleArray(techList,rand())}
         direction="right"
         speed="slow"
       />
       <InfiniteMovingItems
-        items={shuffleArray(techList)}
+        items={shuffleArray(techList,rand())}
         direction="left"
         speed="slow"
       />

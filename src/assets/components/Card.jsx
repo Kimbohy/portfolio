@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { CardSpotlight } from "./ui/card-spotlight";
 
 const containerVariants = {
   hidden_l: {
@@ -27,9 +28,10 @@ function Card({ title, description, position }) {
   const isInView = useInView(ref, { once: true });
 
   const class_name = clsx(
-    "w-56 h-72 p-6 bg-third flex flex-col gap-5 rounded-2xl cursor-default relative",
+    "w-56 cursor-default relative rounded-xl",
     position ? "left-[-12rem]" : "left-48"
   );
+
   const finalPosition = position ? "hidden_l" : "hidden_r";
 
   return (
@@ -39,11 +41,17 @@ function Card({ title, description, position }) {
       initial={finalPosition}
       animate={isInView ? "visible" : finalPosition}
       className={class_name}
+      style={{
+        backgroundColor: "rgb(38, 38, 38)",
+        maskImage: "radial-gradient(350px at 97.5px 107px, white, transparent 80%)",
+      }}
     >
-      <h3 className="text-second text-3xl underline underline-offset-auto">
-        {title}
-      </h3>
-      <p className="text-second text-1xl">{description}</p>
+      <CardSpotlight className="p-6 flex flex-col gap-5 h-72 rounded-xl">
+        <h3 className="text-second text-3xl underline underline-offset-auto z-30">
+          {title}
+        </h3>
+        <p className="text-second text-1xl z-30">{description}</p>
+      </CardSpotlight>
     </motion.div>
   );
 }

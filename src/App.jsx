@@ -9,13 +9,12 @@ import Tech from "./assets/components/Tech";
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(false);
+    setTimeout(() => setLoading(false), 0);
   }, []);
 
   return (
     <>
-      {loading && <Loading />}
-      <FirstPage />
+      {loading ? <Loading /> : <FirstPage />}
       <Cursus />
       <Work />
       <Tech />
