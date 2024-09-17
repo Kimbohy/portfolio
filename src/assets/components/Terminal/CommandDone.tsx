@@ -20,9 +20,9 @@ const CommandDone = ({ commandProps }: { commandProps: string }) => {
   const keyword: string = clsx("text-mavo", "px-1");
   return (
     <>
-      {words.map((word) => {
+      {words.map((word, index) => {
         return (
-          <span className={commandsName.includes(word) ? keyword : "px-1"}>
+          <span key={index} className={commandsName.includes(word) ? keyword : "px-1"}>
             {word}
           </span>
         );
