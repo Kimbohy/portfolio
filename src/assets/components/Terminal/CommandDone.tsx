@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import json_command from "../../command.json";
+import json_command from "./command.json";
 
 interface cliCommand {
   commands: {

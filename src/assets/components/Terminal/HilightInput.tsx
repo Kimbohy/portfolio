@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import json_command from "../../command.json";
+import json_command from "./command.json";
 import clsx from "clsx";
 
 interface cliCommand {
@@ -14,12 +14,22 @@ interface cliCommand {
   }[];
 }
 
+interface LineType {
+  user: string;
+  cpName: string;
+  privilage: string;
+  command: string;
+  response: string;
+}
+
 const HilightInput = ({
   setCommand,
   click,
+  lines,
 }: {
   setCommand: Function;
   click: boolean;
+  lines: LineType[];
 }) => {
   const [words, setWords] = useState<string[]>([]);
   // Boolean to check if the input is focused
@@ -74,6 +84,20 @@ const HilightInput = ({
         onKeyDown={handleSubmit} // Use onKeyDown to capture "Enter" key presses
         onChange={(e) => {
           setWords(e.target.value.split(" "));
+          addEventListener("keydown", (e) => {
+            if (e.key === "ArrowUp") {
+              e.preventDefault();
+              if (lines.length > 0) {
+                setWords(lines[lines.length - 1].command.split(" "));
+                if (e.target) {
+                  (e.target as HTMLInputElement).value = lines[lines.length - 1].command;
+                }
+              }
+            } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+              e.preventDefault();
+            }
+          }
+          );
         }} // Update the command on change
         onFocus={handleFocus} // Set focused to true when input is focused
         onBlur={handleBlur} // Set focused to false when input is blurred

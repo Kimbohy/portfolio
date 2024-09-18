@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import CommandDone from "./CommandDone";
 import HilightInput from "./HilightInput";
-import { useFunction } from "./Terminal"; // Importing useFunction from Terminal.tsx
+import { useFunction } from "./Terminal"; 
+
+interface LineType {
+  user: string;
+  cpName: string;
+  privilage: string;
+  command: string;
+  response: string;
+}
+
 
 const Line = ({
   user,
@@ -11,6 +20,7 @@ const Line = ({
   commandProps,
   click,
   response,
+  lines,
 }: {
   user: string;
   cpName: string;
@@ -19,6 +29,7 @@ const Line = ({
   commandProps: string;
   click: boolean;
   response?: string;
+  lines: LineType[];
 }) => {
   const [command, setCommand] = useState<string>("");
 
@@ -33,7 +44,7 @@ const Line = ({
           cpName: cpName,
           privilage: privilage,
           command: newCommand,
-          response: useFunction(newCommand),
+          response: useFunction({ command: newCommand, user }),
         },
       ]);
     }
@@ -56,12 +67,12 @@ const Line = ({
         <span>~</span>
         <span>{privilageSign}</span>
         {commandProps === "" ? (
-          <HilightInput setCommand={setCommand} click={click} />
+          <HilightInput setCommand={setCommand} click={click} lines={lines} />
         ) : (
           <CommandDone commandProps={commandProps} />
         )}
       </div>
-      <p>{response}</p>
+      <p dangerouslySetInnerHTML={{ __html: response || "" }}></p>
     </div>
   );
 };

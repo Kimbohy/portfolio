@@ -19,7 +19,7 @@ const Body = () => {
   };
 
   return (
-    <div onClick={handleClick} >
+    <div onClick={handleClick}>
       <BackgroundGradient className="bg-zinc-900 h-[40vh] flex flex-col px-2 rounded-2xl overflow-scroll ">
         {lines.map((line, index) => (
           <Line
@@ -31,6 +31,7 @@ const Body = () => {
             commandProps={line.command}
             response={line.response}
             click={click}
+            lines={lines}
           />
         ))}
         <Line
@@ -40,6 +41,7 @@ const Body = () => {
           setLines={setLines}
           commandProps="" // This allows input in the last line
           click={click}
+          lines={lines}
         />
       </BackgroundGradient>
     </div>

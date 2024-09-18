@@ -1,0 +1,9 @@
+{
+  "data": [
+    { "name": "mail", "content": "lovabarwijons@gmail.com" },
+    { "name": "phone", "content": "+261 34 58 606 27" },
+    { "name": "location", "content": "Madagascar" },
+    { "name": "github", "content": "https://github.com/Kimbohy" },
+    { "name": "linkedin", "content": "https://www.linkedin.com/in/kimbohy/" }
+  ]
+}
