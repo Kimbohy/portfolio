@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 
-
+*.py
+cat.json
 
 # Editor directories and files
 .vscode/*
