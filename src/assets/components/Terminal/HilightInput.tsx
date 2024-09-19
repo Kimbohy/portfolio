@@ -35,6 +35,7 @@ const HilightInput = ({
 }) => {
   const [words, setWords] = useState<string[]>([]);
   const [focused, setFocused] = useState(false);
+  const [notFirse, setNotFirst] = useState(false); // This is a hack to prevent the input from focusing on the first render
 
   // Create a ref to directly access the input element
   const inputRef = useRef<HTMLInputElement>(null);
@@ -77,12 +78,16 @@ const HilightInput = ({
     }
   };
 
-  // Focus the input element only when `click` changes and not whene the component is loaded
+  // fix this to focus the input element only when `click` changes and nod when the component mounts
   useEffect(() => {
-    if (click && inputRef.current) {
+    if (notFirse && inputRef.current) {
       inputRef.current.focus();
+    } else {
+      setTimeout(() => {
+        setNotFirst(true);
+      }, 100);
     }
-  }, [click]); 
+  }, [click]);
 
   const commandList: cliCommand = json_command;
   const commandsName: string[] = commandList.commands.map(
