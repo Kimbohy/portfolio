@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CommandDone from "./CommandDone";
 import HilightInput from "./HilightInput";
-import { useFunction } from "./Terminal"; 
+import { useFunction } from "./Terminal";
 
 interface LineType {
   user: string;
@@ -11,8 +11,8 @@ interface LineType {
   response: string;
 }
 
-
 const Line = ({
+  key,
   user,
   cpName,
   privilage,
@@ -22,6 +22,7 @@ const Line = ({
   response,
   lines,
 }: {
+  key: number;
   user: string;
   cpName: string;
   privilage: string;
@@ -36,7 +37,7 @@ const Line = ({
   let privilageSign: string = privilage === "root" ? "#" : "$";
 
   const appendCommand = (newCommand: string) => {
-    if (newCommand.trim().length > 0) {
+    if (newCommand.trim().length > 0 && newCommand != "clear") {
       setLines((prev: any) => [
         ...prev,
         {
@@ -47,6 +48,8 @@ const Line = ({
           response: useFunction({ command: newCommand, user }),
         },
       ]);
+    } else if (newCommand == "clear") {
+      setLines([]);
     }
   };
 
@@ -67,7 +70,12 @@ const Line = ({
         <span>~</span>
         <span>{privilageSign}</span>
         {commandProps === "" ? (
-          <HilightInput setCommand={setCommand} click={click} lines={lines} />
+          <HilightInput
+            setCommand={setCommand}
+            click={click}
+            lines={lines}
+            key={key}
+          />
         ) : (
           <CommandDone commandProps={commandProps} />
         )}

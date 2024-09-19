@@ -35,6 +35,7 @@ const Body = () => {
           />
         ))}
         <Line
+          key={lines.length}
           user="user"
           cpName="cpName"
           privilage="privilage"

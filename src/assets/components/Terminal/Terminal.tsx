@@ -1,5 +1,5 @@
 import json_command from "./command.json";
-import data from "./cat.json";
+import data from "./finale.json";
 
 // Helper function to check for --help or -h and return command description
 const getHelpText = (cliCommand: string[]) => {
@@ -12,6 +12,21 @@ const getHelpText = (cliCommand: string[]) => {
       : `No help available for ${cliCommand[0]}`;
   }
   return null;
+};
+
+// Decrypt the string data
+const decryptCatData = (data: string) => {
+  return data
+    .split("")
+    .map((char: string) => {
+      // return String.fromCharCode(char.charCodeAt(0) - 1)
+      if (/^[b-zB-Z]$/.test(char)) {
+        return String.fromCharCode(char.charCodeAt(0) - 1);
+      } else {
+        return char;
+      }
+    })
+    .join("");
 };
 
 export const useFunction = ({
@@ -89,9 +104,11 @@ export const useFunction = ({
       if (!catFile) {
         return "cat: please specify a file to read";
       }
-      const catDataFound = catData.find((data) => data.name === catFile);
+      const catDataFound = catData.find(
+        (data) => decryptCatData(data.name) === catFile
+      );
       return catDataFound
-        ? catDataFound.content
+        ? decryptCatData(catDataFound.content)
         : `cat: ${catFile}: No such file or directory`;
 
     case "chmod": {

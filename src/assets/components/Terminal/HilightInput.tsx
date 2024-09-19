@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import json_command from "./command.json";
 import clsx from "clsx";
 
@@ -26,13 +26,18 @@ const HilightInput = ({
   setCommand,
   click,
   lines,
+  key,
 }: {
   setCommand: Function;
   click: boolean;
   lines: LineType[];
+  key: number;
 }) => {
   const [words, setWords] = useState<string[]>([]);
   const [focused, setFocused] = useState(false);
+
+  // Create a ref to directly access the input element
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => setFocused(true);
   const handleBlur = () => setFocused(false);
@@ -40,7 +45,9 @@ const HilightInput = ({
   const handleSubmit = (e: any) => {
     if (e.key === "Enter") {
       setCommand(words.join(" "));
-      e.target.value = "";
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
       setWords([]);
     }
   };
@@ -48,8 +55,8 @@ const HilightInput = ({
   const handleKeyDown = (e: any) => {
     if (e.key === "ArrowUp") {
       e.preventDefault();
-      if (lines.length > 0 && e.target) {
-        (e.target as HTMLInputElement).value = lines[lines.length - 1].command;
+      if (lines.length > 0 && inputRef.current) {
+        inputRef.current.value = lines[lines.length - 1].command;
         setWords(lines[lines.length - 1].command.split(" "));
       }
     } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
@@ -61,8 +68,8 @@ const HilightInput = ({
           command.startsWith(words[0])
         );
         if (filteredCommands.length === 1) {
-          if (e.target) {
-            (e.target as HTMLInputElement).value = filteredCommands[0];
+          if (inputRef.current) {
+            inputRef.current.value = filteredCommands[0];
             setWords([filteredCommands[0]]);
           }
         }
@@ -70,9 +77,12 @@ const HilightInput = ({
     }
   };
 
+  // Focus the input element only when `click` changes and not whene the component is loaded
   useEffect(() => {
-    document.querySelector("input")?.focus();
-  }, [click]);
+    if (click && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [click]); 
 
   const commandList: cliCommand = json_command;
   const commandsName: string[] = commandList.commands.map(
@@ -101,6 +111,7 @@ const HilightInput = ({
 
       <input
         type="text"
+        ref={inputRef} // Use ref instead of document.querySelector
         className="bg-transparent outline-none w-0 [word-spacing:0.5rem;] pl-1"
         onKeyDown={handleKeyDown} // Handle key actions such as ArrowUp, ArrowLeft, Tab, etc.
         onKeyPress={handleSubmit} // Handle the Enter key
