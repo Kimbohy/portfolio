@@ -4,13 +4,14 @@ import { motion } from "framer-motion";
 interface WorkCardProps {
   title: string;
   description: string;
-  imagePaths: string[];  // Changed from images to imagePaths
+  longDescription: string;
+  imagePaths: string[];
   tech: string[];
   github?: string;
   website?: string;
 }
 
-function WorkCard({ title, description, imagePaths, tech, github, website }: WorkCardProps) {
+function WorkCard({ title, description, longDescription, imagePaths, tech, github, website }: WorkCardProps) {
   const [imagesList, setImagesList] = useState<string[]>(imagePaths);
 
   // Change the clicked image to be the first image
@@ -22,9 +23,9 @@ function WorkCard({ title, description, imagePaths, tech, github, website }: Wor
   };
 
   return (
-    <div className="flex flex-col items-center justify-end h-96 gap-28">
-      <div className="flex w-full pl-20 rounded-lg h-fit">
-        <div className="relative w-[700px] h-fit left-[-80px]">
+    <div className="flex flex-col items-center justify-end min-h-[24rem] gap-28 p-4 md:p-0">
+      <div className="flex flex-col md:flex-row w-full md:pl-20 rounded-lg h-fit">
+        <div className="relative w-full md:w-[700px] h-[300px] md:h-fit left-[-19px] md:left-[-80px] top-16 md:top-0">
           {imagesList.map((image, index) => {
             const position = (-0.5 + index + 1) * -12; // Calculate position dynamically
             const zIndex = 10 - index; // Calculate z-index dynamically
@@ -34,7 +35,7 @@ function WorkCard({ title, description, imagePaths, tech, github, website }: Wor
                 key={index} // Add a unique key for each image
                 src={image}
                 alt="work"
-                className="w-[600px] rounded-xl absolute cursor-pointer" // Apply static Tailwind classes
+                className="w-full md:w-[600px] rounded-xl absolute cursor-pointer" // Apply static Tailwind classes
                 style={{
                   right: `${position}px`, // Apply dynamic styles
                   top: `${position}px`, // Apply dynamic styles
@@ -58,16 +59,17 @@ function WorkCard({ title, description, imagePaths, tech, github, website }: Wor
             );
           })}
         </div>
-        <div className="flex flex-col items-start p-10">
-          <h3 className="text-5xl text-second">{title}</h3>
-          <p className="text-xl text-second">{description}</p>
-          <div className="flex gap-4 mt-5">
+        <div className="flex flex-col items-start p-4 md:p-10 mt-8 md:mt-0">
+          <h3 className="text-3xl md:text-5xl text-second">{title}</h3>
+          <p className="text-lg md:text-xl text-second mb-2">{description}</p>
+          <p className="text-sm text-second/80 mb-4 max-w-md">{longDescription}</p>
+          <div className="flex flex-wrap gap-4 mt-3 md:mt-5">
             {github && (
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-second text-primary px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all"
+                className="bg-second text-primary px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
               >
                 GitHub
               </a>
@@ -77,25 +79,25 @@ function WorkCard({ title, description, imagePaths, tech, github, website }: Wor
                 href={website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-second text-primary px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all"
+                className="bg-second text-primary px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
               >
                 Visit Site
               </a>
             )}
           </div>
-          <div className="bg-second w-60 h-11 rounded-2xl mt-5 px-2 py-[5px] flex gap-1">
+          <div className="bg-second w-full md:w-60 h-11 rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
             {tech.map((t, index) => (
               <img
                 key={index} // Add a unique key for each icon
                 src={`/src/assets/images/icons/${t}.svg`}
                 alt={t}
-                className="w-9 h-9"
+                className="w-7 h-7 md:w-9 md:h-9"
               />
             ))}
           </div>
         </div>
       </div>
-      <div className="w-1/2 h-[2px] bg-second opacity-50"></div>
+      <div className="w-full md:w-1/2 h-[2px] bg-second opacity-50"></div>
     </div>
   );
 }
