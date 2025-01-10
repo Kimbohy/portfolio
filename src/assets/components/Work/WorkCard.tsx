@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-function WorkCard({
-  title,
-  description,
-  images,
-  tech,
-}: {
+interface WorkCardProps {
   title: string;
   description: string;
-  images: string[];
+  imagePaths: string[];  // Changed from images to imagePaths
   tech: string[];
-}) {
-  const [imagesList, setImagesList] = useState<string[]>(images);
+  github?: string;
+  website?: string;
+}
+
+function WorkCard({ title, description, imagePaths, tech, github, website }: WorkCardProps) {
+  const [imagesList, setImagesList] = useState<string[]>(imagePaths);
 
   // Change the clicked image to be the first image
   const handleExchange = (clickedIndex: number) => {
@@ -23,7 +22,7 @@ function WorkCard({
   };
 
   return (
-    <div className="flex flex-col items-center justify-end h-96 gap-28 hover:cursor-pointer">
+    <div className="flex flex-col items-center justify-end h-96 gap-28">
       <div className="flex w-full pl-20 rounded-lg h-fit">
         <div className="relative w-[700px] h-fit left-[-80px]">
           {imagesList.map((image, index) => {
@@ -62,6 +61,28 @@ function WorkCard({
         <div className="flex flex-col items-start p-10">
           <h3 className="text-5xl text-second">{title}</h3>
           <p className="text-xl text-second">{description}</p>
+          <div className="flex gap-4 mt-5">
+            {github && (
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-second text-primary px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all"
+              >
+                GitHub
+              </a>
+            )}
+            {website && (
+              <a
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-second text-primary px-4 py-2 rounded-lg hover:bg-opacity-80 transition-all"
+              >
+                Visit Site
+              </a>
+            )}
+          </div>
           <div className="bg-second w-60 h-11 rounded-2xl mt-5 px-2 py-[5px] flex gap-1">
             {tech.map((t, index) => (
               <img
