@@ -13,28 +13,40 @@ import smb3 from "../images/sama_web_UI/smb3.png";
 import WorkCard from "./Work/WorkCard";
 
 function Work() {
+  const projects = [
+    {
+      title: "Cards-tor",
+      description: "Card market place",
+      images: [cards_tor, cards_tor2, cards_tor3, cards_tor4],
+      tech: ["html", "css", "react"],
+    },
+    {
+      title: "Sunnyside",
+      description: "",
+      images: [sunnside1, sunnside2, sunnside3, sunnside4],
+      tech: ["html", "css", "javascript"],
+    },
+    {
+      title: "Samba-web-UI",
+      description: " A web UI for samba user management",
+      images: [smb1, smb2, smb3],
+      tech: ["html", "css", "react", "php", "mysql", "bash"],
+    },
+  ];
+
   return (
     <>
       <h2 className="p-5 text-6xl text-second bg-slate-900">Work</h2>
       <div className="flex flex-col gap-24 bg-slate-900 h-max">
-        <WorkCard
-          title="Cards-tor"
-          description=" Card market place"
-          images={[cards_tor, cards_tor2, cards_tor3, cards_tor4]}
-          tech={["html", "css", "react"]}
-        />
-        <WorkCard
-          title="Sunnyside"
-          description=" "
-          images={[sunnside1, sunnside2, sunnside3, sunnside4]}
-          tech={["html", "css", "javascript"]}
-        />
-        <WorkCard
-          title="Samba-web-UI"
-          description=" A web UI for samba user management"
-          images={[smb1, smb2, smb3]}
-          tech={["html", "css", "react", "php", "mysql", "bash"]}
-        />
+        {projects.map((project, index) => (
+          <WorkCard
+            key={index}
+            title={project.title}
+            description={project.description}
+            images={project.images}
+            tech={project.tech}
+          />
+        ))}
       </div>
     </>
   );

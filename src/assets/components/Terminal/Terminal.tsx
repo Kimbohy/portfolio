@@ -185,6 +185,6 @@ export const useFunction = ({
       return ""; // Clear the terminal
 
     default:
-      return `Command not found: ${cli_command[0]}`;
+      return `${cli_command[0]}: Command not found`;
   }
 };

@@ -23,7 +23,7 @@ function WorkCard({
   };
 
   return (
-    <div className="flex flex-col items-center justify-end h-96 gap-28">
+    <div className="flex flex-col items-center justify-end h-96 gap-28 hover:cursor-pointer">
       <div className="flex w-full pl-20 rounded-lg h-fit">
         <div className="relative w-[700px] h-fit left-[-80px]">
           {imagesList.map((image, index) => {
