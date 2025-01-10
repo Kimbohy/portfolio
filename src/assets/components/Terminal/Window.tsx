@@ -3,7 +3,7 @@ import Body from "./Body";
 
 const Window = () => {
     return (
-        <div className="w-2/5 h-5/6 min-w-96">
+        <div className="w-full md:w-3/4 lg:w-3/4 xl:w-3/5 h-[80vh] md:h-5/6 min-w-[280px]">
             {/* <Head /> */}
             <Body />
         </div>

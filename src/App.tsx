@@ -6,7 +6,7 @@ import Work from "./assets/components/Work";
 function App() {
   return (
     <>
-      {/* <FirstPage /> */}
+      <FirstPage />
       <TerminalPart />
       <Work />
       <Contact />
