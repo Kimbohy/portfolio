@@ -26,12 +26,10 @@ const HilightInput = ({
   setCommand,
   click,
   lines,
-  key,
 }: {
-  setCommand: Function;
+  setCommand: (command: string) => void;
   click: boolean;
   lines: LineType[];
-  key: number;
 }) => {
   const [words, setWords] = useState<string[]>([]);
   const [focused, setFocused] = useState(false);

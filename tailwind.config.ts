@@ -34,9 +34,9 @@ export default {
   plugins: [addVariablesForColors],
 };
 
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
+function addVariablesForColors({ addBase, theme }: { addBase: (base: Record<string, string>) => void; theme: (path: string) => Record<string, string> }) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
@@ -46,10 +46,10 @@ function addVariablesForColors({ addBase, theme }: any) {
 }
 
 // generated function
-function flattenColorPalette(colors: any) {
-  const flattenedColors: any = {};
+function flattenColorPalette(colors: Record<string, string | Record<string, string>>) {
+  const flattenedColors: Record<string, string> = {};
 
-  function flatten(prefix: string, colorObj: any) {
+  function flatten(prefix: string, colorObj: Record<string, string | Record<string, string>>) {
     for (const key in colorObj) {
       const value = colorObj[key];
       const newKey = prefix ? `${prefix}-${key}` : key;
