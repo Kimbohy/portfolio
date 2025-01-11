@@ -14,6 +14,7 @@ export const TextHoverEffect = ({
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
+  const [isTouching, setIsTouching] = useState(false);
 
   useEffect(() => {
     if (svgRef.current && cursor.x !== null && cursor.y !== null) {
@@ -28,21 +29,32 @@ export const TextHoverEffect = ({
   }, [cursor]);
 
   useEffect(() => {
-    // Add touch support
     const handleTouch = (e: TouchEvent) => {
+      e.preventDefault(); // Prevent scroll while touching
       const touch = e.touches[0];
-      setCursor({ x: touch.clientX, y: touch.clientY });
+      const svgRect = svgRef.current?.getBoundingClientRect();
+      if (svgRect) {
+        // Adjust cursor position relative to SVG bounds
+        setCursor({
+          x: touch.clientX - window.scrollX,
+          y: touch.clientY - window.scrollY
+        });
+      }
+      setIsTouching(true);
       setHovered(true);
     };
 
     const handleTouchEnd = () => {
-      setHovered(false);
+      setIsTouching(false);
+      // Add a small delay before removing hover effect
+      setTimeout(() => setHovered(false), 150);
     };
 
     if (svgRef.current) {
-      svgRef.current.addEventListener('touchstart', handleTouch);
-      svgRef.current.addEventListener('touchmove', handleTouch);
+      svgRef.current.addEventListener('touchstart', handleTouch, { passive: false });
+      svgRef.current.addEventListener('touchmove', handleTouch, { passive: false });
       svgRef.current.addEventListener('touchend', handleTouchEnd);
+      svgRef.current.addEventListener('touchcancel', handleTouchEnd);
     }
 
     return () => {
@@ -50,6 +62,7 @@ export const TextHoverEffect = ({
         svgRef.current.removeEventListener('touchstart', handleTouch);
         svgRef.current.removeEventListener('touchmove', handleTouch);
         svgRef.current.removeEventListener('touchend', handleTouchEnd);
+        svgRef.current.removeEventListener('touchcancel', handleTouchEnd);
       }
     };
   }, []);
@@ -64,7 +77,7 @@ export const TextHoverEffect = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className="select-none z-20 touch-none"
+      className={`select-none z-20 ${isTouching ? 'touch-none' : 'touch-auto'}`}
     >
       <defs>
         <linearGradient
@@ -88,17 +101,12 @@ export const TextHoverEffect = ({
         <motion.radialGradient
           id="revealMask"
           gradientUnits="userSpaceOnUse"
-          r="20%"
+          r={isTouching ? "30%" : "20%"} // Larger radius on touch
           animate={maskPosition}
-          transition={{ duration: duration ?? 0, ease: "easeOut" }}
-
-          // example for a smoother animation below
-
-          //   transition={{
-          //     type: "spring",
-          //     stiffness: 300,
-          //     damping: 50,
-          //   }}
+          transition={{
+            duration: isTouching ? 0.1 : duration ?? 0,
+            ease: "easeOut"
+          }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
@@ -119,7 +127,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-2xl sm:text-3xl md:text-5xl lg:text-7xl"
+        className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-xl sm:text-2xl md:text-4xl lg:text-6xl"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -130,7 +138,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold fill-transparent text-2xl sm:text-3xl md:text-5xl lg:text-7xl stroke-neutral-200 dark:stroke-neutral-800"
+        className="font-[helvetica] font-bold fill-transparent text-xl sm:text-2xl md:text-4xl lg:text-6xl stroke-neutral-200 dark:stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -151,7 +159,7 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="font-[helvetica] font-bold fill-transparent text-2xl sm:text-3xl md:text-5xl lg:text-7xl"
+        className="font-[helvetica] font-bold fill-transparent text-xl sm:text-2xl md:text-4xl lg:text-6xl"
       >
         {text}
       </text>

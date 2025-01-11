@@ -85,7 +85,7 @@ function WorkCard({ title, description, longDescription, imagePaths, tech, githu
               </a>
             )}
           </div>
-          <div className="bg-second w-full md:w-60 h-11 rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
+          <div className="bg-second w-full md:w-64 h-11 rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
             {tech.map((t, index) => (
               <img
                 key={index} // Add a unique key for each icon
