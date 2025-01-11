@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <header className={`z-50 fixed top-0 left-0 right-0 transition-colors duration-300 ${
-      isScrolled ? 'bg-white/80 dark:bg-black/40 backdrop-blur-sm' : 'bg-transparent'
+      isScrolled ? 'bg-white/80 dark:bg-black/40 backdrop-blur-sm' : isMenuOpen ? 'bg-white/95 dark:bg-black/95 backdrop-blur-lg' : 'bg-transparent'
     }`}>
       <div className="flex justify-between items-center w-full p-4 md:pt-5 md:px-8">
         <div className="flex items-center">
@@ -54,7 +54,7 @@ function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="sm:hidden fixed top-[72px] left-0 right-0 bg-white/95 dark:bg-black/95 backdrop-blur-lg"
+            className="sm:hidden fixed top-[72px] left-0 right-0 bg-white/95 dark:bg-black/40 backdrop-blur-lg"
           >
             <div className="flex flex-col items-center gap-8 py-8">
               <NavBut text="Work" to="#work" D_lay={0.1} />
