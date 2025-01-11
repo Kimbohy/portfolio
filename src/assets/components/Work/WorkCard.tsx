@@ -11,7 +11,15 @@ interface WorkCardProps {
   website?: string;
 }
 
-function WorkCard({ title, description, longDescription, imagePaths, tech, github, website }: WorkCardProps) {
+function WorkCard({
+  title,
+  description,
+  longDescription,
+  imagePaths,
+  tech,
+  github,
+  website,
+}: WorkCardProps) {
   const [imagesList, setImagesList] = useState<string[]>(imagePaths);
 
   // Change the clicked image to be the first image
@@ -62,7 +70,9 @@ function WorkCard({ title, description, longDescription, imagePaths, tech, githu
         <div className="flex flex-col items-start p-4 md:p-10 mt-8 md:mt-0">
           <h3 className="text-3xl md:text-5xl text-second">{title}</h3>
           <p className="text-lg md:text-xl text-second mb-2">{description}</p>
-          <p className="text-sm text-second/80 mb-4 max-w-md">{longDescription}</p>
+          <p className="text-sm text-second/80 mb-4 max-w-md">
+            {longDescription}
+          </p>
           <div className="flex flex-wrap gap-4 mt-3 md:mt-5">
             {github && (
               <a
@@ -89,7 +99,7 @@ function WorkCard({ title, description, longDescription, imagePaths, tech, githu
             {tech.map((t, index) => (
               <img
                 key={index} // Add a unique key for each icon
-                src={`/src/assets/images/icons/${t}.svg`}
+                src={`/images/icons/${t}.svg`}
                 alt={t}
                 className="w-7 h-7 md:w-9 md:h-9"
               />

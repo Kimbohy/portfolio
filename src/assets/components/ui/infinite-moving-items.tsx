@@ -83,7 +83,7 @@ export const InfiniteMovingItems = ({
           <li>
             <img
               key={index} // Add a unique key for each icon
-              src={`/src/assets/images/icons/${t}.svg`}
+              src={`/images/icons/${t}.svg`}
               alt={t}
               className="w-20 h-20 "
             />
