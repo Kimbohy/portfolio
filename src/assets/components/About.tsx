@@ -32,12 +32,9 @@ const About = () => {
   ];
 
   return (
-    <div className="">
+    <div id="about" className="pt-20 md:pt-24">
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second ">About Me</h2>
-      <section
-        id="about"
-        className="py-16 px-8 max-w-6xl mx-auto text-second"
-      >
+      <section className="py-16 px-8 max-w-6xl mx-auto text-second">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

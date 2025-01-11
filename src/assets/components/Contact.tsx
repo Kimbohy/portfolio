@@ -4,7 +4,7 @@ import linkedin from "/images/icons/linkedin.svg";
 
 function Contact() {
   return (
-    <div id="contact">
+    <div id="contact" className="pt-20">
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second bg-slate-900">
         Contact
       </h2>

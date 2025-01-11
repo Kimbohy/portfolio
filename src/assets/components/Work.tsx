@@ -57,7 +57,7 @@ const projects: ProjectData[] = [
 
 function Work() {
   return (
-    <div id="work">
+    <div id="work" className="pt-20 md:pt-24">
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second bg-slate-900">
         Work
       </h2>

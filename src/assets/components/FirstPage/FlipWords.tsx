@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FlipWords } from "../ui/flip-words";
 
 function FlipWordsCp() {
@@ -16,7 +17,7 @@ function FlipWordsCp() {
           Welcome
         </h1>
         <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-second dark:text-neutral-400">
-          Emphasize
+          <motion.span layout>Emphasize</motion.span>
           <FlipWords
             words={words}
             className="ml-2 font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent"
