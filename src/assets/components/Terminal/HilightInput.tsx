@@ -17,7 +17,7 @@ interface cliCommand {
 interface LineType {
   user: string;
   cpName: string;
-  privilage: string;
+  privilege: string;
   command: string;
   response: string;
 }

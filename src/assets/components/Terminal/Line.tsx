@@ -6,7 +6,7 @@ import { useFunction } from "./Terminal";
 interface LineType {
   user: string;
   cpName: string;
-  privilage: string;
+  privilege: string;
   command: string;
   response: string;
 }
@@ -15,7 +15,7 @@ const Line = ({
   key,
   user,
   cpName,
-  privilage,
+  privilege,
   setLines,
   commandProps,
   click,
@@ -25,7 +25,7 @@ const Line = ({
   key: number;
   user: string;
   cpName: string;
-  privilage: string;
+  privilege: string;
   setLines: Function;
   commandProps: string;
   click: boolean;
@@ -34,7 +34,7 @@ const Line = ({
 }) => {
   const [command, setCommand] = useState<string>("");
 
-  let privilageSign: string = privilage === "root" ? "#" : "$";
+  const privilegeSign: string = privilege === "root" ? "#" : "$";
 
   const appendCommand = (newCommand: string) => {
     if (newCommand.trim().length > 0 && newCommand != "clear") {
@@ -43,7 +43,7 @@ const Line = ({
         {
           user: user,
           cpName: cpName,
-          privilage: privilage,
+          privilege: privilege,
           command: newCommand,
           response: useFunction({ command: newCommand, user }),
         },
@@ -61,14 +61,14 @@ const Line = ({
   }, [command]);
 
   return (
-    <div className="text-xl text-mfotsy">
+    <div className={`text-xl text-mfotsy`}>
       <div className="text-mfotsy flex flex-wrap text-xl items-center">
         <span className="text-maitso">
           {user}@{cpName}
         </span>
         <span>:</span>
         <span>~</span>
-        <span>{privilageSign}</span>
+        <span>{privilegeSign}</span>
         {commandProps === "" ? (
           <HilightInput
             setCommand={setCommand}

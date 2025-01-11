@@ -5,13 +5,21 @@ import { BackgroundGradient } from "../ui/background-gradient";
 interface LineType {
   user: string;
   cpName: string;
-  privilage: string;
+  privilege: string;
   command: string;
   response: string;
 }
 
 const Body = () => {
-  const [lines, setLines] = useState<LineType[]>([]);
+  const [lines, setLines] = useState<LineType[]>([
+    {
+      user: "root",
+      cpName: "thisPC",
+      privilege: "root",
+      command: "cat .info.txt",
+      response: "use 'help' to get all available command",
+    },
+  ]);
   const [click, setClick] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -26,7 +34,7 @@ const Body = () => {
             key={index}
             user={line.user}
             cpName={line.cpName}
-            privilage={line.privilage}
+            privilege={line.privilege}
             setLines={setLines}
             commandProps={line.command}
             response={line.response}
@@ -36,9 +44,9 @@ const Body = () => {
         ))}
         <Line
           key={lines.length}
-          user="user"
-          cpName="cpName"
-          privilage="privilage"
+          user="gest"
+          cpName="thisPC"
+          privilege="privilege"
           setLines={setLines}
           commandProps="" // This allows input in the last line
           click={click}
