@@ -21,6 +21,16 @@
   background-color: #555;
 }
 
+/* Hide scrollbar for terminal body only */
+.terminal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.terminal-body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 html {
   scroll-behavior: smooth;
 }
