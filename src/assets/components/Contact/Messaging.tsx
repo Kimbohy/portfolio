@@ -14,7 +14,7 @@ function Messaging() {
     
     try {
       // Replace with your actual form submission logic
-      const response = await fetch('your-api-endpoint', {
+      const response = await fetch('api-endpoint', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

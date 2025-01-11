@@ -4,7 +4,7 @@ import linkedin from "../images/icons/linkedin.svg";
 
 function Contact() {
   return (
-    <>
+    <div id="contact">
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second bg-slate-900">Contact</h2>
       <div className="flex flex-col min-h-screen bg-slate-900 pb-8">
         <Messaging />
@@ -32,7 +32,7 @@ function Contact() {
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -14,15 +14,16 @@ const containerVariants = {
 
 function NavBut({
   text,
-  // to,
+  to,
   D_lay,
 }: {
   text: string;
-  to?: string;
+  to: string;
   D_lay: number;
 }) {
   return (
-    <motion.span
+    <motion.a
+      href={to}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -31,10 +32,10 @@ function NavBut({
         transition: { stiffness: 300 },
       }}
       transition={{ type: "spring", stiffness: 40, delay: D_lay }}
-      className="relative inline-block cursor-default text-second"
+      className="relative inline-block cursor-pointer text-second text-base md:text-xl lg:text-2xl"
     >
       {text}
-    </motion.span>
+    </motion.a>
   );
 }
 

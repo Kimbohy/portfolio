@@ -54,14 +54,14 @@ const projects: ProjectData[] = [
 
 function Work() {
   return (
-    <>
+    <div id="work">
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second bg-slate-900">Work</h2>
       <div className="flex flex-col gap-16 md:gap-24 bg-slate-900 h-max pt-8 md:pt-16 overflow-hidden">
         {projects.map((project, index) => (
           <WorkCard key={index} {...project} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

@@ -27,6 +27,33 @@ export const TextHoverEffect = ({
     }
   }, [cursor]);
 
+  useEffect(() => {
+    // Add touch support
+    const handleTouch = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      setCursor({ x: touch.clientX, y: touch.clientY });
+      setHovered(true);
+    };
+
+    const handleTouchEnd = () => {
+      setHovered(false);
+    };
+
+    if (svgRef.current) {
+      svgRef.current.addEventListener('touchstart', handleTouch);
+      svgRef.current.addEventListener('touchmove', handleTouch);
+      svgRef.current.addEventListener('touchend', handleTouchEnd);
+    }
+
+    return () => {
+      if (svgRef.current) {
+        svgRef.current.removeEventListener('touchstart', handleTouch);
+        svgRef.current.removeEventListener('touchmove', handleTouch);
+        svgRef.current.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, []);
+
   return (
     <svg
       ref={svgRef}
@@ -37,7 +64,7 @@ export const TextHoverEffect = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className="select-none z-20"
+      className="select-none z-20 touch-none"
     >
       <defs>
         <linearGradient
@@ -92,7 +119,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-7xl  "
+        className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-2xl sm:text-3xl md:text-5xl lg:text-7xl"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -103,7 +130,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold fill-transparent text-7xl   stroke-neutral-200 dark:stroke-neutral-800"
+        className="font-[helvetica] font-bold fill-transparent text-2xl sm:text-3xl md:text-5xl lg:text-7xl stroke-neutral-200 dark:stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -124,7 +151,7 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="font-[helvetica] font-bold fill-transparent text-7xl  "
+        className="font-[helvetica] font-bold fill-transparent text-2xl sm:text-3xl md:text-5xl lg:text-7xl"
       >
         {text}
       </text>
