@@ -33,7 +33,7 @@ function FirstPage() {
         <div className="w-full">
           <TextHoverEffect text="Developer" />
         </div>
-        <div className="absolute bottom-10 w-full flex justify-center z-30">
+        <div className="absolute bottom-10 w-full flex justify-center z-30 sm:justify-center">
           <button onClick={scrollToAbout} className="animate-bounce">
             <svg
               xmlns="http://www.w3.org/2000/svg"
