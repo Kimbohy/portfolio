@@ -30,7 +30,7 @@
     {
       "id": 4,
       "name": "cd",
-      "description": "Change the shell working directory",
+      "description": "Navigate to a different section",
       "options": []
     },
     {

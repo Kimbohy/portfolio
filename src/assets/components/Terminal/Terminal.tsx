@@ -54,7 +54,7 @@ export const useFunction = ({
   }
 
   // Available sections for commands like 'ls'
-  const sections = ["PageOne", "Terminal", "Work", "Contact"];
+  const sections = ["top", "terminal", "work", "contact"];
 
   switch (cli_command[0]) {
     case "sudo":
@@ -187,6 +187,22 @@ export const useFunction = ({
 
     case "clear":
       return ""; // Clear the terminal
+
+    case "cd": {
+      const targetSection = cli_command[1];
+      if (!targetSection) {
+        return "cd: missing operand";
+      }
+      
+      if (sections.includes(targetSection)) {
+        const element = document.getElementById(targetSection);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          return `Changed directory to ${targetSection}`;
+        }
+      }
+      return `cd: ${targetSection}: No such file or directory`;
+    }
 
     default:
       return `${cli_command[0]}: Command not found`;
