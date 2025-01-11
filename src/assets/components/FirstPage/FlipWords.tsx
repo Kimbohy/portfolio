@@ -15,7 +15,7 @@ function FlipWordsCp() {
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-second mb-2">
           Welcome
         </h1>
-        <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-second dark:text-neutral-400 hidden md:block">
+        <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-second dark:text-neutral-400">
           Emphasize
           <FlipWords
             words={words}
