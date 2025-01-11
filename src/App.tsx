@@ -6,7 +6,7 @@ import Work from "./assets/components/Work";
 
 function App() {
   return (
-    <div className="bg-slate-900">
+    <div className="bg-slate-900 overflow-x-hidden">
       <FirstPage />
       <About />
       <TerminalPart />
