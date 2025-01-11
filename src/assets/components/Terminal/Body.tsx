@@ -16,7 +16,7 @@ const Body = () => {
       user: "root",
       cpName: "thisPC",
       privilege: "root",
-      command: "cat .info.txt",
+      command: "cat info",
       response: "use 'help' to get all available command",
     },
   ]);

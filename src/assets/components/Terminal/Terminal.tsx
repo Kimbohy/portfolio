@@ -98,7 +98,7 @@ export const useFunction = ({
     case "whoami":
       return user;
 
-    case "cat":
+    case "cat": {
       const catData = data.data;
       const catFile = cli_command[1];
       if (!catFile) {
@@ -110,6 +110,7 @@ export const useFunction = ({
       return catDataFound
         ? decryptCatData(catDataFound.content)
         : `cat: ${catFile}: No such file or directory`;
+    }
 
     case "chmod": {
       const file = cli_command[2];
@@ -180,6 +181,9 @@ export const useFunction = ({
       } else {
         return `touch: missing file operand`;
       }
+
+    case "su":
+      return `su: user authentication failure`;
 
     case "clear":
       return ""; // Clear the terminal

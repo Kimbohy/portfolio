@@ -92,6 +92,12 @@
       "name": "man",
       "description": "An interface to the on-line reference manuals",
       "options": []
+    },
+    {
+      "id":15,
+      "name": "su",
+      "description": "Run a command with substitute user and group ID",
+      "options": []
     }
   ]
 }
