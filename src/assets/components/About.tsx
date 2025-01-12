@@ -10,24 +10,31 @@ const About = () => {
   const education = [
     {
       year: "2024 - Present",
-      degree: "MISA (Applied Mathematics, Computer Science, and Statistics)",
+      degree: "Master's in Applied Mathematics, Computer Science, and Statistics (MISA)",
       school: "University of Antananarivo",
       description:
-        "Focus on applied mathematics and computer science fundamentals",
+        "Specializing in applied mathematics, computer science, and statistical analysis to solve real-world challenges.",
+    },
+    {
+      year: "2023 - 2024",
+      degree: "Bachelor's in Applied Mathematics, Computer Science, and Statistics (MISA)",
+      school: "University of Antananarivo",
+      description:
+        "Developed advanced problem-solving skills in data analysis and programming.",
     },
     {
       year: "2021 - 2023",
-      degree: "MISA (Applied Mathematics, Computer Science, and Statistics)",
+      degree: "Bachelor's in Mathematics and Computer Science,",
       school: "University of Antananarivo",
       description:
-        "Focus on applied mathematics and computer science fundamentals",
+        "Gained foundational knowledge in Programming and Mathematics.",
     },
     {
-      year: "2021 - 2023",
-      degree: "MISA (Applied Mathematics, Computer Science, and Statistics)",
-      school: "University of Antananarivo",
+      year: "2020",
+      degree: "BACC C (High School Diploma)",
+      school: "Lycée Privé FJKM Ambatolampy Ambohitrimanjaka",
       description:
-        "Focus on applied mathematics and computer science fundamentals",
+        "Graduated with a strong focus on mathematics and sciences.",
     },
   ];
 
