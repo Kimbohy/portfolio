@@ -2,6 +2,7 @@ import FlipWordsCp from "./FirstPage/FlipWords";
 import Header from "./FirstPage/Header";
 // import { Boxes } from "./ui/background-boxes";
 import { TextHoverEffect } from "./ui/text-hover-effect";
+import ScrollButton from "./FirstPage/ScrollButton"; // Import the new component
 
 function FirstPage() {
   const scrollToAbout = () => {
@@ -35,19 +36,7 @@ function FirstPage() {
         <div className="w-full mt-[15vh] sm:mt-0">
           <TextHoverEffect text="Developer" />
         </div>
-        <div className="absolute bottom-2 sm:bottom-4 md:bottom-10 w-full flex justify-center z-30">
-          <button onClick={scrollToAbout} className="animate-bounce min-h-[30px] md:min-h-[40px]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-10 h-10 text-white"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-        </div>
+        <ScrollButton onClick={scrollToAbout} /> 
       </div>
     </div>
   );
