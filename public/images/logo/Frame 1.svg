@@ -1,209 +1,28 @@
 <svg width="273" height="173" viewBox="0 0 273 173" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="43" width="207" height="90">
-<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#F8F8F8"/>
-<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#F8F8F8"/>
-<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#F8F8F8"/>
-<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#F8F8F8"/>
-<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#F8F8F8"/>
-<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#F8F8F8"/>
-<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#F8F8F8"/>
-<rect x="34" y="43.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#F8F8F8"/>
-<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#F8F8F8"/>
-<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#F8F8F8"/>
-<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask0_19_2780)">
-<rect x="15" y="115" width="246" height="38" fill="#1F479C"/>
-</g>
-<mask id="mask1_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="43" width="207" height="90">
-<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#F8F8F8"/>
-<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#F8F8F8"/>
-<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#F8F8F8"/>
-<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#F8F8F8"/>
-<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#F8F8F8"/>
-<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#F8F8F8"/>
-<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#F8F8F8"/>
-<rect x="34" y="43.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#F8F8F8"/>
-<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#F8F8F8"/>
-<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#F8F8F8"/>
-<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask1_19_2780)">
-<rect x="11" y="97" width="246" height="18" fill="#1F479C"/>
-</g>
-<mask id="mask2_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="43" width="207" height="90">
-<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#F8F8F8"/>
-<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#F8F8F8"/>
-<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#F8F8F8"/>
-<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#F8F8F8"/>
-<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#F8F8F8"/>
-<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#F8F8F8"/>
-<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#F8F8F8"/>
-<rect x="34" y="43.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#F8F8F8"/>
-<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#F8F8F8"/>
-<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#F8F8F8"/>
-<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask2_19_2780)">
-<rect x="7" y="80" width="246" height="17" fill="#1F479C"/>
-</g>
-<mask id="mask3_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="43" width="207" height="90">
-<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#F8F8F8"/>
-<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#F8F8F8"/>
-<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#F8F8F8"/>
-<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#F8F8F8"/>
-<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#F8F8F8"/>
-<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#F8F8F8"/>
-<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#F8F8F8"/>
-<rect x="34" y="43.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#F8F8F8"/>
-<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#F8F8F8"/>
-<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#F8F8F8"/>
-<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask3_19_2780)">
-<rect x="7" y="65" width="246" height="15" fill="#1F479C"/>
-</g>
-<mask id="mask4_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="43" width="207" height="90">
-<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#F8F8F8"/>
-<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#F8F8F8"/>
-<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#F8F8F8"/>
-<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#F8F8F8"/>
-<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#F8F8F8"/>
-<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#F8F8F8"/>
-<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#F8F8F8"/>
-<rect x="34" y="43.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#F8F8F8"/>
-<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#F8F8F8"/>
-<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#F8F8F8"/>
-<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask4_19_2780)">
-<rect x="9" y="56" width="246" height="11" fill="#1F479C"/>
-</g>
-<mask id="mask5_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="34" y="43" width="207" height="90">
-<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#F8F8F8"/>
-<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#F8F8F8"/>
-<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#F8F8F8"/>
-<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#F8F8F8"/>
-<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#F8F8F8"/>
-<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#F8F8F8"/>
-<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#F8F8F8"/>
-<rect x="34" y="43.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#F8F8F8"/>
-<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#F8F8F8"/>
-<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#F8F8F8"/>
-<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask5_19_2780)">
-<rect x="9" y="43" width="246" height="13" fill="#1F479C"/>
-</g>
-<mask id="mask6_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="33" y="41" width="207" height="90">
-<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#F8F8F8"/>
-<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#F8F8F8"/>
-<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#F8F8F8"/>
-<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#F8F8F8"/>
-<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#F8F8F8"/>
-<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#F8F8F8"/>
-<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#F8F8F8"/>
-<rect x="33" y="41.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#F8F8F8"/>
-<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#F8F8F8"/>
-<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#F8F8F8"/>
-<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask6_19_2780)">
-<rect x="14" y="113" width="246" height="38" fill="#AF2020"/>
-</g>
-<mask id="mask7_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="33" y="41" width="207" height="90">
-<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#F8F8F8"/>
-<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#F8F8F8"/>
-<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#F8F8F8"/>
-<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#F8F8F8"/>
-<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#F8F8F8"/>
-<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#F8F8F8"/>
-<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#F8F8F8"/>
-<rect x="33" y="41.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#F8F8F8"/>
-<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#F8F8F8"/>
-<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#F8F8F8"/>
-<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask7_19_2780)">
-<rect x="10" y="95" width="246" height="18" fill="#AF2020"/>
-</g>
-<mask id="mask8_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="33" y="41" width="207" height="90">
-<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#F8F8F8"/>
-<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#F8F8F8"/>
-<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#F8F8F8"/>
-<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#F8F8F8"/>
-<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#F8F8F8"/>
-<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#F8F8F8"/>
-<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#F8F8F8"/>
-<rect x="33" y="41.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#F8F8F8"/>
-<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#F8F8F8"/>
-<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#F8F8F8"/>
-<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask8_19_2780)">
-<rect x="6" y="78" width="246" height="17" fill="#AF2020"/>
-</g>
-<mask id="mask9_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="33" y="41" width="207" height="90">
-<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#F8F8F8"/>
-<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#F8F8F8"/>
-<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#F8F8F8"/>
-<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#F8F8F8"/>
-<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#F8F8F8"/>
-<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#F8F8F8"/>
-<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#F8F8F8"/>
-<rect x="33" y="41.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#F8F8F8"/>
-<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#F8F8F8"/>
-<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#F8F8F8"/>
-<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask9_19_2780)">
-<rect x="6" y="63" width="246" height="15" fill="#AF2020"/>
-</g>
-<mask id="mask10_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="33" y="41" width="207" height="90">
-<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#F8F8F8"/>
-<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#F8F8F8"/>
-<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#F8F8F8"/>
-<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#F8F8F8"/>
-<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#F8F8F8"/>
-<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#F8F8F8"/>
-<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#F8F8F8"/>
-<rect x="33" y="41.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#F8F8F8"/>
-<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#F8F8F8"/>
-<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#F8F8F8"/>
-<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask10_19_2780)">
-<rect x="8" y="54" width="246" height="11" fill="#AF2020"/>
-</g>
-<mask id="mask11_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="33" y="41" width="207" height="90">
-<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#F8F8F8"/>
-<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#F8F8F8"/>
-<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#F8F8F8"/>
-<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#F8F8F8"/>
-<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#F8F8F8"/>
-<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#F8F8F8"/>
-<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#F8F8F8"/>
-<rect x="33" y="41.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#F8F8F8"/>
-<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#F8F8F8"/>
-<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#F8F8F8"/>
-<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask11_19_2780)">
-<rect x="8" y="41" width="246" height="13" fill="#AF2020"/>
-</g>
-<mask id="mask12_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="42" width="207" height="90">
+<rect x="147" y="132.19" width="13" height="65" transform="rotate(180 147 132.19)" fill="#1F479C"/>
+<rect x="147" y="56.1904" width="13" height="13" transform="rotate(180 147 56.1904)" fill="#1F479C"/>
+<rect x="186" y="132.19" width="13" height="65" transform="rotate(180 186 132.19)" fill="#1F479C"/>
+<rect x="241" y="132.19" width="13" height="65" transform="rotate(180 241 132.19)" fill="#1F479C"/>
+<rect x="173" y="80.1904" width="13" height="23" transform="rotate(-90 173 80.1904)" fill="#1F479C"/>
+<rect x="218" y="80.1904" width="13" height="23" transform="rotate(-90 218 80.1904)" fill="#1F479C"/>
+<rect x="196" y="93.1904" width="13" height="22" transform="rotate(-90 196 93.1904)" fill="#1F479C"/>
+<rect x="34" y="43.1904" width="13" height="89" fill="#1F479C"/>
+<path d="M102 43.1904L118.5 43.1904L47 132.19L47 111.332L102 43.1904Z" fill="#1F479C"/>
+<path d="M116.554 132.112C113.462 132.064 103.654 132.247 100 132.19C90.7573 120.662 83.5588 111.731 73.5 99.1921C74.3891 100.301 72.6542 98.1378 73.5 99.1921L81.851 88.8264L116.554 132.112Z" fill="#1F479C"/>
+<path d="M73.5 112.19L88 132.19H59L73.5 112.19Z" fill="#1F479C"/>
+<path d="M52 43.1904H91L52 92.1904V43.1904Z" fill="#1F479C"/>
+<rect x="146" y="130.19" width="13" height="65" transform="rotate(180 146 130.19)" fill="#AF2020"/>
+<rect x="146" y="54.1904" width="13" height="13" transform="rotate(180 146 54.1904)" fill="#AF2020"/>
+<rect x="185" y="130.19" width="13" height="65" transform="rotate(180 185 130.19)" fill="#AF2020"/>
+<rect x="240" y="130.19" width="13" height="65" transform="rotate(180 240 130.19)" fill="#AF2020"/>
+<rect x="172" y="78.1904" width="13" height="23" transform="rotate(-90 172 78.1904)" fill="#AF2020"/>
+<rect x="217" y="78.1904" width="13" height="23" transform="rotate(-90 217 78.1904)" fill="#AF2020"/>
+<rect x="195" y="91.1904" width="13" height="22" transform="rotate(-90 195 91.1904)" fill="#AF2020"/>
+<rect x="33" y="41.1904" width="13" height="89" fill="#AF2020"/>
+<path d="M101 41.1904L117.5 41.1904L46 130.19L46 109.332L101 41.1904Z" fill="#AF2020"/>
+<path d="M115.554 130.112C112.462 130.064 102.654 130.247 99 130.19C89.7573 118.662 82.5588 109.731 72.5 97.1921C73.3891 98.3011 71.6542 96.1378 72.5 97.1921L80.851 86.8264L115.554 130.112Z" fill="#AF2020"/>
+<path d="M72.5 110.19L87 130.19H58L72.5 110.19Z" fill="#AF2020"/>
+<path d="M51 41.1904H90L51 90.1904V41.1904Z" fill="#AF2020"/>
 <rect x="145" y="131.19" width="13" height="65" transform="rotate(180 145 131.19)" fill="#F8F8F8"/>
 <rect x="145" y="55.1904" width="13" height="13" transform="rotate(180 145 55.1904)" fill="#F8F8F8"/>
 <rect x="184" y="131.19" width="13" height="65" transform="rotate(180 184 131.19)" fill="#F8F8F8"/>
@@ -212,97 +31,8 @@
 <rect x="216" y="79.1904" width="13" height="23" transform="rotate(-90 216 79.1904)" fill="#F8F8F8"/>
 <rect x="194" y="92.1904" width="13" height="22" transform="rotate(-90 194 92.1904)" fill="#F8F8F8"/>
 <rect x="32" y="42.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M100 42.1904L116.5 42.1904L45 131.19L45 110.332L100 42.1904Z" fill="#F8F8F8"/>
-<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7573 119.662 81.5588 110.731 71.5 98.1921C72.3891 99.3011 70.6542 97.1378 71.5 98.1921L79.851 87.8264L114.554 131.112Z" fill="#F8F8F8"/>
+<path d="M100 42.1904L116.5 42.1904L45 131.19L44 111L100 42.1904Z" fill="#F8F8F8"/>
+<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7574 119.662 81.0587 110.539 71 98C71.8891 99.109 70.1542 96.9457 71 98L79.5 87L114.554 131.112Z" fill="#F8F8F8"/>
 <path d="M71.5 111.19L86 131.19H57L71.5 111.19Z" fill="#F8F8F8"/>
 <path d="M50 42.1904H89L50 91.1904V42.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask12_19_2780)">
-<rect x="13" y="114" width="246" height="38" fill="white"/>
-</g>
-<mask id="mask13_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="42" width="207" height="90">
-<rect x="145" y="131.19" width="13" height="65" transform="rotate(180 145 131.19)" fill="#F8F8F8"/>
-<rect x="145" y="55.1904" width="13" height="13" transform="rotate(180 145 55.1904)" fill="#F8F8F8"/>
-<rect x="184" y="131.19" width="13" height="65" transform="rotate(180 184 131.19)" fill="#F8F8F8"/>
-<rect x="239" y="131.19" width="13" height="65" transform="rotate(180 239 131.19)" fill="#F8F8F8"/>
-<rect x="171" y="79.1904" width="13" height="23" transform="rotate(-90 171 79.1904)" fill="#F8F8F8"/>
-<rect x="216" y="79.1904" width="13" height="23" transform="rotate(-90 216 79.1904)" fill="#F8F8F8"/>
-<rect x="194" y="92.1904" width="13" height="22" transform="rotate(-90 194 92.1904)" fill="#F8F8F8"/>
-<rect x="32" y="42.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M100 42.1904L116.5 42.1904L45 131.19L45 110.332L100 42.1904Z" fill="#F8F8F8"/>
-<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7573 119.662 81.5588 110.731 71.5 98.1921C72.3891 99.3011 70.6542 97.1378 71.5 98.1921L79.851 87.8264L114.554 131.112Z" fill="#F8F8F8"/>
-<path d="M71.5 111.19L86 131.19H57L71.5 111.19Z" fill="#F8F8F8"/>
-<path d="M50 42.1904H89L50 91.1904V42.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask13_19_2780)">
-<rect x="9" y="96" width="246" height="18" fill="white"/>
-</g>
-<mask id="mask14_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="42" width="207" height="90">
-<rect x="145" y="131.19" width="13" height="65" transform="rotate(180 145 131.19)" fill="#F8F8F8"/>
-<rect x="145" y="55.1904" width="13" height="13" transform="rotate(180 145 55.1904)" fill="#F8F8F8"/>
-<rect x="184" y="131.19" width="13" height="65" transform="rotate(180 184 131.19)" fill="#F8F8F8"/>
-<rect x="239" y="131.19" width="13" height="65" transform="rotate(180 239 131.19)" fill="#F8F8F8"/>
-<rect x="171" y="79.1904" width="13" height="23" transform="rotate(-90 171 79.1904)" fill="#F8F8F8"/>
-<rect x="216" y="79.1904" width="13" height="23" transform="rotate(-90 216 79.1904)" fill="#F8F8F8"/>
-<rect x="194" y="92.1904" width="13" height="22" transform="rotate(-90 194 92.1904)" fill="#F8F8F8"/>
-<rect x="32" y="42.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M100 42.1904L116.5 42.1904L45 131.19L45 110.332L100 42.1904Z" fill="#F8F8F8"/>
-<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7573 119.662 81.5588 110.731 71.5 98.1921C72.3891 99.3011 70.6542 97.1378 71.5 98.1921L79.851 87.8264L114.554 131.112Z" fill="#F8F8F8"/>
-<path d="M71.5 111.19L86 131.19H57L71.5 111.19Z" fill="#F8F8F8"/>
-<path d="M50 42.1904H89L50 91.1904V42.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask14_19_2780)">
-<rect x="5" y="79" width="246" height="17" fill="white"/>
-</g>
-<mask id="mask15_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="42" width="207" height="90">
-<rect x="145" y="131.19" width="13" height="65" transform="rotate(180 145 131.19)" fill="#F8F8F8"/>
-<rect x="145" y="55.1904" width="13" height="13" transform="rotate(180 145 55.1904)" fill="#F8F8F8"/>
-<rect x="184" y="131.19" width="13" height="65" transform="rotate(180 184 131.19)" fill="#F8F8F8"/>
-<rect x="239" y="131.19" width="13" height="65" transform="rotate(180 239 131.19)" fill="#F8F8F8"/>
-<rect x="171" y="79.1904" width="13" height="23" transform="rotate(-90 171 79.1904)" fill="#F8F8F8"/>
-<rect x="216" y="79.1904" width="13" height="23" transform="rotate(-90 216 79.1904)" fill="#F8F8F8"/>
-<rect x="194" y="92.1904" width="13" height="22" transform="rotate(-90 194 92.1904)" fill="#F8F8F8"/>
-<rect x="32" y="42.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M100 42.1904L116.5 42.1904L45 131.19L45 110.332L100 42.1904Z" fill="#F8F8F8"/>
-<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7573 119.662 81.5588 110.731 71.5 98.1921C72.3891 99.3011 70.6542 97.1378 71.5 98.1921L79.851 87.8264L114.554 131.112Z" fill="#F8F8F8"/>
-<path d="M71.5 111.19L86 131.19H57L71.5 111.19Z" fill="#F8F8F8"/>
-<path d="M50 42.1904H89L50 91.1904V42.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask15_19_2780)">
-<rect x="5" y="64" width="246" height="15" fill="white"/>
-</g>
-<mask id="mask16_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="42" width="207" height="90">
-<rect x="145" y="131.19" width="13" height="65" transform="rotate(180 145 131.19)" fill="#F8F8F8"/>
-<rect x="145" y="55.1904" width="13" height="13" transform="rotate(180 145 55.1904)" fill="#F8F8F8"/>
-<rect x="184" y="131.19" width="13" height="65" transform="rotate(180 184 131.19)" fill="#F8F8F8"/>
-<rect x="239" y="131.19" width="13" height="65" transform="rotate(180 239 131.19)" fill="#F8F8F8"/>
-<rect x="171" y="79.1904" width="13" height="23" transform="rotate(-90 171 79.1904)" fill="#F8F8F8"/>
-<rect x="216" y="79.1904" width="13" height="23" transform="rotate(-90 216 79.1904)" fill="#F8F8F8"/>
-<rect x="194" y="92.1904" width="13" height="22" transform="rotate(-90 194 92.1904)" fill="#F8F8F8"/>
-<rect x="32" y="42.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M100 42.1904L116.5 42.1904L45 131.19L45 110.332L100 42.1904Z" fill="#F8F8F8"/>
-<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7573 119.662 81.5588 110.731 71.5 98.1921C72.3891 99.3011 70.6542 97.1378 71.5 98.1921L79.851 87.8264L114.554 131.112Z" fill="#F8F8F8"/>
-<path d="M71.5 111.19L86 131.19H57L71.5 111.19Z" fill="#F8F8F8"/>
-<path d="M50 42.1904H89L50 91.1904V42.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask16_19_2780)">
-<rect x="7" y="55" width="246" height="11" fill="white"/>
-</g>
-<mask id="mask17_19_2780" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="32" y="42" width="207" height="90">
-<rect x="145" y="131.19" width="13" height="65" transform="rotate(180 145 131.19)" fill="#F8F8F8"/>
-<rect x="145" y="55.1904" width="13" height="13" transform="rotate(180 145 55.1904)" fill="#F8F8F8"/>
-<rect x="184" y="131.19" width="13" height="65" transform="rotate(180 184 131.19)" fill="#F8F8F8"/>
-<rect x="239" y="131.19" width="13" height="65" transform="rotate(180 239 131.19)" fill="#F8F8F8"/>
-<rect x="171" y="79.1904" width="13" height="23" transform="rotate(-90 171 79.1904)" fill="#F8F8F8"/>
-<rect x="216" y="79.1904" width="13" height="23" transform="rotate(-90 216 79.1904)" fill="#F8F8F8"/>
-<rect x="194" y="92.1904" width="13" height="22" transform="rotate(-90 194 92.1904)" fill="#F8F8F8"/>
-<rect x="32" y="42.1904" width="13" height="89" fill="#F8F8F8"/>
-<path d="M100 42.1904L116.5 42.1904L45 131.19L45 110.332L100 42.1904Z" fill="#F8F8F8"/>
-<path d="M114.554 131.112C111.462 131.064 101.654 131.247 98 131.19C88.7573 119.662 81.5588 110.731 71.5 98.1921C72.3891 99.3011 70.6542 97.1378 71.5 98.1921L79.851 87.8264L114.554 131.112Z" fill="#F8F8F8"/>
-<path d="M71.5 111.19L86 131.19H57L71.5 111.19Z" fill="#F8F8F8"/>
-<path d="M50 42.1904H89L50 91.1904V42.1904Z" fill="#F8F8F8"/>
-</mask>
-<g mask="url(#mask17_19_2780)">
-<rect x="7" y="42" width="246" height="13" fill="white"/>
-</g>
 </svg>
