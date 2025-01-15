@@ -11,15 +11,7 @@ interface LineType {
 }
 
 const Body = () => {
-  const [lines, setLines] = useState<LineType[]>([
-    {
-      user: "root",
-      cpName: "thisPC",
-      privilege: "root",
-      command: "cat info",
-      response: "use 'help' to get all available command",
-    },
-  ]);
+  const [lines, setLines] = useState<LineType[]>([]);
   const [click, setClick] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -29,6 +21,9 @@ const Body = () => {
   return (
     <div onClick={handleClick}>
       <BackgroundGradient className="bg-zinc-900 h-[60vh] flex flex-col px-1 md:px-2 rounded-2xl overflow-scroll terminal-body">
+        <span className="text-mfotsy flex flex-wrap text-xl items-center mt-2">
+          use 'help' to get all available command
+        </span>
         {lines.map((line, index) => (
           <Line
             key={index}

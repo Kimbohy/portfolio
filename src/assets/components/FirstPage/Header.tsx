@@ -31,8 +31,8 @@ function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden sm:flex justify-end gap-8 lg:gap-16">
-          <NavBut text="Work" to="#work" D_lay={0.1} />
-          <NavBut text="About" to="#about" D_lay={0.3} />
+          <NavBut text="About" to="#about" D_lay={0.1} />
+          <NavBut text="Work" to="#work" D_lay={0.3} />
           <NavBut text="Contact" to="#contact" D_lay={0.2} />
         </nav>
 

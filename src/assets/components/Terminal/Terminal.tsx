@@ -154,8 +154,10 @@ export const useFunction = ({
 
     case "help":
       return (
-        "Available commands: " +
-        json_command.commands.map((command) => command.name).join(", ")
+        "Available commands: <br/>" +
+        json_command.commands
+          .map((command) => command.name)
+          .join(" &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;")
       );
 
     case "echo":
@@ -193,7 +195,7 @@ export const useFunction = ({
       if (!targetSection) {
         return "cd: missing operand";
       }
-      
+
       if (sections.includes(targetSection)) {
         const element = document.getElementById(targetSection);
         if (element) {
