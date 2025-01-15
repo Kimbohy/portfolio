@@ -22,9 +22,9 @@ const projects: ProjectData[] = [
       "/images/cards-tor/cards_tor3.png",
       "/images/cards-tor/cards_tor4.png",
     ],
-    tech: ["html", "css", "react"],
-    github: "https://github.com/yourusername/cards-tor",
-    website: "https://cards-tor-demo.com",
+    tech: ["react", "css", "javascript"],
+    github: "https://github.com/Kimbohy/card",
+    // website: "https://cards-tor-demo.com",
   },
   {
     title: "Sunnyside",
@@ -50,8 +50,23 @@ const projects: ProjectData[] = [
       "/images/sama_web_UI/smb2.png",
       "/images/sama_web_UI/smb3.png",
     ],
-    tech: ["html", "css", "react", "php", "mysql", "bash"],
+    tech: ["react", "css", "php", "mysql", "bash"],
     github: "https://github.com/yourusername/samba-web-ui",
+  },
+  {
+    title: "Ta Lenta",
+    description: "Collaborative platform for learning and innovation",
+    longDescription:
+      "talenta is a collaborative platform designed to foster learning, innovation, and community engagement across various domains. It provides a space for users to share projects, learn new skills, and connect with like-minded individuals. Key capabilities include user authentication, domain creation, project sharing, collaborative interactions, notifications system, and profile management.",
+    imagePaths: [
+      "/images/talenta/talenta1.png",
+      "/images/talenta/talenta2.png",
+      "/images/talenta/talenta3.png",
+      "/images/talenta/talenta4.png",
+    ],
+    tech: ["nextjs", "tailwindcss", "nextAuth", "motion", "nodejs"],
+    github: "https://github.com/Kimbohy/devzilla",
+    website: "https://devzilla-97iv.vercel.app",
   },
 ];
 

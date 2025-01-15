@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import NavBut from "./NavBut";
-import TextChangeOneHover from "../ui/text-change-oneHover";
+import Glitch from "./glitchSvg/Glitch";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Header() {
@@ -26,7 +26,7 @@ function Header() {
     >
       <div className="flex justify-between items-center w-full p-4 md:pt-5 md:px-8">
         <div className="flex items-center">
-          <TextChangeOneHover />
+          <Glitch />
         </div>
 
         {/* Desktop Navigation */}
