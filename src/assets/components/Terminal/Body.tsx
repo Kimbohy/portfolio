@@ -28,7 +28,7 @@ const Body = () => {
 
   return (
     <div onClick={handleClick}>
-      <BackgroundGradient className="bg-zinc-900 h-[60vh] md:h-[40vh] flex flex-col px-1 md:px-2 rounded-2xl overflow-scroll terminal-body">
+      <BackgroundGradient className="bg-zinc-900 h-[60vh] flex flex-col px-1 md:px-2 rounded-2xl overflow-scroll terminal-body">
         {lines.map((line, index) => (
           <Line
             key={index}
