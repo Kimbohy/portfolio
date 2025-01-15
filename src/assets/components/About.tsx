@@ -10,14 +10,16 @@ const About = () => {
   const education = [
     {
       year: "2024 - Present",
-      degree: "Master's in Applied Mathematics, Computer Science, and Statistics (MISA)",
+      degree:
+        "Master's in Applied Mathematics, Computer Science, and Statistics (MISA)",
       school: "University of Antananarivo",
       description:
         "Specializing in applied mathematics, computer science, and statistical analysis to solve real-world challenges.",
     },
     {
       year: "2023 - 2024",
-      degree: "Bachelor's in Applied Mathematics, Computer Science, and Statistics (MISA)",
+      degree:
+        "Bachelor's in Applied Mathematics, Computer Science, and Statistics (MISA)",
       school: "University of Antananarivo",
       description:
         "Developed advanced problem-solving skills in data analysis and programming.",
@@ -33,8 +35,7 @@ const About = () => {
       year: "2020",
       degree: "BACC C (High School Diploma)",
       school: "Lycée Privé FJKM Ambatolampy Ambohitrimanjaka",
-      description:
-        "Graduated with a strong focus on mathematics and sciences.",
+      description: "Graduated with a strong focus on mathematics and sciences.",
     },
   ];
 
@@ -49,7 +50,9 @@ const About = () => {
           className="mb-16"
         >
           <p className="text-2xl leading-relaxed">
-            Motivated and passionate about computer science and technology, I am
+            I am
+            <span className="text-5xl"> Lovatiana RABARIJAONA</span>, <br />
+            motivated and passionate about computer science and technology, I am
             a student at MISA (Applied Mathematics, Computer Science, and
             Statistics). I am eager to apply my knowledge in programming and
             problem-solving to real-world challenges. With a strong foundation
