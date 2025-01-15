@@ -24,7 +24,7 @@ function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="flex justify-between items-center w-full p-4 md:pt-5 md:px-8">
+      <div className="flex justify-between items-center w-full p-2 md:pr-8 md:pl-6">
         <div className="flex items-center">
           <Glitch />
         </div>

@@ -36,14 +36,14 @@ export default function Glitch() {
   }, [currentFrame]);
 
   return (
-    <div className="flex items-center">
-      <div className="relative w-[100px]">
+    <a href="#top" className="flex items-center">
+      <div className="relative w-[80px] md:w-[100px]">
         <img
           src={`${path}${framesName[currentFrame]}`}
           alt="logo"
           className="w-full h-full"
         />
       </div>
-    </div>
+    </a>
   );
 }
