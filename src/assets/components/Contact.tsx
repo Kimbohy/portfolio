@@ -11,19 +11,19 @@ function Contact() {
       <div className="flex flex-col min-h-screen bg-slate-900 pb-8">
         <Messaging />
 
-        <div className="flex flex-col md:flex-row justify-end gap-5 p-4 md:p-10 mt-auto">
+        <div className="flex flex-col md:flex-row justify-end gap-3 p-2 md:p-5 mt-auto">
           <a
             href="https://github.com/Kimbohy"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 md:gap-5 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity"
           >
             <img
               src={github}
               alt="Github"
-              className="w-10 md:w-14 h-10 md:h-14"
+              className="w-8 md:w-10 h-8 md:h-10"
             />
-            <span className="text-second text-base md:text-2xl">
+            <span className="text-second text-sm md:text-base">
               github.com/Kimbohy
             </span>
           </a>
@@ -31,14 +31,14 @@ function Contact() {
             href="https://linkedin.com/in/lovatiana-rabarijaona"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 md:gap-5 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity"
           >
             <img
               src={linkedin}
               alt="LinkedIn"
-              className="w-10 md:w-14 h-10 md:h-14"
+              className="w-8 md:w-10 h-8 md:h-10"
             />
-            <span className="text-second text-base md:text-2xl truncate">
+            <span className="text-second text-sm md:text-base truncate">
               linkedin.com/in/lovatiana-rabarijaona
             </span>
           </a>
