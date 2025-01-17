@@ -1,4 +1,5 @@
 import { useState, FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 
 function Messaging() {
   const [formData, setFormData] = useState({
@@ -6,42 +7,46 @@ function Messaging() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    
-    try {
-      // Replace with your actual form submission logic
-      const response = await fetch('api-endpoint', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch (error) {
-      setStatus("error");
-    }
+
+    emailjs
+      .sendForm("portfolio_kimbohy", "template_gyzbla7", form.current, {
+        publicKey: "MfBsMeFwM0SuxkSO5",
+      })
+      .then(
+        () => {
+          setStatus("success");
+        },
+        (error) => {
+          setStatus("error");
+        }
+      );
   };
 
   return (
     <div className="w-full md:w-2/3 px-4 md:px-0">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 md:gap-10 p-4 md:p-10 text-second">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-5 md:gap-10 p-4 md:p-10 text-second"
+      >
         <div className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-0">
           <div className="flex flex-col md:flex-row flex-nowrap">
-            <label className="text-2xl md:text-4xl md:p-4 text-nowrap">Name :</label>
+            <label className="text-2xl md:text-4xl md:p-4 text-nowrap">
+              Name :
+            </label>
             <div className="flex flex-col justify-center">
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData(prev => ({...prev, name: e.target.value}))}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, name: e.target.value }))
+                }
                 className="pl-2 text-xl md:text-3xl bg-transparent outline-none"
                 required
               />
@@ -50,12 +55,16 @@ function Messaging() {
           </div>
 
           <div className="flex flex-col md:flex-row flex-nowrap">
-            <label className="text-2xl md:text-4xl md:p-4 text-nowrap">Mail :</label>
+            <label className="text-2xl md:text-4xl md:p-4 text-nowrap">
+              Mail :
+            </label>
             <div className="flex flex-col justify-center">
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, email: e.target.value }))
+                }
                 className="pl-2 text-xl md:text-3xl bg-transparent outline-none"
                 required
               />
@@ -68,7 +77,9 @@ function Messaging() {
           <label className="text-2xl md:text-4xl p-2">Message :</label>
           <textarea
             value={formData.message}
-            onChange={(e) => setFormData(prev => ({...prev, message: e.target.value}))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, message: e.target.value }))
+            }
             rows={10}
             className="flex-grow pt-2 pl-2 text-xl md:text-3xl bg-transparent border-2 rounded-md outline-none border-third"
             required
@@ -83,8 +94,12 @@ function Messaging() {
           >
             {status === "loading" ? "..." : "Send"}
           </button>
-          {status === "success" && <span className="text-green-500">Message sent!</span>}
-          {status === "error" && <span className="text-red-500">Failed to send</span>}
+          {status === "success" && (
+            <span className="text-green-500">Message sent!</span>
+          )}
+          {status === "error" && (
+            <span className="text-red-500">Failed to send</span>
+          )}
         </div>
       </form>
     </div>
