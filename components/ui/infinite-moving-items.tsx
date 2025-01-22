@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const InfiniteMovingItems = ({
   items,
@@ -80,14 +81,14 @@ export const InfiniteMovingItems = ({
         )}
       >
         {items.map((t, index) => (
-          <li>
-            <img
-              key={index} // Add a unique key for each icon
+            <li key={index}>
+            <Image
               src={`/images/icons/${t}.svg`}
               alt={t}
-              className="w-20 h-20 "
+              height={80}
+              width={80}
             />
-          </li>
+            </li>
         ))}
       </ul>
     </div>
