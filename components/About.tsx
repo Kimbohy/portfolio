@@ -1,0 +1,98 @@
+'use client'
+
+import dynamic from 'next/dynamic'
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+
+const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div), {
+  ssr: false,
+});
+
+const About = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  const education = [
+    {
+      year: "2024 - Present",
+      degree:
+        "Master's in Applied Mathematics, Computer Science, and Statistics (MISA)",
+      school: "University of Antananarivo",
+      description:
+        "Specializing in applied mathematics, computer science, and statistical analysis to solve real-world challenges.",
+    },
+    {
+      year: "2023 - 2024",
+      degree:
+        "Bachelor's in Applied Mathematics, Computer Science, and Statistics (MISA)",
+      school: "University of Antananarivo",
+      description:
+        "Developed advanced problem-solving skills in data analysis and programming.",
+    },
+    {
+      year: "2021 - 2023",
+      degree: "Bachelor's in Mathematics and Computer Science,",
+      school: "University of Antananarivo",
+      description:
+        "Gained foundational knowledge in Programming and Mathematics.",
+    },
+    {
+      year: "2020",
+      degree: "BACC C (High School Diploma)",
+      school: "Lycée Privé FJKM Ambatolampy Ambohitrimanjaka",
+      description: "Graduated with a strong focus on mathematics and sciences.",
+    },
+  ];
+
+  return (
+    <div id="about" className="pt-20 md:pt-24">
+      <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second ">About Me</h2>
+      <section className="py-16 px-8 max-w-6xl mx-auto text-second">
+        <MotionDiv
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16"
+        >
+          <p className="text-2xl leading-relaxed">
+            I am
+            <span className="text-5xl"> Lovatiana RABARIJAONA</span>, <br />
+            motivated and passionate about computer science and technology, I am
+            a student at MISA (Applied Mathematics, Computer Science, and
+            Statistics). I am eager to apply my knowledge in programming and
+            problem-solving to real-world challenges. With a strong foundation
+            in coding and hardware programming, I am looking to further develop
+            my skills through practical experiences and innovative projects.
+          </p>
+        </MotionDiv>
+
+        <div ref={ref} className="relative py-8">
+          <h3 className="text-2xl font-bold mb-8">Education</h3>
+          {education.map((item, index) => (
+            <MotionDiv
+              key={index}
+              className="relative pl-12 mb-8 last:mb-0"
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <div className="absolute left-0 top-0 w-4 h-4 bg-second rounded-full">
+                {index !== education.length - 1 && (
+                  <div className="absolute left-1/2 top-4 bottom-[-2rem] w-0.5 bg-second transform -translate-x-1/2" />
+                )}
+              </div>
+              <div className="bg-slate-800 p-6 rounded-lg shadow-md">
+                <h4 className="text-second font-semibold mb-2">{item.year}</h4>
+                <h5 className="text-second font-medium mb-2">{item.degree}</h5>
+                <p className="text-second mb-2">{item.school}</p>
+                <p className="text-second">{item.description}</p>
+              </div>
+            </MotionDiv>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default About;

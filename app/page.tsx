@@ -8,10 +8,10 @@ function App() {
   return (
     <div className="bg-slate-900 overflow-x-hidden">
       <FirstPage />
-      {/* <About />
-      <TerminalPart />
-      <Work />
-      <Contact /> */}
+      <About />
+      {/* <TerminalPart /> */}
+      {/* <Work /> */}
+      {/* <Contact /> */}
     </div>
   );
 }
