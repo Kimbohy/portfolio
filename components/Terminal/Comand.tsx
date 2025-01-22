@@ -4,15 +4,15 @@ const Command = ({
   setCommand,
   click,
 }: {
-  setCommand: Function;
+  setCommand: (command: string) => void;
   click: boolean;
 }) => {
   let command: string = "";
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       setCommand(command);
-      e.target.value = "";
+      (e.target as HTMLInputElement).value = "";
     }
   };
   useEffect(() => {
