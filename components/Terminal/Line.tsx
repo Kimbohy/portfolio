@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import CommandDone from "./CommandDone";
-import HilightInput from "./HilightInput";
 import { useFunction } from "./Terminal";
+import HighlightInput from "./HighlightInput";
 
 interface LineType {
   user: string;
@@ -13,8 +13,18 @@ interface LineType {
   response: string;
 }
 
+interface LineProps {
+  user: string;
+  cpName: string;
+  privilege: string;
+  setLines: React.Dispatch<React.SetStateAction<LineType[]>>;
+  commandProps: string;
+  click: boolean;
+  response?: string;
+  lines: LineType[];
+}
+
 const Line = ({
-  key,
   user,
   cpName,
   privilege,
@@ -23,24 +33,14 @@ const Line = ({
   click,
   response,
   lines,
-}: {
-  key: string;
-  user: string;
-  cpName: string;
-  privilege: string;
-  setLines: Function;
-  commandProps: string;
-  click: boolean;
-  response?: string;
-  lines: LineType[];
-}) => {
+}: LineProps) => {
   const [command, setCommand] = useState<string>("");
 
   const privilegeSign: string = privilege === "root" ? "#" : "$";
 
   const appendCommand = (newCommand: string) => {
-    if (newCommand.trim().length > 0 && newCommand != "clear") {
-      setLines((prev: any) => [
+    if (newCommand.trim().length > 0 && newCommand !== "clear") {
+      setLines((prev: LineType[]) => [
         ...prev,
         {
           user: user,
@@ -50,7 +50,7 @@ const Line = ({
           response: useFunction({ command: newCommand, user }),
         },
       ]);
-    } else if (newCommand == "clear") {
+    } else if (newCommand === "clear") {
       setLines([]);
     }
   };
@@ -63,7 +63,7 @@ const Line = ({
   }, [command]);
 
   return (
-    <div className={`text-xl text-mfotsy`}>
+    <div className="text-xl text-mfotsy">
       <div className="text-mfotsy flex flex-wrap text-xl items-center">
         <span className="text-maitso">
           {user}@{cpName}
@@ -72,17 +72,16 @@ const Line = ({
         <span>~</span>
         <span>{privilegeSign}</span>
         {commandProps === "" ? (
-          <HilightInput
+          <HighlightInput
             setCommand={setCommand}
             click={click}
             lines={lines}
-            key={key}
           />
         ) : (
           <CommandDone commandProps={commandProps} />
         )}
       </div>
-      <p dangerouslySetInnerHTML={{ __html: response || "" }}></p>
+      {response && <p dangerouslySetInnerHTML={{ __html: response }}></p>}
     </div>
   );
 };

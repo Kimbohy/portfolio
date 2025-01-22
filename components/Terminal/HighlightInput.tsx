@@ -22,7 +22,7 @@ interface LineType {
   response: string;
 }
 
-const HilightInput = ({
+const HighlightInput = ({
   setCommand,
   click,
   lines,
@@ -126,4 +126,4 @@ const HilightInput = ({
   );
 };
 
-export default HilightInput;
+export default HighlightInput;
