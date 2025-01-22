@@ -9,7 +9,7 @@ function App() {
     <div className="bg-slate-900 overflow-x-hidden">
       <FirstPage />
       <About />
-      {/* <TerminalPart /> */}
+      <TerminalPart />
       {/* <Work /> */}
       {/* <Contact /> */}
     </div>
