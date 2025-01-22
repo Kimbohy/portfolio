@@ -35,32 +35,29 @@ const Line = ({
   lines,
 }: LineProps) => {
   const [command, setCommand] = useState<string>("");
-
+  const processCommand = useFunction();  // Call the hook at component level
   const privilegeSign: string = privilege === "root" ? "#" : "$";
-
-  const appendCommand = (newCommand: string) => {
-    if (newCommand.trim().length > 0 && newCommand !== "clear") {
-      setLines((prev: LineType[]) => [
-        ...prev,
-        {
-          user: user,
-          cpName: cpName,
-          privilege: privilege,
-          command: newCommand,
-          response: useFunction({ command: newCommand, user }),
-        },
-      ]);
-    } else if (newCommand === "clear") {
-      setLines([]);
-    }
-  };
 
   useEffect(() => {
     if (command.length > 0) {
-      appendCommand(command);
-      setCommand(""); // Reset command after submission
+      if (command.trim() === "clear") {
+        setLines([]);
+      } else {
+        const commandResponse = processCommand({ command, user });  // Use the returned function
+        setLines((prev: LineType[]) => [
+          ...prev,
+          {
+            user,
+            cpName,
+            privilege,
+            command,
+            response: commandResponse,
+          },
+        ]);
+      }
+      setCommand("");
     }
-  }, [command]);
+  }, [command, user, cpName, privilege, setLines, processCommand]);
 
   return (
     <div className="text-xl text-mfotsy">
