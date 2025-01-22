@@ -1,18 +1,16 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
+
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
-      keyframes: {
-        customPulse: {
-          "0%, 100%": { opacity: "0" },
-          "50%": { opacity: "1" },
-        },
-      },
-      animation: {
-        "custom-pulse": "customPulse 1s steps(1) infinite",
-      },
       colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         first: "#8d9aa0",
         second: "#f2f8fc",
         third: "#f2f8fcad",
@@ -29,12 +27,21 @@ export default {
         mavo: "#F2A03D",
         manga: "#0487D9",
       },
+      keyframes: {
+        customPulse: {
+          "0%, 100%": { opacity: "0" },
+          "50%": { opacity: "1" },
+        },
+      },
+      animation: {
+        "custom-pulse": "customPulse 1s steps(1) infinite",
+      },
     },
   },
   plugins: [addVariablesForColors],
-};
+} satisfies Config;
 
-function addVariablesForColors({ addBase, theme }: { addBase: (base: Record<string, string>) => void; theme: (path: string) => Record<string, string> }) {
+function addVariablesForColors({ addBase, theme }: { addBase: (base: Record<string, Record<string, string>>) => void; theme: (path: string) => Record<string, string> }) {
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])

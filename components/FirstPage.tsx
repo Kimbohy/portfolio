@@ -1,13 +1,13 @@
 import FlipWordsCp from "./FirstPage/FlipWords";
 import Header from "./FirstPage/Header";
-// import { Boxes } from "./ui/background-boxes";
 import { TextHoverEffect } from "./ui/text-hover-effect";
 import ScrollButton from "./FirstPage/ScrollButton"; // Import the new component
 
 function FirstPage() {
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // Remove the scrollToAbout function
+  // const scrollToAbout = () => {
+  //   document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   return (
     <div
@@ -18,7 +18,7 @@ function FirstPage() {
       {/* <Boxes /> */}
       <Header />
       <div className="flex flex-col h-full justify-center relative px-4 sm:px-0">
-        <p
+        <div
           className="absolute 
           top-[30vh] sm:top-[40vh] md:top-[40vh] lg:top-[50vh]
           right-4 sm:right-8 md:right-36 lg:right-72 
@@ -32,11 +32,11 @@ function FirstPage() {
             Developer
           </span>
           <FlipWordsCp />
-        </p>
+        </div>
         <div className="w-full mt-[15vh] sm:mt-0">
           <TextHoverEffect text="Developer" />
         </div>
-        <ScrollButton onClick={scrollToAbout} /> 
+        <ScrollButton /> 
       </div>
     </div>
   );

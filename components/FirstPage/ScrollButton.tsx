@@ -1,13 +1,13 @@
-import React from 'react';
+'use client';
 
-interface ScrollButtonProps {
-  onClick: () => void;
-}
+const ScrollButton: React.FC = () => {
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-const ScrollButton: React.FC<ScrollButtonProps> = ({ onClick }) => {
   return (
     <div className="absolute bottom-2 sm:bottom-4 md:bottom-10 w-full flex justify-center z-30">
-      <button onClick={onClick} className="animate-bounce min-h-[30px] md:min-h-[40px]">
+      <button onClick={scrollToAbout} className="animate-bounce min-h-[30px] md:min-h-[40px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

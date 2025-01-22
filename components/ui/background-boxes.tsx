@@ -2,7 +2,7 @@
 import React from "react";
 // import { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   // const [isHovering, setIsHovering] = useState();
@@ -41,7 +41,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           className="relative w-16 h-8 border-l border-slate-700"
         >
           {cols.map((_, j) => (
-            <div id={"case" + j}>
+            <div id={"case" + j} key={`col` + j}>
               <motion.div
                 whileHover={{
                   backgroundColor: `var(${getRandomColor()})`,

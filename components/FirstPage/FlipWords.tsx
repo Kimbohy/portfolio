@@ -1,5 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { FlipWords } from "../ui/flip-words";
+import { FlipWords } from "@/components/ui/flip-words";
 
 function FlipWordsCp() {
   const words = [
