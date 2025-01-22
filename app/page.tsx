@@ -10,7 +10,7 @@ function App() {
       <FirstPage />
       <About />
       <TerminalPart />
-      {/* <Work /> */}
+      <Work />
       {/* <Contact /> */}
     </div>
   );
