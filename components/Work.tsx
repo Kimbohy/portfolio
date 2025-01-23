@@ -23,7 +23,7 @@ const projects: ProjectData[] = [
       "/images/cards-tor/cards_tor4.png",
     ],
     tech: ["react", "css", "javascript"],
-    github: "https://github.com/Kimbohy/card",
+    github: "https://github.com/Kimbohy/Cards-tor",
     // website: "https://cards-tor-demo.com",
   },
   {
@@ -38,7 +38,7 @@ const projects: ProjectData[] = [
       "/images/sunnyside/sunnyside4.png",
     ],
     tech: ["html", "css", "javascript"],
-    github: "https://github.com/yourusername/sunnyside",
+    // github: "https://github.com/yourusername/sunnyside",
   },
   {
     title: "Samba-web-UI",
@@ -51,7 +51,7 @@ const projects: ProjectData[] = [
       "/images/sama_web_UI/smb3.png",
     ],
     tech: ["react", "css", "php", "mysql", "bash"],
-    github: "https://github.com/yourusername/samba-web-ui",
+    github: "https://github.com/Kimbohy/sambaWebUI",
   },
   {
     title: "Ta Lenta",
