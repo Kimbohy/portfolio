@@ -41,7 +41,7 @@ const Body = () => {
         ))}
         <Line
           key="input-line"
-          user="gest"
+          user="guest"
           cpName="thisPC"
           privilege="privilege"
           setLines={setLines}
