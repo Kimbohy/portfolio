@@ -1,7 +1,4 @@
 import Messaging from "./Contact/Messaging";
-// import github from "/images/icons/github2.svg";
-// import linkedin from "/images/icons/linkedin.svg";
-// import Image from "next/image";
 
 function Contact() {
   return (
@@ -19,11 +16,6 @@ function Contact() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity"
           >
-            {/* <Image
-              src={github}
-              alt="Github"
-              className="w-8 md:w-10 h-8 md:h-10"
-            /> */}
             <span className="text-second text-sm md:text-base">
               github.com/Kimbohy
             </span>
@@ -34,11 +26,6 @@ function Contact() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity"
           >
-            {/* <Image
-              src={linkedin}
-              alt="LinkedIn"
-              className="w-8 md:w-10 h-8 md:h-10"
-            /> */}
             <span className="text-second text-sm md:text-base truncate">
               linkedin.com/in/lovatiana-rabarijaona
             </span>

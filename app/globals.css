@@ -1,6 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-first: #8d9aa0;
+  --color-second: #f2f8fc;
+  --color-third: #f2f8fcad;
+  --color-fourth: #d9a78b;
+  --color-fifth: #0d0d0d;
+
+  --color-mainty: #21324a;
+  --color-mfotsy: #f2f8fc;
+
+  --color-matotra: #465973;
+  --color-mgruis: #2c3540;
+  --color-maitso: #2cbf6c;
+  --color-mena: #ed4c57;
+  --color-mavo: #f2a03d;
+  --color-manga: #0487d9;
+
+  --animate-custom-pulse: customPulse 1s steps(1) infinite;
+}
+
+@keyframes customPulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 
 /* Custom scrollbar styles */
 *::-webkit-scrollbar {
@@ -27,8 +57,8 @@
 }
 
 .terminal-body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 html {

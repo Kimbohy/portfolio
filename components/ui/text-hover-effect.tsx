@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export const TextHoverEffect = ({
   text,
@@ -93,11 +93,16 @@ export const TextHoverEffect = ({
         >
           {hovered && (
             <>
-              <stop offset="0%" stopColor={"var(--yellow-500)"} />
-              <stop offset="25%" stopColor={"var(--red-500)"} />
-              <stop offset="50%" stopColor={"var(--blue-500)"} />
-              <stop offset="75%" stopColor={"var(--cyan-500)"} />
-              <stop offset="100%" stopColor={"var(--violet-500)"} />
+              <stop offset="0%" stopColor="#F2A03D" />{" "}
+              {/* changed to mavo color from theme */}
+              <stop offset="25%" stopColor="#ED4C57" />{" "}
+              {/* changed to mena color from theme */}
+              <stop offset="50%" stopColor="#0487D9" />{" "}
+              {/* changed to manga color from theme */}
+              <stop offset="75%" stopColor="#2CBF6C" />{" "}
+              {/* changed to maitso color from theme */}
+              <stop offset="100%" stopColor="#465973" />{" "}
+              {/* changed to matotra color from theme */}
             </>
           )}
         </linearGradient>
