@@ -7,28 +7,30 @@ function Messaging() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
+      const response = await fetch("/api/send-email", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('Failed to send message');
+      if (!response.ok) throw new Error("Failed to send message");
 
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      setStatus('error');
-      console.error('Error sending message:', error);
+      setStatus("error");
+      console.error("Error sending message:", error);
     }
   };
 
@@ -36,7 +38,7 @@ function Messaging() {
     <div className="w-full md:w-2/3 px-4 md:px-0">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 md:gap-10 p-4 md:p-10 text-second"
+        className="flex flex-col gap-5 md:gap-10 p-4 md:p-10 text-secondary"
       >
         <div className="flex flex-col md:flex-row md:justify-between gap-4 md:gap-0">
           <div className="flex flex-col md:flex-row flex-nowrap">
@@ -84,7 +86,7 @@ function Messaging() {
               setFormData((prev) => ({ ...prev, message: e.target.value }))
             }
             rows={10}
-            className="flex-grow pt-2 pl-2 text-xl md:text-3xl bg-transparent border-2 rounded-md outline-none border-third"
+            className="flex-grow pt-2 pl-2 text-xl md:text-3xl bg-transparent border-2 rounded-md outline-none border-secondary-dark"
             required
           ></textarea>
         </div>
@@ -93,15 +95,15 @@ function Messaging() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="box-border w-24 md:w-32 p-2 text-2xl md:text-4xl transition-all duration-300 border-2 text-slate-900 bg-second rounded-xl hover:bg-slate-900 hover:text-second hover:border-third disabled:opacity-50"
+            className="box-border w-24 md:w-32 p-2 text-2xl md:text-4xl transition-all duration-300 border-2 text-background bg-secondary rounded-xl hover:bg-background hover:text-secondary hover:border-secondary-dark disabled:opacity-50"
           >
             {status === "loading" ? "..." : "Send"}
           </button>
           {status === "success" && (
-            <span className="text-green-500">Message sent!</span>
+            <span className="text-accent">Message sent!</span>
           )}
           {status === "error" && (
-            <span className="text-red-500">Failed to send</span>
+            <span className="text-error">Failed to send</span>
           )}
         </div>
       </form>

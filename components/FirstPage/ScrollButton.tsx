@@ -1,21 +1,29 @@
-'use client';
+"use client";
 
 const ScrollButton: React.FC = () => {
   const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="absolute bottom-2 sm:bottom-4 md:bottom-10 w-full flex justify-center z-30">
-      <button onClick={scrollToAbout} className="animate-bounce min-h-[30px] md:min-h-[40px]">
+      <button
+        onClick={scrollToAbout}
+        className="animate-bounce min-h-[30px] md:min-h-[40px]"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="w-10 h-10 text-white"
+          className="w-10 h-10 text-foreground"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
     </div>

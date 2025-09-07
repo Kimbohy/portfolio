@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const containerVariants = {
   hidden: {
@@ -32,7 +32,7 @@ function NavBut({
         transition: { stiffness: 300 },
       }}
       transition={{ type: "spring", stiffness: 40, delay: D_lay }}
-      className="relative inline-block cursor-pointer text-second text-base md:text-xl lg:text-2xl"
+      className="relative inline-block cursor-pointer text-secondary text-base md:text-xl lg:text-2xl"
     >
       {text}
     </motion.a>

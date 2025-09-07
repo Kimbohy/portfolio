@@ -91,13 +91,13 @@ const HighlightInput = ({
   const commandsName: string[] = commandList.commands.map(
     (command) => command.name
   );
-  const keyword: string = clsx("text-mavo", "px-1");
+  const keyword: string = clsx("text-terminal-green", "px-1");
 
   const active = clsx(
     "w-2",
     "h-5",
     "inline-block",
-    focused ? ["animate-custom-pulse", "bg-mfotsy"] : ["border-2"]
+    focused ? ["animate-custom-pulse", "bg-foreground"] : ["border-2"]
   );
 
   return (

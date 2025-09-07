@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import CommandDone from "./CommandDone";
@@ -35,7 +35,7 @@ const Line = ({
   lines,
 }: LineProps) => {
   const [command, setCommand] = useState<string>("");
-  const processCommand = useFunction();  // Call the hook at component level
+  const processCommand = useFunction(); // Call the hook at component level
   const privilegeSign: string = privilege === "root" ? "#" : "$";
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Line = ({
       if (command.trim() === "clear") {
         setLines([]);
       } else {
-        const commandResponse = processCommand({ command, user });  // Use the returned function
+        const commandResponse = processCommand({ command, user }); // Use the returned function
         setLines((prev: LineType[]) => [
           ...prev,
           {
@@ -60,20 +60,16 @@ const Line = ({
   }, [command, user, cpName, privilege, setLines, processCommand]);
 
   return (
-    <div className="text-xl text-mfotsy">
-      <div className="text-mfotsy flex flex-wrap text-xl items-center">
-        <span className="text-maitso">
+    <div className="text-xl text-foreground">
+      <div className="text-foreground flex flex-wrap text-xl items-center">
+        <span className="text-terminal-green">
           {user}@{cpName}
         </span>
         <span>:</span>
         <span>~</span>
         <span>{privilegeSign}</span>
         {commandProps === "" ? (
-          <HighlightInput
-            setCommand={setCommand}
-            click={click}
-            lines={lines}
-          />
+          <HighlightInput setCommand={setCommand} click={click} lines={lines} />
         ) : (
           <CommandDone commandProps={commandProps} />
         )}

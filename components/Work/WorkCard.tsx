@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 interface WorkCardProps {
@@ -65,9 +65,11 @@ function WorkCard({
           })}
         </div>
         <div className="flex flex-col items-start p-4 md:p-10 mt-8 md:mt-0">
-          <h3 className="text-3xl md:text-5xl text-second">{title}</h3>
-          <p className="text-lg md:text-xl text-second mb-2">{description}</p>
-          <p className="text-sm text-second/80 mb-4 max-w-md">
+          <h3 className="text-3xl md:text-5xl text-secondary">{title}</h3>
+          <p className="text-lg md:text-xl text-secondary mb-2">
+            {description}
+          </p>
+          <p className="text-sm text-secondary/80 mb-4 max-w-md">
             {longDescription}
           </p>
           <div className="flex flex-wrap gap-4 mt-3 md:mt-5">
@@ -76,7 +78,7 @@ function WorkCard({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-second text-primary px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
+                className="bg-secondary text-background px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
               >
                 GitHub
               </a>
@@ -86,27 +88,27 @@ function WorkCard({
                 href={website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-second text-primary px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
+                className="bg-secondary text-background px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
               >
                 Visit Site
               </a>
             )}
           </div>
-          <div className="bg-second w-full md:w-64 h-11 rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
+          <div className="bg-secondary w-full md:w-64 h-11 rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
             {tech.map((t, index) => (
               <Image
-              key={index} // Add a unique key for each icon
-              src={`/images/icons/${t}.svg`}
-              alt={t}
-              width={36} // Set width property
-              height={36} // Set height property
-              className="w-7 h-7 md:w-9 md:h-9"
+                key={index} // Add a unique key for each icon
+                src={`/images/icons/${t}.svg`}
+                alt={t}
+                width={36} // Set width property
+                height={36} // Set height property
+                className="w-7 h-7 md:w-9 md:h-9"
               />
             ))}
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/2 h-[2px] bg-second opacity-50"></div>
+      <div className="w-full md:w-1/2 h-[2px] bg-secondary opacity-50"></div>
     </div>
   );
 }

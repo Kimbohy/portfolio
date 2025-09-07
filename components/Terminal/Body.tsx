@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import Line from "./Line";
@@ -22,8 +22,8 @@ const Body = () => {
 
   return (
     <div onClick={handleClick}>
-      <BackgroundGradient className="bg-zinc-900 h-[60vh] flex flex-col px-1 md:px-2 rounded-2xl overflow-scroll terminal-body">
-        <span className="text-mfotsy flex flex-wrap text-xl items-center mt-2">
+      <BackgroundGradient className="bg-background h-[60vh] flex flex-col px-1 md:px-2 rounded-2xl overflow-scroll terminal-body">
+        <span className="text-foreground flex flex-wrap text-xl items-center mt-2">
           use &apos;help&apos; to get all available command
         </span>
         {lines.map((line, index) => (

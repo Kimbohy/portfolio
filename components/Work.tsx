@@ -15,7 +15,7 @@ const projects: ProjectData[] = [
     title: "Cards-tor",
     description: "Card market place",
     longDescription:
-      "A modern card marketplace platform built with React. Features include real-time card trading, advanced search filters, and secure payment integration. Users can browse, buy, sell, and trade collectible cards in a responsive interface.",
+      "A modern card marketplace platform built with React. Features include real-time card trading, advanced search filters. Users can browse, buy, sell, and trade collectible cards in a responsive interface.",
     imagePaths: [
       "/images/cards-tor/cards_tor1.png",
       "/images/cards-tor/cards_tor2.png",
@@ -40,18 +40,35 @@ const projects: ProjectData[] = [
     tech: ["html", "css", "javascript"],
     // github: "https://github.com/yourusername/sunnyside",
   },
+  //   {
+  //   title: "Whatapp",
+  //   description: "Real-time messaging application",
+  //   longDescription:
+  //     "Whatapp is a real-time messaging platform inspired by WhatsApp, built with React and NestJS. It integrates MongoDB for data storage and Redis for caching, while leveraging Socket.io for real-time communication. The application provides user authentication, chat creation, message exchange, and live updates, offering a practical learning experience in scalable backend architecture and modern frontend development.",
+  //   imagePaths: [
+  //     "/images/whatapp/whatapp1.png",
+  //     "/images/whatapp/whatapp2.png",
+  //     "/images/whatapp/whatapp3.png",
+  //     "/images/whatapp/whatapp4.png",
+  //   ],
+  //   tech: ["react", "nestjs", "mongodb", "redis", "socket.io", "tailwindcss"],
+  //   github: "https://github.com/Kimbohy/whatapp",
+  //   website: "https://whatapp.vercel.app",
+  // },
+
   {
-    title: "Samba-web-UI",
-    description: "A web UI for samba user management",
+    title: "Video Games Sales Analytics",
+    description: "Web application for analyzing video game sales data",
     longDescription:
-      "A comprehensive web interface for Samba server management. Built with React and PHP, it provides simple user management, file sharing controls, and system monitoring. Features include user authentication, access control, and real-time status updates.",
+      "Video Games Sales Analytics is a web application built with React and .NET that leverages a Kaggle dataset containing video game sales statistics. The platform allows users to visualize data through interactive charts, perform searches, and explore trends in the video game market across regions, platforms, and genres. Key features include dynamic filtering, graphical insights, and data-driven exploration tools for better understanding of the gaming industry.",
     imagePaths: [
-      "/images/sama_web_UI/smb1.png",
-      "/images/sama_web_UI/smb2.png",
-      "/images/sama_web_UI/smb3.png",
+      "/images/vgsales/vgsales1.png",
+      "/images/vgsales/vgsales2.png",
+      "/images/vgsales/vgsales3.png",
+      "/images/vgsales/vgsales4.png",
     ],
-    tech: ["react", "css", "php", "mysql", "bash"],
-    github: "https://github.com/Kimbohy/sambaWebUI",
+    tech: ["react", "dotnet", "tailwindcss", "chartjs", "motion", "mysql"],
+    github: "https://github.com/Kimbohy/video_game_sales_analytics_platform",
   },
   {
     title: "Ta Lenta",
@@ -73,10 +90,10 @@ const projects: ProjectData[] = [
 function Work() {
   return (
     <div id="work" className="pt-20 md:pt-24">
-      <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second bg-slate-900">
+      <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-secondary bg-background">
         Work
       </h2>
-      <div className="flex flex-col gap-16 md:gap-24 bg-slate-900 h-max pt-8 md:pt-16 overflow-hidden">
+      <div className="flex flex-col gap-16 md:gap-24 bg-background h-max pt-8 md:pt-16 overflow-hidden">
         {projects.map((project, index) => (
           <WorkCard key={index} {...project} />
         ))}

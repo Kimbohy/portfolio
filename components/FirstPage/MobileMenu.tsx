@@ -10,7 +10,7 @@ function MobileMenu() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="sm:hidden p-2 text-second"
+        className="sm:hidden p-2 text-secondary"
       >
         <motion.div
           animate={isMenuOpen ? "open" : "closed"}

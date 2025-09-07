@@ -6,6 +6,4 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  // Configure the full import path for compatibility with Next.js
-  postcss: "@tailwindcss/postcss",
 } satisfies Config;

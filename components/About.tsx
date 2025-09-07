@@ -1,12 +1,15 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useInView } from "motion/react";
 
-const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div), {
-  ssr: false,
-});
+const MotionDiv = dynamic(
+  () => import("motion/react").then((mod) => mod.motion.div),
+  {
+    ssr: false,
+  }
+);
 
 const About = () => {
   const ref = useRef(null);
@@ -45,9 +48,9 @@ const About = () => {
   ];
 
   return (
-    <div id="about" className="pt-20 md:pt-24">
-      <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-second ">About Me</h2>
-      <section className="py-16 px-8 max-w-6xl mx-auto text-second">
+    <div id="about" className="pt-20 md:pt-24 bg-background text-foreground">
+      <h2 className="p-3 md:p-5 text-4xl md:text-6xl">About Me</h2>
+      <section className="py-16 px-8 max-w-6xl mx-auto">
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +59,8 @@ const About = () => {
         >
           <p className="text-2xl leading-relaxed">
             I am
-            <span className="text-5xl"> Lovatiana RABARIJAONA</span>, <br />
+            <span className="text-5xl "> Lovatiana RABARIJAONA</span>
+            , <br />
             motivated and passionate about computer science and technology, I am
             a student at MISA (Applied Mathematics, Computer Science, and
             Statistics). I am eager to apply my knowledge in programming and
@@ -67,7 +71,7 @@ const About = () => {
         </MotionDiv>
 
         <div ref={ref} className="relative py-8">
-          <h3 className="text-2xl font-bold mb-8">Education</h3>
+          <h3 className="text-2xl font-bold mb-8 ">Education</h3>
           {education.map((item, index) => (
             <MotionDiv
               key={index}
@@ -76,16 +80,16 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <div className="absolute left-0 top-0 w-4 h-4 bg-second rounded-full">
+              <div className="absolute left-0 top-0 w-4 h-4 bg-foreground rounded-full">
                 {index !== education.length - 1 && (
-                  <div className="absolute left-1/2 top-4 bottom-[-2rem] w-0.5 bg-second transform -translate-x-1/2" />
+                  <div className="absolute left-1/2 top-4 bottom-[-2rem] w-0.5 bg-foreground transform -translate-x-1/2" />
                 )}
               </div>
-              <div className="bg-slate-800 p-6 rounded-lg shadow-md">
-                <h4 className="text-second font-semibold mb-2">{item.year}</h4>
-                <h5 className="text-second font-medium mb-2">{item.degree}</h5>
-                <p className="text-second mb-2">{item.school}</p>
-                <p className="text-second">{item.description}</p>
+              <div className="bg-card p-6 rounded-lg shadow-md">
+                <h4 className="font-semibold mb-2">{item.year}</h4>
+                <h5 className="font-medium mb-2">{item.degree}</h5>
+                <p className="text-foreground mb-2">{item.school}</p>
+                <p className="text-foreground">{item.description}</p>
               </div>
             </MotionDiv>
           ))}
