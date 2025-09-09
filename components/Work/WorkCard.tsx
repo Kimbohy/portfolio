@@ -78,8 +78,14 @@ function WorkCard({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-secondary text-background px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
+                className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2"
               >
+                <Image
+                  src="/images/icons/github_b.svg"
+                  alt="GitHub"
+                  width={16}
+                  height={16}
+                />
                 GitHub
               </a>
             )}
@@ -88,8 +94,14 @@ function WorkCard({
                 href={website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-secondary text-background px-3 py-1 md:px-4 md:py-2 rounded-lg hover:bg-opacity-80 transition-all text-sm md:text-base"
+                className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2"
               >
+                <Image
+                  src="/images/icons/glob.svg"
+                  alt="Website"
+                  width={16}
+                  height={16}
+                />
                 Visit Site
               </a>
             )}
