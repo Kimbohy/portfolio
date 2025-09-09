@@ -100,7 +100,7 @@ function Messaging() {
             {status === "loading" ? "..." : "Send"}
           </button>
           {status === "success" && (
-            <span className="text-accent">Message sent!</span>
+            <span className="">Thank you for your message!</span>
           )}
           {status === "error" && (
             <span className="text-error">Failed to send</span>
