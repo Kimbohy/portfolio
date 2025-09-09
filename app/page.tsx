@@ -3,6 +3,7 @@ import About from "@/components/About";
 import TerminalPart from "@/components/TerminalPart";
 import Contact from "@/components/Contact";
 import Work from "@/components/Work";
+import Tech from "@/components/Tech";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <About />
       <TerminalPart />
       <Work />
+      <Tech />
       <Contact />
     </div>
   );

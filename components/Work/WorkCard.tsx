@@ -81,7 +81,7 @@ function WorkCard({
                 className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2"
               >
                 <Image
-                  src="/images/icons/github_b.svg"
+                  src="/images/icons/github_bl.svg"
                   alt="GitHub"
                   width={16}
                   height={16}

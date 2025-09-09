@@ -8,12 +8,14 @@ export const InfiniteMovingItems = ({
   items,
   direction = "left",
   speed = "fast",
+  suffix = "",
   className,
 }: {
   items: string[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
+  suffix?: string;
   className?: string;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -27,12 +29,15 @@ export const InfiniteMovingItems = ({
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
+      // Duplicate items multiple times for truly infinite effect
+      for (let i = 0; i < 10; i++) {
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          if (scrollerRef.current) {
+            scrollerRef.current.appendChild(duplicatedItem);
+          }
+        });
+      }
 
       getDirection();
       getSpeed();
@@ -61,7 +66,7 @@ export const InfiniteMovingItems = ({
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "130s");
+        containerRef.current.style.setProperty("--animation-duration", "1000s");
       }
     }
   };
@@ -69,26 +74,27 @@ export const InfiniteMovingItems = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20  max-w-[1500px] overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-10 py-4 w-max flex-nowrap",
+          " flex min-w-full items-center shrink-0 gap-10 py-4 w-max flex-nowrap",
           start && "animate-scroll "
         )}
       >
         {items.map((t, index) => (
-            <li key={index}>
+          <li key={index}>
             <Image
-              src={`/images/icons/${t}.svg`}
+              src={`/images/icons/${t + suffix}.svg`}
               alt={t}
               height={80}
               width={80}
+              className="h-20 w-20 object-contain"
             />
-            </li>
+          </li>
         ))}
       </ul>
     </div>
