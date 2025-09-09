@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
-import { motion } from "motion/react";
 import Image from "next/image";
+import WorkImages from "./WorkImages";
 
 interface WorkCardProps {
   title: string;
@@ -22,47 +21,11 @@ function WorkCard({
   github,
   website,
 }: WorkCardProps) {
-  const [imagesList, setImagesList] = useState<string[]>(imagePaths);
-
-  // Change the clicked image to be the first image
-  const handleExchange = (clickedIndex: number) => {
-    const newImagesList = [...imagesList];
-    const [clickedImage] = newImagesList.splice(clickedIndex, 1); // Remove the clicked image
-    newImagesList.unshift(clickedImage); // Add it to the beginning
-    setImagesList(newImagesList);
-  };
-
   return (
     <div className="flex flex-col items-center justify-end min-h-[24rem] gap-28 p-4 md:p-0">
       <div className="flex flex-col md:flex-row w-full md:pl-20 rounded-lg h-fit">
         <div className="relative w-full md:w-[700px] h-[300px] md:h-fit left-[-19px] md:left-[-80px] top-16 md:top-0">
-          {imagesList.map((image, index) => {
-            const position = (-0.5 + index + 1) * -12; // Calculate position dynamically
-            const zIndex = 10 - index; // Calculate z-index dynamically
-            const brightness = index === 0 ? 1 : 1 / (index + 1);
-            return (
-              <motion.img
-                key={index} // Add a unique key for each image
-                src={image}
-                alt="work"
-                className="w-full md:w-[600px] rounded-xl absolute cursor-pointer" // Apply static Tailwind classes
-                style={{
-                  right: `${position}px`, // Apply dynamic styles
-                  top: `${position}px`, // Apply dynamic styles
-                  zIndex: zIndex, // Apply dynamic styles
-                  filter: `brightness(${brightness})`,
-                }}
-                onClick={() => handleExchange(index)}
-                animate={{
-                  x: 0, // Animate to x: 0
-                  y: 0, // Animate to y: 0
-                  opacity: 1, // Animate to full opacity
-                }}
-                exit={{ x: "100vw", opacity: 0 }} // Exit animation
-                whileHover={index !== 0 ? { x: 10, y: -10 } : undefined}
-              />
-            );
-          })}
+          <WorkImages imagePaths={imagePaths} />
         </div>
         <div className="flex flex-col items-start p-4 md:p-10 mt-8 md:mt-0">
           <h3 className="text-3xl md:text-5xl text-secondary">{title}</h3>

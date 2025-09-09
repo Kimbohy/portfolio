@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { InfiniteMovingItems } from "./ui/infinite-moving-items";
 
 function Tech() {
