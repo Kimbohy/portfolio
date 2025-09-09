@@ -26,35 +26,35 @@ const projects: ProjectData[] = [
     github: "https://github.com/Kimbohy/Cards-tor",
     // website: "https://cards-tor-demo.com",
   },
-  {
-    title: "Sunnyside",
-    description: "Landing page",
-    longDescription:
-      "A vibrant and modern landing page showcasing creative agency services. Built with responsive design principles and smooth animations. Features include dynamic content sections and optimized performance.",
-    imagePaths: [
-      "/images/sunnyside/sunnyside1.png",
-      "/images/sunnyside/sunnyside2.png",
-      "/images/sunnyside/sunnyside3.png",
-      "/images/sunnyside/sunnyside4.png",
-    ],
-    tech: ["html", "css", "javascript"],
-    // github: "https://github.com/yourusername/sunnyside",
-  },
-  //   {
-  //   title: "Whatapp",
-  //   description: "Real-time messaging application",
+  // {
+  //   title: "Sunnyside",
+  //   description: "Landing page",
   //   longDescription:
-  //     "Whatapp is a real-time messaging platform inspired by WhatsApp, built with React and NestJS. It integrates MongoDB for data storage and Redis for caching, while leveraging Socket.io for real-time communication. The application provides user authentication, chat creation, message exchange, and live updates, offering a practical learning experience in scalable backend architecture and modern frontend development.",
+  //     "A vibrant and modern landing page showcasing creative agency services. Built with responsive design principles and smooth animations. Features include dynamic content sections and optimized performance.",
   //   imagePaths: [
-  //     "/images/whatapp/whatapp1.png",
-  //     "/images/whatapp/whatapp2.png",
-  //     "/images/whatapp/whatapp3.png",
-  //     "/images/whatapp/whatapp4.png",
+  //     "/images/sunnyside/sunnyside1.png",
+  //     "/images/sunnyside/sunnyside2.png",
+  //     "/images/sunnyside/sunnyside3.png",
+  //     "/images/sunnyside/sunnyside4.png",
   //   ],
-  //   tech: ["react", "nestjs", "mongodb", "redis", "socket.io", "tailwindcss"],
-  //   github: "https://github.com/Kimbohy/whatapp",
-  //   website: "https://whatapp.vercel.app",
+  //   tech: ["html", "css", "javascript"],
+  //   // github: "https://github.com/yourusername/sunnyside",
   // },
+  {
+    title: "Whatapp",
+    description: "Real-time messaging application",
+    longDescription:
+      "Whatapp is a real-time messaging platform inspired by WhatsApp, built with React and NestJS. It integrates MongoDB for data storage and Redis for caching, while leveraging Socket.io for real-time communication. The application provides user authentication, chat creation, message exchange, and live updates, offering a practical learning experience in scalable backend architecture and modern frontend development.",
+    imagePaths: [
+      "/images/whatapp/whatapp1.png",
+      "/images/whatapp/whatapp2.png",
+      "/images/whatapp/whatapp3.png",
+      "/images/whatapp/whatapp4.png",
+    ],
+    tech: ["react", "nestjs", "mongodb", "redis", "socket.io", "tailwindcss"],
+    github: "https://github.com/Kimbohy/whatapp",
+    // website: "https://whatapp.vercel.app",
+  },
 
   {
     title: "Video Games Sales Analytics",
