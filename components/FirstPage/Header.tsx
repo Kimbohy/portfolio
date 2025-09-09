@@ -7,6 +7,8 @@ import MobileMenu from "./MobileMenu";
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -18,9 +20,9 @@ function Header() {
     <header
       className={`z-50 to-the-top fixed top-0 left-0 right-0 transition-colors duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-black/40 backdrop-blur-sm"
+          ? `bg-white/80 dark:bg-black/40 backdrop-blur-sm`
           : "bg-transparent"
-      }`}
+      } ${isMenuOpen && "dark:bg-black/85"}`}
     >
       <div className="flex justify-between items-center w-full p-2 md:pr-8 md:pl-6">
         <div className="flex items-center">
@@ -35,7 +37,7 @@ function Header() {
         </nav>
 
         {/* Mobile Menu */}
-        <MobileMenu />
+        <MobileMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </div>
     </header>
   );

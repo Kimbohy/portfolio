@@ -16,10 +16,12 @@ function NavBut({
   text,
   to,
   D_lay,
+  onClick,
 }: {
   text: string;
   to: string;
   D_lay: number;
+  onClick?: () => void;
 }) {
   return (
     <motion.a
@@ -32,6 +34,7 @@ function NavBut({
         transition: { stiffness: 300 },
       }}
       transition={{ type: "spring", stiffness: 40, delay: D_lay }}
+      onClick={onClick}
       className="relative inline-block cursor-pointer text-secondary text-base md:text-xl lg:text-2xl"
     >
       {text}

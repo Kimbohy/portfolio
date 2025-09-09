@@ -92,7 +92,7 @@ export const InfiniteMovingItems = ({
               alt={t}
               height={80}
               width={80}
-              className="h-20 w-20 object-contain"
+              className="h-10 w-10 md:h-20 md:w-20 object-contain"
             />
           </li>
         ))}

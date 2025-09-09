@@ -1,14 +1,42 @@
-import { useState } from "react";
+import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import NavBut from "./NavBut";
 
-function MobileMenu() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+function MobileMenu({
+  isMenuOpen,
+  setIsMenuOpen,
+}: {
+  isMenuOpen?: boolean;
+  setIsMenuOpen: (open: boolean) => void;
+}) {
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen, setIsMenuOpen]);
   return (
     <>
       {/* Mobile Menu Button */}
       <button
+        ref={buttonRef}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="sm:hidden p-2 text-secondary"
       >
@@ -38,15 +66,32 @@ function MobileMenu() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
+            ref={menuRef}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="sm:hidden fixed top-[72px] left-0 right-0 bg-white/95 dark:bg-black/85 backdrop-blur-lg"
+            transition={{ duration: 0.3 }}
+            className="sm:hidden fixed top-[66.4px] left-0 right-0 bg-white/95 dark:bg-black/85 backdrop-blur-lg"
           >
             <div className="flex flex-col items-center gap-8 py-8">
-              <NavBut text="Work" to="#work" D_lay={0.1} />
-              <NavBut text="About" to="#about" D_lay={0.2} />
-              <NavBut text="Contact" to="#contact" D_lay={0.3} />
+              <NavBut
+                text="Work"
+                to="#work"
+                D_lay={0.1}
+                onClick={() => setIsMenuOpen(false)}
+              />
+              <NavBut
+                text="About"
+                to="#about"
+                D_lay={0.2}
+                onClick={() => setIsMenuOpen(false)}
+              />
+              <NavBut
+                text="Contact"
+                to="#contact"
+                D_lay={0.3}
+                onClick={() => setIsMenuOpen(false)}
+              />
             </div>
           </motion.nav>
         )}

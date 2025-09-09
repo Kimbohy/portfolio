@@ -36,7 +36,7 @@ function Tech() {
   const shuffledTechs = shuffleArray(techs);
 
   return (
-    <div className="mt-10">
+    <div className="mt-2 md:mt-10">
       <InfiniteMovingItems
         items={shuffledTechs}
         suffix="_b"
