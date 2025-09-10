@@ -18,27 +18,13 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
   };
 
   // Handle swipe left - move to next image
-  const handleSwipeLeft = () => {
+  const handleSwipe = () => {
     setIsExchanging(true);
     setTimeout(() => {
       const newImagesList = [...imagesList];
       const firstImage = newImagesList.shift();
       if (firstImage) {
         newImagesList.push(firstImage);
-      }
-      setImagesList(newImagesList);
-      setIsExchanging(false);
-    }, 150);
-  };
-
-  // Handle swipe right - move to previous image
-  const handleSwipeRight = () => {
-    setIsExchanging(true);
-    setTimeout(() => {
-      const newImagesList = [...imagesList];
-      const lastImage = newImagesList.pop();
-      if (lastImage) {
-        newImagesList.unshift(lastImage);
       }
       setImagesList(newImagesList);
       setIsExchanging(false);
@@ -54,6 +40,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
         return (
           <motion.img
             key={`${image}-${index}`}
+            layoutId={image}
             src={image}
             alt="work"
             className="w-full md:w-[600px] rounded-xl absolute cursor-pointer"
@@ -79,10 +66,11 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
             onDragEnd={(event, info) => {
               if (index === 0) {
                 const swipeThreshold = 50;
-                if (info.offset.x > swipeThreshold) {
-                  handleSwipeRight();
-                } else if (info.offset.x < -swipeThreshold) {
-                  handleSwipeLeft();
+                if (
+                  info.offset.x > swipeThreshold ||
+                  info.offset.x < -swipeThreshold
+                ) {
+                  handleSwipe();
                 }
               }
             }}
