@@ -30,43 +30,6 @@ export const InfiniteMovingItems = ({
 
   useEffect(() => {
     addAnimation();
-
-    // Add non-passive touch event listeners
-    const container = containerRef.current;
-    if (container) {
-      const handleTouchMove = (e: TouchEvent) => {
-        e.preventDefault();
-        moveDrag(e.touches[0].pageX);
-      };
-
-      const handleTouchStart = (e: TouchEvent) => {
-        startDrag(e.touches[0].pageX);
-      };
-
-      const handleTouchEnd = () => {
-        endDrag();
-      };
-
-      container.addEventListener("touchstart", handleTouchStart, {
-        passive: false,
-      });
-      container.addEventListener("touchmove", handleTouchMove, {
-        passive: false,
-      });
-      container.addEventListener("touchend", handleTouchEnd, {
-        passive: false,
-      });
-
-      return () => {
-        if (animationRef.current) {
-          cancelAnimationFrame(animationRef.current);
-        }
-        container.removeEventListener("touchstart", handleTouchStart);
-        container.removeEventListener("touchmove", handleTouchMove);
-        container.removeEventListener("touchend", handleTouchEnd);
-      };
-    }
-
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -89,6 +52,10 @@ export const InfiniteMovingItems = ({
 
   const handleMouseDown = (e: React.MouseEvent) => {
     startDrag(e.pageX);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startDrag(e.touches[0].pageX);
   };
 
   const moveDrag = (clientX: number) => {
@@ -115,6 +82,11 @@ export const InfiniteMovingItems = ({
   const handleMouseMove = (e: React.MouseEvent) => {
     e.preventDefault();
     moveDrag(e.pageX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault();
+    moveDrag(e.touches[0].pageX);
   };
 
   const checkAndResetScroll = () => {
@@ -157,6 +129,10 @@ export const InfiniteMovingItems = ({
   };
 
   const handleMouseLeave = () => {
+    endDrag();
+  };
+
+  const handleTouchEnd = () => {
     endDrag();
   };
   function addAnimation() {
@@ -227,6 +203,9 @@ export const InfiniteMovingItems = ({
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <ul
         ref={scrollerRef}
