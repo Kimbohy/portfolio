@@ -18,27 +18,13 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
   };
 
   // Handle swipe left - move to next image
-  const handleSwipeLeft = () => {
+  const handleSwipe = () => {
     setIsExchanging(true);
     setTimeout(() => {
       const newImagesList = [...imagesList];
       const firstImage = newImagesList.shift();
       if (firstImage) {
         newImagesList.push(firstImage);
-      }
-      setImagesList(newImagesList);
-      setIsExchanging(false);
-    }, 150);
-  };
-
-  // Handle swipe right - move to previous image
-  const handleSwipeRight = () => {
-    setIsExchanging(true);
-    setTimeout(() => {
-      const newImagesList = [...imagesList];
-      const lastImage = newImagesList.pop();
-      if (lastImage) {
-        newImagesList.unshift(lastImage);
       }
       setImagesList(newImagesList);
       setIsExchanging(false);
@@ -54,6 +40,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
         return (
           <motion.img
             key={`${image}-${index}`}
+            layoutId={image}
             src={image}
             alt="work"
             className="w-full md:w-[600px] rounded-xl absolute cursor-pointer"
@@ -72,17 +59,20 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
             transition={{ duration: 0.3 }}
             exit={{ x: "100vw", opacity: 0 }}
             whileHover={index !== 0 ? { x: 10, y: -10 } : undefined}
-            drag={index === 0 ? "x" : false}
-            dragConstraints={{ left: -100, right: 100 }}
-            dragElastic={0.2}
+            drag={index === 0 ? true : false}
+            dragConstraints={{ left: -170, right: 170, top: -200, bottom: 200 }}
+            dragElastic={0.1}
             // dragSnapToOrigin={true}
             onDragEnd={(event, info) => {
               if (index === 0) {
-                const swipeThreshold = 50;
-                if (info.offset.x > swipeThreshold) {
-                  handleSwipeRight();
-                } else if (info.offset.x < -swipeThreshold) {
-                  handleSwipeLeft();
+                const swipeThreshold = 40;
+                if (
+                  info.offset.x > swipeThreshold ||
+                  info.offset.x < -swipeThreshold ||
+                  info.offset.y < -swipeThreshold ||
+                  info.offset.y > swipeThreshold
+                ) {
+                  handleSwipe();
                 }
               }
             }}
