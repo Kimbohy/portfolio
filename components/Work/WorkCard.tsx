@@ -1,16 +1,7 @@
 "use client";
 import Image from "next/image";
 import WorkImages from "./WorkImages";
-
-interface WorkCardProps {
-  title: string;
-  description: string;
-  longDescription: string;
-  imagePaths: string[];
-  tech: string[];
-  github?: string;
-  website?: string;
-}
+import { ProjectData } from "../Work";
 
 function WorkCard({
   title,
@@ -20,7 +11,7 @@ function WorkCard({
   tech,
   github,
   website,
-}: WorkCardProps) {
+}: ProjectData) {
   return (
     <div className="flex flex-col items-center justify-end min-h-[24rem] gap-28 p-4 md:p-0">
       <div className="flex flex-col md:flex-row w-full md:pl-20 rounded-lg h-fit">
@@ -36,7 +27,7 @@ function WorkCard({
             {longDescription}
           </p>
           <div className="flex flex-wrap gap-4 mt-3 md:mt-5">
-            {github && (
+            {github && typeof github === "string" ? (
               <a
                 href={github}
                 target="_blank"
@@ -51,7 +42,25 @@ function WorkCard({
                 />
                 GitHub
               </a>
-            )}
+            ) : Array.isArray(github) ? (
+              github.map((link, index) => (
+                <a
+                  key={index}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
+                >
+                  <Image
+                    src="/images/icons/github_bl.svg"
+                    alt={`GitHub Link ${index + 1}`}
+                    width={16}
+                    height={16}
+                  />
+                  GitHub {index + 1}
+                </a>
+              ))
+            ) : null}
             {website && (
               <a
                 href={website}

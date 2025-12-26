@@ -20,6 +20,8 @@ function Tech() {
     "c",
     "cpp",
     "python",
+    "express",
+    "better-auth",
   ];
 
   // Function to shuffle the array

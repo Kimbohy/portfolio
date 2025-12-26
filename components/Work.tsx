@@ -1,12 +1,12 @@
 import WorkCard from "./Work/WorkCard";
 
-interface ProjectData {
+export interface ProjectData {
   title: string;
   description: string;
   longDescription: string; // Added this field
   imagePaths: string[];
   tech: string[];
-  github?: string;
+  github?: string | string[];
   website?: string;
 }
 
@@ -74,7 +74,7 @@ const projects: ProjectData[] = [
     title: "Ta Lenta",
     description: "Collaborative platform for learning and innovation",
     longDescription:
-      "talenta is a collaborative platform designed to foster learning, innovation, and community engagement across various domains. It provides a space for users to share projects, learn new skills, and connect with like-minded individuals. Key capabilities include user authentication, domain creation, project sharing, collaborative interactions, notifications system, and profile management.",
+      "Ta Lenta is a collaborative platform designed to foster learning, innovation, and community engagement across various domains. It provides a space for users to share projects, learn new skills, and connect with like-minded individuals. Key capabilities include user authentication, domain creation, project sharing, collaborative interactions, notifications system, and profile management.",
     imagePaths: [
       "/images/talenta/talenta1.png",
       "/images/talenta/talenta2.png",
@@ -84,6 +84,23 @@ const projects: ProjectData[] = [
     tech: ["nextjs", "tailwindcss", "nextAuth", "motion", "nodejs"],
     github: "https://github.com/Kimbohy/devzilla",
     website: "https://devzilla-97iv.vercel.app",
+  },
+  {
+    title: "Rahona",
+    description: "Cloud gaming platform",
+    longDescription:
+      "Rahona is a cloud gaming platform that allows users to stream and play video games directly from the cloud. The platform uses Libretro for game emulation, enabling users to access a wide range of games without the need for high-end hardware. Key features include user authentication, game library management, real-time playing,command mapping, and game state saving.",
+    imagePaths: [
+      "/images/rahona/rahona1.png",
+      "/images/rahona/rahona2.png",
+      "/images/rahona/rahona3.png",
+      "/images/rahona/rahona4.png",
+    ],
+    tech: ["react", "nestjs", "cpp", "webrtc", "socket.io", "tailwindcss"],
+    github: [
+      "https://github.com/Kimbohy/rahona-client",
+      "https://github.com/Kimbohy/rahona-server",
+    ],
   },
 ];
 
