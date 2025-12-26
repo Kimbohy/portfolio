@@ -29,15 +29,13 @@ function NavBut({
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      whileHover={{
-        scale: 1.1,
-        transition: { stiffness: 300 },
-      }}
       transition={{ type: "spring", stiffness: 40, delay: D_lay }}
+      className="h-full group flex items-center justify-center"
       onClick={onClick}
-      className="relative inline-block cursor-pointer text-secondary text-base md:text-xl lg:text-2xl"
     >
-      {text}
+      <span className="relative inline-block cursor-pointer text-secondary text-base md:text-xl lg:text-2xl group-hover:translate-y-[-4px] transition-all duration-200">
+        {text}
+      </span>
     </motion.a>
   );
 }

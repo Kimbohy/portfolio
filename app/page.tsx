@@ -1,6 +1,6 @@
 import FirstPage from "@/components/FirstPage";
 import About from "@/components/About";
-import TerminalPart from "@/components/TerminalPart";
+// import TerminalPart from "@/components/TerminalPart";
 import Contact from "@/components/Contact";
 import Work from "@/components/Work";
 import Tech from "@/components/Tech";
@@ -10,9 +10,9 @@ function App() {
     <div className="bg-background overflow-x-hidden">
       <FirstPage />
       <About />
-      <TerminalPart />
       <Work />
       <Tech />
+      {/* <TerminalPart /> */}
       <Contact />
     </div>
   );
