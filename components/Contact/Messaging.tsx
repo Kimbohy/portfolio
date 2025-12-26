@@ -55,7 +55,7 @@ function Messaging() {
                 className="pl-2 text-xl md:text-3xl bg-transparent outline-none"
                 required
               />
-              <div className="w-full h-[2px] bg-second opacity-50"></div>
+              <div className="w-full h-[2px] bg-secondary/50"></div>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ function Messaging() {
                 className="pl-2 text-xl md:text-3xl bg-transparent outline-none"
                 required
               />
-              <div className="w-full h-[2px] bg-second opacity-50"></div>
+              <div className="w-full h-[2px] bg-secondary/50"></div>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ function Messaging() {
               setFormData((prev) => ({ ...prev, message: e.target.value }))
             }
             rows={10}
-            className="flex-grow pt-2 pl-2 text-xl md:text-3xl bg-transparent border-2 rounded-md outline-none border-secondary-dark"
+            className="flex-grow pt-2 pl-2 text-xl md:text-3xl bg-transparent border-2 rounded-md outline-none border-secondary/50"
             required
           ></textarea>
         </div>
@@ -95,9 +95,22 @@ function Messaging() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="box-border w-24 md:w-32 p-2 text-2xl md:text-4xl transition-all duration-300 border-2 text-background bg-secondary rounded-xl hover:bg-background hover:text-secondary hover:border-secondary-dark disabled:opacity-50"
+            className={
+              "box-border w-24 md:w-32 p-2 text-2xl md:text-4xl transition-all duration-300 border-2 text-background bg-secondary rounded-xl  disabled:opacity-50" +
+              (status !== "loading"
+                ? " hover:border-secondary-dark hover:bg-background hover:text-secondary"
+                : " cursor-wait")
+            }
           >
-            {status === "loading" ? "..." : "Send"}
+            {status === "loading" ? (
+              <span className="flex justify-center gap-1">
+                <span className="animate-bounce-dot">.</span>
+                <span className="animate-bounce-dot">.</span>
+                <span className="animate-bounce-dot">.</span>
+              </span>
+            ) : (
+              "Send"
+            )}
           </button>
           {status === "success" && (
             <span className="">Thank you for your message!</span>
