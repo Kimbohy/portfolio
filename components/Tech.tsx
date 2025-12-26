@@ -22,6 +22,7 @@ function Tech() {
     "python",
     "express",
     "better-auth",
+    "shadcn-ui",
   ];
 
   // Function to shuffle the array

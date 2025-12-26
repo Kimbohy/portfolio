@@ -2,6 +2,8 @@
 import Image from "next/image";
 import WorkImages from "./WorkImages";
 import { ProjectData } from "../Work";
+import TechImage, { TechImageWithTooltip } from "../ui/TechImage";
+import { getTechByName } from "@/const/tech";
 
 function WorkCard({
   title,
@@ -78,17 +80,23 @@ function WorkCard({
               </a>
             )}
           </div>
-          <div className="bg-secondary w-full md:w-64 h-11 rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
-            {tech.map((t, index) => (
-              <Image
-                key={index} // Add a unique key for each icon
-                src={`/images/icons/${t}.svg`}
-                alt={t}
-                width={36} // Set width property
-                height={36} // Set height property
-                className="w-7 h-7 md:w-9 md:h-9"
-              />
-            ))}
+          <div className="bg-secondary w-full md:w-fit h-fit rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
+            {tech.map((t, index) => {
+              const techData = getTechByName(t);
+              return techData ? (
+                <TechImageWithTooltip
+                  key={index}
+                  tech={techData}
+                  className="w-7 h-7 md:w-9 md:h-9"
+                />
+              ) : (
+                <TechImage
+                  key={index}
+                  tech={t}
+                  className="w-7 h-7 md:w-9 md:h-9"
+                />
+              );
+            })}
           </div>
         </div>
       </div>
