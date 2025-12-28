@@ -1,21 +1,37 @@
 import { Tech } from "@/const/tech";
 import Image from "next/image";
+import { motion } from "motion/react";
+
+interface TechImageProps {
+  tech: string;
+  className?: string;
+  layoutId?: string;
+}
 
 export default function TechImage({
   tech,
   className,
-}: {
-  tech: string;
-  className?: string;
-}) {
+  layoutId,
+}: TechImageProps) {
   return (
-    <Image
-      src={`/images/icons/${tech}.svg`}
-      alt={tech}
-      width={36}
-      height={36}
-      className={className}
-    />
+    <motion.div
+      layout="position"
+      layoutId={layoutId || `tech-${tech}`}
+      transition={{
+        layout: { duration: 0.4, ease: "easeInOut" },
+      }}
+      className="relative group inline-block"
+    >
+      <Image
+        src={`/images/icons/${tech}.svg`}
+        alt={tech}
+        width={36}
+        height={36}
+        className={
+          className + " cursor-pointer hover:translate-y-[-2px] transition-all"
+        }
+      />
+    </motion.div>
   );
 }
 
@@ -28,15 +44,26 @@ function TooltipContent({ tech }: { tech: Tech }) {
   );
 }
 
+interface TechImageWithTooltipProps {
+  tech: Tech;
+  className?: string;
+  layoutId?: string;
+}
+
 export function TechImageWithTooltip({
   tech,
   className,
-}: {
-  tech: Tech;
-  className?: string;
-}) {
+  layoutId,
+}: TechImageWithTooltipProps) {
   return (
-    <div className="relative group inline-block">
+    <motion.div
+      layout="position"
+      layoutId={layoutId || `tech-${tech.tech}`}
+      transition={{
+        layout: { duration: 0.4, ease: "easeInOut" },
+      }}
+      className="relative group inline-block"
+    >
       {/* Tech Image */}
       <Image
         src={`/images/icons/${tech.tech}.svg`}
@@ -60,13 +87,13 @@ export function TechImageWithTooltip({
           transition-all duration-500 ease-in-out
           bg-gray-900 border border-gray-700 rounded-lg shadow-xl
           z-50 pointer-events-none group-hover:pointer-events-auto
-          min-w-max
+          min-w-max delay-150
         "
       >
         <TooltipContent tech={tech} />
         {/* Tooltip Arrow */}
         <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-gray-700" />
       </div>
-    </div>
+    </motion.div>
   );
 }

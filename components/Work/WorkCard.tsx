@@ -2,8 +2,8 @@
 import Image from "next/image";
 import WorkImages from "./WorkImages";
 import { ProjectData } from "../Work";
-import TechImage, { TechImageWithTooltip } from "../ui/TechImage";
-import { getTechByName } from "@/const/tech";
+import { useEffect, useRef, useState } from "react";
+import { TechList } from "./TechList";
 
 function WorkCard({
   title,
@@ -14,6 +14,60 @@ function WorkCard({
   github,
   website,
 }: ProjectData) {
+  const [hoverTimeCount, setHoverTimeCount] = useState(0);
+  const [techDetailsOpen, setTechDetailsOpen] = useState(false);
+  const techRef = useRef<HTMLDivElement>(null);
+
+  // Hover detection
+  useEffect(() => {
+    const techDiv = techRef.current;
+    if (!techDiv) return;
+
+    let hoverInterval: NodeJS.Timeout;
+
+    const handleMouseEnter = () => {
+      hoverInterval = setInterval(() => {
+        setHoverTimeCount((prev) => prev + 1);
+      }, 500);
+    };
+
+    const handleMouseLeave = () => {
+      clearInterval(hoverInterval);
+      setHoverTimeCount(0);
+    };
+
+    techDiv.addEventListener("mouseenter", handleMouseEnter);
+    techDiv.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      techDiv.removeEventListener("mouseenter", handleMouseEnter);
+      techDiv.removeEventListener("mouseleave", handleMouseLeave);
+      clearInterval(hoverInterval);
+    };
+  }, []);
+
+  // Open tech details after 1 seconds of hover
+  useEffect(() => {
+    if (hoverTimeCount >= 2) {
+      setTechDetailsOpen(true);
+    }
+  }, [hoverTimeCount]);
+
+  // Click outside detection
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (techRef.current && !techRef.current.contains(event.target as Node)) {
+        setTechDetailsOpen(false);
+        setHoverTimeCount(0);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-end min-h-[24rem] gap-28 p-4 md:p-0">
       <div className="flex flex-col md:flex-row w-full md:pl-20 rounded-lg h-fit">
@@ -80,23 +134,19 @@ function WorkCard({
               </a>
             )}
           </div>
-          <div className="bg-secondary w-full md:w-fit h-fit rounded-2xl mt-4 md:mt-5 px-2 py-[5px] flex flex-wrap gap-1 justify-center md:justify-start">
-            {tech.map((t, index) => {
-              const techData = getTechByName(t);
-              return techData ? (
-                <TechImageWithTooltip
-                  key={index}
-                  tech={techData}
-                  className="w-7 h-7 md:w-9 md:h-9"
-                />
-              ) : (
-                <TechImage
-                  key={index}
-                  tech={t}
-                  className="w-7 h-7 md:w-9 md:h-9"
-                />
-              );
-            })}
+          <div
+            className={`bg-secondary rounded-2xl mt-4 md:mt-5 transition-all duration-300 ${
+              techDetailsOpen
+                ? "w-full md:w-[400px] p-0"
+                : "w-full md:w-fit px-2 py-[5px] flex flex-wrap gap-1 justify-center items-center md:justify-start"
+            }`}
+            ref={techRef}
+          >
+            <TechList
+              tech={tech}
+              techDetailsOpen={techDetailsOpen}
+              projectId={title}
+            />
           </div>
         </div>
       </div>
