@@ -1,13 +1,19 @@
 import WorkCard from "./Work/WorkCard";
 
+export interface WorkTech {
+  name: string;
+  isMain?: boolean;
+}
+
 export interface ProjectData {
   title: string;
   description: string;
   longDescription: string; // Added this field
   imagePaths: string[];
-  tech: string[];
+  tech: WorkTech[];
   github?: string | string[];
   website?: string;
+  key?: number;
 }
 
 const projects: ProjectData[] = [
@@ -22,24 +28,14 @@ const projects: ProjectData[] = [
       "/images/cards-tor/cards_tor3.png",
       "/images/cards-tor/cards_tor4.png",
     ],
-    tech: ["react", "css", "javascript"],
+    tech: [
+      { name: "react", isMain: true },
+      { name: "css" },
+      { name: "javascript" },
+    ],
     github: "https://github.com/Kimbohy/Cards-tor",
     // website: "https://cards-tor-demo.com",
   },
-  // {
-  //   title: "Sunnyside",
-  //   description: "Landing page",
-  //   longDescription:
-  //     "A vibrant and modern landing page showcasing creative agency services. Built with responsive design principles and smooth animations. Features include dynamic content sections and optimized performance.",
-  //   imagePaths: [
-  //     "/images/sunnyside/sunnyside1.png",
-  //     "/images/sunnyside/sunnyside2.png",
-  //     "/images/sunnyside/sunnyside3.png",
-  //     "/images/sunnyside/sunnyside4.png",
-  //   ],
-  //   tech: ["html", "css", "javascript"],
-  //   // github: "https://github.com/yourusername/sunnyside",
-  // },
   {
     title: "Whatapp",
     description: "Real-time messaging application",
@@ -51,7 +47,14 @@ const projects: ProjectData[] = [
       "/images/whatapp/whatapp3.png",
       "/images/whatapp/whatapp4.png",
     ],
-    tech: ["react", "nestjs", "mongodb", "redis", "socket.io", "tailwindcss"],
+    tech: [
+      { name: "react", isMain: true },
+      { name: "nestjs", isMain: true },
+      { name: "mongodb" },
+      { name: "redis" },
+      { name: "socket.io" },
+      { name: "tailwindcss" },
+    ],
     github: "https://github.com/Kimbohy/whatapp",
     // website: "https://whatapp.vercel.app",
   },
@@ -67,7 +70,16 @@ const projects: ProjectData[] = [
       "/images/vgsales/vgsales3.png",
       "/images/vgsales/vgsales4.png",
     ],
-    tech: ["react", "dotnet", "tailwindcss", "chartjs", "motion", "mysql"],
+    tech: [
+      { name: "react", isMain: true },
+      { name: "dotnet" },
+      { name: "tailwindcss" },
+      { name: "chartjs" },
+      { name: "motion" },
+      { name: "mysql" },
+      { name: "typescript" },
+      { name: "csharp" },
+    ],
     github: "https://github.com/Kimbohy/video_game_sales_analytics_platform",
   },
   {
@@ -81,7 +93,14 @@ const projects: ProjectData[] = [
       "/images/talenta/talenta3.png",
       "/images/talenta/talenta4.png",
     ],
-    tech: ["nextjs", "tailwindcss", "nextAuth", "motion", "nodejs"],
+    tech: [
+      { name: "nextjs", isMain: true },
+      { name: "tailwindcss" },
+      { name: "nextAuth" },
+      { name: "motion" },
+      { name: "nodejs" },
+      { name: "typescript" },
+    ],
     github: "https://github.com/Kimbohy/devzilla",
     website: "https://devzilla-97iv.vercel.app",
   },
@@ -96,7 +115,18 @@ const projects: ProjectData[] = [
       "/images/rahona/rahona3.png",
       "/images/rahona/rahona4.png",
     ],
-    tech: ["react", "nestjs", "cpp", "webrtc", "socket.io", "tailwindcss"],
+    tech: [
+      { name: "react", isMain: true },
+      { name: "nestjs", isMain: true },
+      { name: "cpp", isMain: true },
+      { name: "webrtc" },
+      { name: "socket.io" },
+      { name: "tailwindcss" },
+      { name: "prisma" },
+      { name: "postgreSQL" },
+      { name: "motion" },
+      { name: "typescript" },
+    ],
     github: [
       "https://github.com/Kimbohy/rahona-client",
       "https://github.com/Kimbohy/rahona-server",
