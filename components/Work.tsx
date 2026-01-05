@@ -34,7 +34,7 @@ const projects: ProjectData[] = [
       { name: "javascript" },
     ],
     github: "https://github.com/Kimbohy/Cards-tor",
-    // website: "https://cards-tor-demo.com",
+    website: "https://cards-tor.vercel.app",
   },
   {
     title: "Whatapp",
