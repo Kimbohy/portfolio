@@ -23,6 +23,11 @@ function Tech() {
     "express",
     "better-auth",
     "shadcn-ui",
+    "pnpm",
+    "bun",
+    "yarn",
+    "nuqs",
+    "lucide",
   ];
 
   // Function to shuffle the array

@@ -46,6 +46,13 @@ const techList: Tech[] = [
     type: "auth",
   },
   {
+    tech: "bun",
+    name: "Bun",
+    desc: "A fast all-in-one JavaScript runtime.",
+    link: "https://bun.sh/",
+    type: "framework",
+  },
+  {
     tech: "c",
     name: "C",
     desc: "A general-purpose programming language.",
@@ -79,6 +86,13 @@ const techList: Tech[] = [
     desc: "Style sheet language used for describing the presentation of a document.",
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
     type: "language",
+  },
+  {
+    tech: "elysia",
+    name: "Elysia",
+    desc: "A web framework for building fast and scalable applications.",
+    link: "https://elysiajs.com/",
+    type: "framework",
   },
   {
     tech: "express",
@@ -130,6 +144,13 @@ const techList: Tech[] = [
     type: "language",
   },
   {
+    tech: "lucide",
+    name: "Lucide",
+    desc: "A simple, consistent icon library.",
+    link: "https://lucide.dev/",
+    type: "library",
+  },
+  {
     tech: "mongodb",
     name: "MongoDB",
     desc: "A document-oriented NoSQL database.",
@@ -179,11 +200,25 @@ const techList: Tech[] = [
     type: "framework",
   },
   {
+    tech: "nuqs",
+    name: "Nuqs",
+    desc: "Type-safe search params state manager for React.",
+    link: "https://nuqs.dev/",
+    type: "library",
+  },
+  {
     tech: "php",
     name: "PHP",
     desc: "A popular general-purpose scripting language especially suited to web development.",
     link: "https://www.php.net/",
     type: "language",
+  },
+  {
+    tech: "pnpm",
+    name: "pnpm",
+    desc: "A fast, disk space efficient package manager.",
+    link: "https://pnpm.io/",
+    type: "tools",
   },
   {
     tech: "postgreSQL",
@@ -261,6 +296,13 @@ const techList: Tech[] = [
     desc: "A free, open-source, cross-platform framework for building modern apps and powerful cloud services.",
     link: "https://dotnet.microsoft.com/",
     type: "framework",
+  },
+  {
+    tech: "yarn",
+    name: "Yarn",
+    desc: "A fast, reliable, and secure dependency management tool.",
+    link: "https://yarnpkg.com/",
+    type: "tools",
   },
 ];
 

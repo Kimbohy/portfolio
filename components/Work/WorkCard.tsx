@@ -71,7 +71,7 @@ function WorkCard({
   return (
     <div className="flex flex-col items-center justify-end min-h-[24rem] gap-28 p-4 md:p-0">
       <div className="flex flex-col md:flex-row w-full md:pl-20 rounded-lg h-fit">
-        <div className="relative w-full md:w-[700px] h-[300px] md:h-fit left-[-19px] md:left-[-80px] top-16 md:top-0">
+        <div className="relative w-full md:w-[700px] h-[300px] md:h-fit left-[-19px] md:left-[-80px] top-16">
           <WorkImages imagePaths={imagePaths} />
         </div>
         <div className="flex flex-col items-start p-4 md:p-10 mt-8 md:mt-0">
