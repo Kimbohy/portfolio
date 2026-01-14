@@ -1,3 +1,4 @@
+import { BookOpen } from "lucide-react";
 import Messaging from "./Contact/Messaging";
 import Image from "next/image";
 
@@ -25,7 +26,7 @@ function Contact() {
               height={16}
             />
             <span className="text-secondary text-sm md:text-base">
-              github.com/Kimbohy
+              /Kimbohy
             </span>
           </a>
           <a
@@ -41,7 +42,18 @@ function Contact() {
               height={16}
             />
             <span className="text-secondary text-sm md:text-base truncate">
-              linkedin.com/in/lovatiana-rabarijaona
+              /in/lovatiana-rabarijaona
+            </span>
+          </a>
+          <a
+            href="/rickroll"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 md:gap-2 hover:opacity-80 transition-opacity"
+          >
+            <BookOpen size={16} className="text-secondary" />
+            <span className="text-secondary text-sm md:text-base">
+              /rickroll
             </span>
           </a>
         </div>
