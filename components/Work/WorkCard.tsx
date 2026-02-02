@@ -14,26 +14,27 @@ function WorkCard({
   github,
   website,
 }: ProjectData) {
-  const [hoverTimeCount, setHoverTimeCount] = useState(0);
   const [techDetailsOpen, setTechDetailsOpen] = useState(false);
   const techRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Hover detection
   useEffect(() => {
     const techDiv = techRef.current;
     if (!techDiv) return;
 
-    let hoverInterval: NodeJS.Timeout;
-
     const handleMouseEnter = () => {
-      hoverInterval = setInterval(() => {
-        setHoverTimeCount((prev) => prev + 1);
-      }, 500);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+      setTechDetailsOpen(true);
     };
 
     const handleMouseLeave = () => {
-      clearInterval(hoverInterval);
-      setHoverTimeCount(0);
+      timeoutRef.current = setTimeout(() => {
+        setTechDetailsOpen(false);
+      }, 2000);
     };
 
     techDiv.addEventListener("mouseenter", handleMouseEnter);
@@ -42,23 +43,21 @@ function WorkCard({
     return () => {
       techDiv.removeEventListener("mouseenter", handleMouseEnter);
       techDiv.removeEventListener("mouseleave", handleMouseLeave);
-      clearInterval(hoverInterval);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
-
-  // Open tech details after 1 seconds of hover
-  useEffect(() => {
-    if (hoverTimeCount >= 2) {
-      setTechDetailsOpen(true);
-    }
-  }, [hoverTimeCount]);
 
   // Click outside detection
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (techRef.current && !techRef.current.contains(event.target as Node)) {
         setTechDetailsOpen(false);
-        setHoverTimeCount(0);
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
       }
     };
 

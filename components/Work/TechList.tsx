@@ -1,9 +1,10 @@
 "use client";
 import { WorkTech } from "../Work";
-import TechImage, { TechImageWithTooltip } from "../ui/TechImage";
+import { TechImageWithTooltip } from "../ui/TechImage";
 import { getTechByName, TechType, techTypeLabels } from "@/const/tech";
 import { getMainTech } from "@/utils/tech.utils";
-import { LayoutGroup } from "motion/react";
+import { LayoutGroup, motion } from "motion/react";
+import Image from "next/image";
 
 interface TechListProps {
   tech: WorkTech[];
@@ -16,21 +17,36 @@ export function TechList({ tech, techDetailsOpen, projectId }: TechListProps) {
     const techData = getTechByName(t.name);
     const uniqueId = `${projectId}-${t.name}`;
 
-    return techData && techDetailsOpen ? (
-      <TechImageWithTooltip
-        key={uniqueId}
-        tech={techData}
-        layoutId={uniqueId}
-        className="w-7 h-7 md:w-9 md:h-9"
-      />
-    ) : (
-      <TechImage
-        key={uniqueId}
-        tech={t.name}
-        layoutId={uniqueId}
-        className="w-7 h-7 md:w-9 md:h-9"
-      />
-    );
+    if (techDetailsOpen && techData) {
+      return (
+        <TechImageWithTooltip
+          key={uniqueId}
+          tech={techData}
+          layoutId={uniqueId}
+          className="w-7 h-7 md:w-9 md:h-9"
+        />
+      );
+    } else {
+      return (
+        <motion.div
+          key={uniqueId}
+          layout="position"
+          layoutId={uniqueId}
+          transition={{
+            layout: { duration: 0.4, ease: "easeInOut" },
+          }}
+          className="relative inline-block"
+        >
+          <Image
+            src={`/images/icons/${t.name}.svg`}
+            alt={t.name}
+            width={36}
+            height={36}
+            className="w-7 h-7 md:w-9 md:h-9"
+          />
+        </motion.div>
+      );
+    }
   };
 
   if (!techDetailsOpen) {
@@ -39,15 +55,18 @@ export function TechList({ tech, techDetailsOpen, projectId }: TechListProps) {
   }
 
   // Group tech by type
-  const groupedTech = tech.reduce((acc, t) => {
-    const techData = getTechByName(t.name);
-    const type = techData?.type || "library";
-    if (!acc[type]) {
-      acc[type] = [];
-    }
-    acc[type].push(t);
-    return acc;
-  }, {} as Record<TechType, WorkTech[]>);
+  const groupedTech = tech.reduce(
+    (acc, t) => {
+      const techData = getTechByName(t.name);
+      const type = techData?.type || "library";
+      if (!acc[type]) {
+        acc[type] = [];
+      }
+      acc[type].push(t);
+      return acc;
+    },
+    {} as Record<TechType, WorkTech[]>,
+  );
 
   const typeOrder: TechType[] = [
     "language",
