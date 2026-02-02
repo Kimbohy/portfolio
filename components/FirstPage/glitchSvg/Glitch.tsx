@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const path = "/images/logo/";
 const framesName = [
@@ -38,11 +39,17 @@ export default function Glitch() {
   return (
     <a href="#top" className="flex items-center">
       <div className="relative w-[80px] md:w-[100px]">
-        <img
-          src={`${path}${framesName[currentFrame]}`}
-          alt="logo"
-          className="w-full h-full"
-        />
+        {framesName.map((frame, index) => (
+          <Image
+            key={frame}
+            src={`${path}${frame}`}
+            alt="logo"
+            className={`w-full h-full ${index === currentFrame ? "block" : "hidden"}`}
+            width={273}
+            height={173}
+            loading={index === 0 ? "eager" : "lazy"} // Prioritize first frame
+          />
+        ))}
       </div>
     </a>
   );

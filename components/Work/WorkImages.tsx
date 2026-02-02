@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
 import { useState } from "react";
+import Image from "next/image";
+
+const MotionDiv = motion.div;
 
 export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
   const [imagesList, setImagesList] = useState<string[]>(imagePaths);
@@ -38,12 +41,10 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
         const zIndex = 10 - index;
         const brightness = index === 0 ? 1 : 1 / (index + 1);
         return (
-          <motion.img
-            key={`${image}-${index}`}
+          <MotionDiv
+            key={image}
             layoutId={image}
-            src={image}
-            alt="work"
-            className="w-full md:w-[600px] rounded-xl absolute cursor-pointer"
+            className="w-full md:w-[600px] rounded-xl absolute cursor-pointer overflow-hidden"
             style={{
               right: `${position}px`,
               top: `${position}px`,
@@ -62,7 +63,6 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
             drag={index === 0 ? true : false}
             dragConstraints={{ left: -170, right: 170, top: -200, bottom: 200 }}
             dragElastic={0.1}
-            // dragSnapToOrigin={true}
             onDragEnd={(event, info) => {
               if (index === 0) {
                 const swipeThreshold = 40;
@@ -76,7 +76,17 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
                 }
               }
             }}
-          />
+          >
+            <Image
+              src={image}
+              alt="work"
+              width={600}
+              height={400}
+              className="w-full h-auto"
+              loading={index === 0 ? "eager" : "lazy"}
+              draggable={false}
+            />
+          </MotionDiv>
         );
       })}
     </>
