@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
+    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
     "motion": "^12.0.1",
@@ -33,7 +33,7 @@
     "tailwindcss": "^4.1.0",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67",
+  "packageManager": "pnpm@10.32.1",
   "pnpm": {
     "overrides": {
       "@types/react": "19.1.6",
