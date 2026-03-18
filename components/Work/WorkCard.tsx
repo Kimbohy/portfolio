@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import WorkImages from "./WorkImages";
-import { ProjectData } from "../Work";
 import { useEffect, useRef, useState } from "react";
 import { TechList } from "./TechList";
+import { ProjectData } from "@/const/works";
 
 function WorkCard({
   title,
