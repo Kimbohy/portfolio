@@ -88,6 +88,13 @@ const techList: Tech[] = [
     type: "language",
   },
   {
+    tech: "dart",
+    name: "Dart",
+    desc: "A client-optimized programming language for apps on multiple platforms.",
+    link: "https://dart.dev/",
+    type: "language",
+  },
+  {
     tech: "elysia",
     name: "Elysia",
     desc: "A web framework for building fast and scalable applications.",
@@ -107,6 +114,13 @@ const techList: Tech[] = [
     desc: "A web-based design tool for UI/UX collaboration.",
     link: "https://www.figma.com/",
     type: "tools",
+  },
+  {
+    tech: "flutter",
+    name: "Flutter",
+    desc: "Open-source framework for building natively compiled, multi-platform applications",
+    link: "https://flutter.dev/",
+    type: "framework",
   },
   {
     tech: "git",

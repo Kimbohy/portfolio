@@ -1,4 +1,4 @@
-import { WorkTech } from "@/components/Work";
+import { WorkTech } from "@/const/works";
 
 export const getMainTech = (tech: WorkTech[], max = 5): WorkTech[] | null => {
   const mainTech = tech.filter((t) => t.isMain);

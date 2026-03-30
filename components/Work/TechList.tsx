@@ -1,5 +1,5 @@
 "use client";
-import { WorkTech } from "../Work";
+import { WorkTech } from "@/const/works";
 import { TechImageWithTooltip } from "../ui/TechImage";
 import { getTechByName, TechType, techTypeLabels } from "@/const/tech";
 import { getMainTech } from "@/utils/tech.utils";

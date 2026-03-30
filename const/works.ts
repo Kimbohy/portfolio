@@ -141,4 +141,18 @@ export const projects: ProjectData[] = [
       "https://github.com/Kimbohy/rahona-server",
     ],
   },
+  {
+    title: "DoQuest",
+    description: "A gamified todo app with a retro 8-bit RPG theme",
+    longDescription:
+      "DoQuest is a gamified todo app where users complete tasks as RPG-style quests. Each quest rewards EXP and gold, allowing players to level up and track their progress. Built with Flutter and Riverpod using clean architecture, it features a pixel-art UI, smooth animations, and local data persistence.",
+    imagePaths: [
+      "/images/doquest/do-quest1.png",
+      "/images/doquest/do-quest2.png",
+      "/images/doquest/do-quest3.png",
+      "/images/doquest/do-quest4.png",
+    ],
+    tech: [{ name: "flutter", isMain: true }, { name: "dart" }],
+    github: "https://github.com/Kimbohy/do_quest",
+  },
 ];
