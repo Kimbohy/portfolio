@@ -3,10 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 
 const MotionDiv = motion.div;
+const STACK_OFFSET = 12;
 
 export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
   const [imagesList, setImagesList] = useState<string[]>(imagePaths);
   const [isExchanging, setIsExchanging] = useState(false);
+  const stackPadding = Math.max(imagesList.length - 1, 0) * STACK_OFFSET;
 
   // Change the clicked image to be the first image
   const handleExchange = (clickedIndex: number) => {
@@ -35,9 +37,15 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
   };
 
   return (
-    <>
+    <div
+      className="relative w-full md:w-[600px] aspect-[3/2]"
+      style={{
+        paddingBottom: `${stackPadding}px`,
+        paddingRight: `${stackPadding}px`,
+      }}
+    >
       {imagesList.map((image, index) => {
-        const position = (-0.5 + index + 1) * -12;
+        const position = index * STACK_OFFSET;
         const zIndex = 10 - index;
         const brightness = index === 0 ? 1 : 1 / (index + 1);
         return (
@@ -61,6 +69,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
             exit={{ x: "100vw", opacity: 0 }}
             whileHover={index !== 0 ? { x: 10, y: -10 } : undefined}
             drag={index === 0 ? true : false}
+            dragSnapToOrigin={index === 0}
             dragConstraints={{ left: -170, right: 170, top: -200, bottom: 200 }}
             dragElastic={0.1}
             onDragEnd={(event, info) => {
@@ -89,6 +98,6 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
           </MotionDiv>
         );
       })}
-    </>
+    </div>
   );
 }
