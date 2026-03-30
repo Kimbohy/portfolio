@@ -16,9 +16,43 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Kimbohy",
+  title: "Finoana Lovtiana Rabarijaona",
   description:
     "Personal portfolio of Finoana Lovtiana Rabarijaona, a passionate software engineer and AI enthusiast.",
+  keywords: [
+    "Finoana Lovtiana Rabarijaona",
+    "Finoana Rabarijaona",
+    "Lovtiana Rabarijaona",
+    "Finoana Lovtiana",
+    "Lovatiana Finoana Rabarijaona",
+    "Rabarijaona Finoana Lovatiana",
+    "Rabarijaona Lovatiana",
+    "Finoana",
+    "Lovtiana",
+    "Rabarijaona",
+    "Software Engineer",
+    "AI Enthusiast",
+    "Full-Stack Developer",
+    "Tech Portfolio",
+    "Projects Showcase",
+    "Web Development",
+    "MISA",
+    "Mathématiques Informatique et Statistique Appliquées",
+    "Mathematics Computer Science and Applied Statistics",
+    "Kimbohy",
+    "Kimbohy Marisika",
+  ],
+  openGraph: {
+    title: "Finoana Lovtiana Rabarijaona - Portfolio",
+    description:
+      "Personal portfolio of Finoana Lovtiana Rabarijaona, a passionate software engineer and AI enthusiast.",
+    url: "https://kimbohy.vercel.app",
+    siteName: "Finoana Lovtiana Rabarijaona Portfolio",
+    images: [
+      "https://kimbohy.vercel.app/kimbohy.svg",
+      "https://kimbohy.vercel.app/images/k.svg",
+    ],
+  },
 };
 
 export default function RootLayout({
