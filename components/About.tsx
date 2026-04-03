@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 import { useInView } from "motion/react";
-import GlitchText from "./glitchText"; // ← ajuste selon ton arborescence
+import GlitchText from "./GlitchText";
 
 const MotionDiv = dynamic(
   () => import("motion/react").then((mod) => mod.motion.div),
@@ -54,7 +54,6 @@ const EducationTimelineItem = ({
 }) => {
   const itemRef = useRef(null);
   const itemInView = useInView(itemRef, { once: true });
-  const base = index * 280;
 
   return (
     <div ref={itemRef}>
@@ -72,36 +71,16 @@ const EducationTimelineItem = ({
 
         <div className="bg-card p-6 rounded-lg shadow-md">
           <h4 className="font-semibold mb-2">
-            <GlitchText
-              text={item.year}
-              delay={base + 80}
-              wordGap={95}
-              enabled={itemInView}
-            />
+            <GlitchText text={item.year} enabled={itemInView} />
           </h4>
           <h5 className="font-medium mb-2">
-            <GlitchText
-              text={item.degree}
-              delay={base + 200}
-              wordGap={32}
-              enabled={itemInView}
-            />
+            <GlitchText text={item.degree} enabled={itemInView} />
           </h5>
           <p className="text-foreground mb-2">
-            <GlitchText
-              text={item.school}
-              delay={base + 340}
-              wordGap={42}
-              enabled={itemInView}
-            />
+            <GlitchText text={item.school} enabled={itemInView} />
           </p>
           <p className="text-foreground">
-            <GlitchText
-              text={item.description}
-              delay={base + 460}
-              wordGap={28}
-              enabled={itemInView}
-            />
+            <GlitchText text={item.description} enabled={itemInView} />
           </p>
         </div>
       </MotionDiv>
@@ -125,7 +104,7 @@ const About = () => {
           className="mb-16"
         >
           <p className="text-2xl leading-relaxed">
-            <GlitchText text="I am" delay={200} wordGap={110} />{" "}
+            <GlitchText text="I am" />{" "}
             <span className="text-5xl">Lovatiana RABARIJAONA</span>
             , <br />
             <span>
@@ -135,19 +114,14 @@ const About = () => {
               problem-solving to real-world challenges. With a strong foundation
               in coding and hardware programming, I am looking to further
               develop my skills through practical experiences and innovative
-              projects."
+              projects.
             </span>
           </p>
         </MotionDiv>
 
         <div className="relative py-8">
           <h3 ref={titleRef} className="text-2xl font-bold mb-8">
-            <GlitchText
-              text="Education"
-              delay={0}
-              wordGap={130}
-              enabled={titleInView}
-            />
+            <GlitchText text="Education" enabled={titleInView} />
           </h3>
           <div className="flex flex-col gap-7">
             {education.map((item, index) => (

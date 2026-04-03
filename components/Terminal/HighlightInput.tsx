@@ -33,7 +33,7 @@ const HighlightInput = ({
 }) => {
   const [words, setWords] = useState<string[]>([]);
   const [focused, setFocused] = useState(false);
-  const [notFirse, setNotFirst] = useState(false); // This is a hack to prevent the input from focusing on the first render
+  const [notFirst, setNotFirst] = useState(false); // This is a hack to prevent the input from focusing on the first render
 
   // Create a ref to directly access the input element
   const inputRef = useRef<HTMLInputElement>(null);
@@ -64,7 +64,7 @@ const HighlightInput = ({
       e.preventDefault();
       if (words.length === 1) {
         const filteredCommands = commandsName.filter((command) =>
-          command.startsWith(words[0])
+          command.startsWith(words[0]),
         );
         if (filteredCommands.length === 1) {
           if (inputRef.current) {
@@ -78,7 +78,7 @@ const HighlightInput = ({
 
   // fix this to focus the input element only when `click` changes and nod when the component mounts
   useEffect(() => {
-    if (notFirse && inputRef.current) {
+    if (notFirst && inputRef.current) {
       inputRef.current.focus();
     } else {
       setTimeout(() => {
@@ -89,7 +89,7 @@ const HighlightInput = ({
 
   const commandList: cliCommand = json_command;
   const commandsName: string[] = commandList.commands.map(
-    (command) => command.name
+    (command) => command.name,
   );
   const keyword: string = clsx("text-terminal-green", "px-1");
 
@@ -97,7 +97,7 @@ const HighlightInput = ({
     "w-2",
     "h-5",
     "inline-block",
-    focused ? ["animate-custom-pulse", "bg-foreground"] : ["border-2"]
+    focused ? ["animate-custom-pulse", "bg-foreground"] : ["border-2"],
   );
 
   return (

@@ -109,9 +109,6 @@ function useGlitch(active: boolean) {
 type GlitchTextProps = {
   text: string;
   as?: keyof HTMLElementTagNameMap;
-  delay?: number;
-  speed?: number;
-  wordGap?: number;
   enabled?: boolean;
   className?: string;
 } & HTMLAttributes<HTMLElement>;
@@ -129,9 +126,6 @@ type GlitchTextProps = {
 export default function GlitchText({
   text,
   as: Tag = "span",
-  delay: _delay = 0,
-  speed: _speed = 30,
-  wordGap: _wordGap,
   enabled = true,
   className = "",
   ...rest
