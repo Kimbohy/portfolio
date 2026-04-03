@@ -41,9 +41,77 @@ const education = [
   },
 ];
 
+type EducationItem = (typeof education)[number];
+
+const EducationTimelineItem = ({
+  item,
+  index,
+  total,
+}: {
+  item: EducationItem;
+  index: number;
+  total: number;
+}) => {
+  const itemRef = useRef(null);
+  const itemInView = useInView(itemRef, { once: true });
+  const base = index * 280;
+
+  return (
+    <div ref={itemRef}>
+      <MotionDiv
+        className="relative pl-12 mb-8 last:mb-0"
+        initial={{ opacity: 0, x: -50 }}
+        animate={itemInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
+      >
+        <div className="absolute left-0 top-0 w-4 h-4 bg-foreground rounded-full">
+          {index !== total - 1 && (
+            <div className="absolute left-1/2 top-4 bottom-[-2rem] w-0.5 bg-foreground transform -translate-x-1/2" />
+          )}
+        </div>
+
+        <div className="bg-card p-6 rounded-lg shadow-md">
+          <h4 className="font-semibold mb-2">
+            <GlitchText
+              text={item.year}
+              delay={base + 80}
+              wordGap={95}
+              enabled={itemInView}
+            />
+          </h4>
+          <h5 className="font-medium mb-2">
+            <GlitchText
+              text={item.degree}
+              delay={base + 200}
+              wordGap={32}
+              enabled={itemInView}
+            />
+          </h5>
+          <p className="text-foreground mb-2">
+            <GlitchText
+              text={item.school}
+              delay={base + 340}
+              wordGap={42}
+              enabled={itemInView}
+            />
+          </p>
+          <p className="text-foreground">
+            <GlitchText
+              text={item.description}
+              delay={base + 460}
+              wordGap={28}
+              enabled={itemInView}
+            />
+          </p>
+        </div>
+      </MotionDiv>
+    </div>
+  );
+};
+
 const About = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const titleRef = useRef(null);
+  const titleInView = useInView(titleRef, { once: true });
 
   return (
     <div id="about" className="pt-20 md:pt-24 bg-background text-foreground">
@@ -72,69 +140,25 @@ const About = () => {
           </p>
         </MotionDiv>
 
-        <div ref={ref} className="relative py-8">
-          <h3 className="text-2xl font-bold mb-8">
+        <div className="relative py-8">
+          <h3 ref={titleRef} className="text-2xl font-bold mb-8">
             <GlitchText
               text="Education"
               delay={0}
               wordGap={130}
-              enabled={inView}
+              enabled={titleInView}
             />
           </h3>
-
-          {education.map((item, index) => {
-            const base = index * 280;
-            return (
-              <MotionDiv
-                key={index}
-                className="relative pl-12 mb-8 last:mb-0"
-                initial={{ opacity: 0, x: -50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <div className="absolute left-0 top-0 w-4 h-4 bg-foreground rounded-full">
-                  {index !== education.length - 1 && (
-                    <div className="absolute left-1/2 top-4 bottom-[-2rem] w-0.5 bg-foreground transform -translate-x-1/2" />
-                  )}
-                </div>
-
-                <div className="bg-card p-6 rounded-lg shadow-md">
-                  <h4 className="font-semibold mb-2">
-                    <GlitchText
-                      text={item.year}
-                      delay={base + 80}
-                      wordGap={95}
-                      enabled={inView}
-                    />
-                  </h4>
-                  <h5 className="font-medium mb-2">
-                    <GlitchText
-                      text={item.degree}
-                      delay={base + 200}
-                      wordGap={32}
-                      enabled={inView}
-                    />
-                  </h5>
-                  <p className="text-foreground mb-2">
-                    <GlitchText
-                      text={item.school}
-                      delay={base + 340}
-                      wordGap={42}
-                      enabled={inView}
-                    />
-                  </p>
-                  <p className="text-foreground">
-                    <GlitchText
-                      text={item.description}
-                      delay={base + 460}
-                      wordGap={28}
-                      enabled={inView}
-                    />
-                  </p>
-                </div>
-              </MotionDiv>
-            );
-          })}
+          <div className="flex flex-col gap-7">
+            {education.map((item, index) => (
+              <EducationTimelineItem
+                key={item.year}
+                item={item}
+                index={index}
+                total={education.length}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </div>
