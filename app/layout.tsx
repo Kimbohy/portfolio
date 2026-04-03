@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ClarityAnalytics from "@/components/ClarityAnalytics";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -68,6 +69,9 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        {process.env.CLARITY_PROJECT_ID && (
+          <ClarityAnalytics projectId={process.env.CLARITY_PROJECT_ID} />
+        )}
       </body>
     </html>
   );
