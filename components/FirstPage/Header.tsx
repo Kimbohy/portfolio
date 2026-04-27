@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import NavBut from "./NavBut";
 import Glitch from "./glitchSvg/Glitch";
 import MobileMenu from "./MobileMenu";
-import ModeToggle from "@/components/ModeToggle";
+import ModeToggle from "@/components/FirstPage/ModeToggle";
 import { useMode } from "@/context/PortfolioMode";
 
 function Header() {

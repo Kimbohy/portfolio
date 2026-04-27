@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import NavBut from "./NavBut";
-import ModeToggle from "@/components/ModeToggle";
+import ModeToggle from "@/components/FirstPage/ModeToggle";
 
 function MobileMenu({
   isMenuOpen,

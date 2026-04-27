@@ -1,14 +1,31 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useMode } from "@/context/PortfolioMode";
 import styles from "./ModeToggle.module.css";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 1,
+    y: "-10vh",
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 export default function ModeToggle() {
   const { mode, toggle } = useMode();
 
   return (
-    <button
+    <motion.button
       onClick={toggle}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ type: "spring", stiffness: 40, delay: 0.35 }}
       className={`${styles.toggle} ${mode === "ml" ? styles.mlActive : ""}`}
       aria-label={`Switch to ${mode === "dev" ? "ML" : "DEV"} mode`}
       type="button"
@@ -25,6 +42,6 @@ export default function ModeToggle() {
       >
         ML
       </span>
-    </button>
+    </motion.button>
   );
 }
