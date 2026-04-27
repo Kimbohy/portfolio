@@ -1,10 +1,11 @@
-import FirstPage from "./FirstPage";
-import About from "./About";
-import Work from "./Work";
-import Contact from "./Contact";
+import FirstPage from "@/components/FirstPage";
 import dynamic from "next/dynamic";
 
-const Tech = dynamic(() => import("./Tech"), { ssr: false });
+// Lazy load components that aren't immediately visible
+const About = dynamic(() => import("@/components/About"));
+const Work = dynamic(() => import("@/components/Work"));
+const Tech = dynamic(() => import("@/components/Tech"));
+const Contact = dynamic(() => import("@/components/Contact"));
 
 export default function DevPortfolio() {
   return (
