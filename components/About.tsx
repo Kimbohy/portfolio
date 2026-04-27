@@ -108,9 +108,7 @@ const About = ({
       id={sectionId}
       className="pt-20 md:pt-24 bg-background text-foreground"
     >
-      <h2 className="p-3 md:p-5 text-4xl md:text-6xl">
-        {mode === "ml" ? "About My ML Path" : "About Me"}
-      </h2>
+      <h2 className="p-3 md:p-5 text-4xl md:text-6xl">About Me</h2>
 
       <section className="py-16 px-8 max-w-6xl mx-auto">
         <MotionDiv

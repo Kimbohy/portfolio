@@ -3,11 +3,11 @@
 import {
   createContext,
   useContext,
-  useEffect,
+  useCallback,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
+import { useQueryState } from "nuqs";
 
 export type Mode = "dev" | "ml";
 
@@ -17,8 +17,6 @@ interface ModeContextType {
   setMode: (mode: Mode) => void;
 }
 
-const STORAGE_KEY = "portfolio-mode";
-
 const ModeContext = createContext<ModeContextType>({
   mode: "dev",
   toggle: () => undefined,
@@ -26,23 +24,18 @@ const ModeContext = createContext<ModeContextType>({
 });
 
 export function PortfolioProvider({ children }: { children: ReactNode }) {
-  const [mode, setModeState] = useState<Mode>("dev");
+  const [mode, setMode] = useQueryState<Mode>("mode", {
+    defaultValue: "dev",
+    history: "replace",
+    shallow: true,
+    clearOnDefault: true,
+    parse: (value) => (value === "ml" ? "ml" : "dev"),
+    serialize: (value) => value,
+  });
 
-  useEffect(() => {
-    const savedMode = window.localStorage.getItem(STORAGE_KEY);
-    if (savedMode === "dev" || savedMode === "ml") {
-      setModeState(savedMode);
-    }
-  }, []);
-
-  const setMode = (nextMode: Mode) => {
-    setModeState(nextMode);
-    window.localStorage.setItem(STORAGE_KEY, nextMode);
-  };
-
-  const toggle = () => {
+  const toggle = useCallback(() => {
     setMode(mode === "dev" ? "ml" : "dev");
-  };
+  }, [mode, setMode]);
 
   const contextValue = useMemo(
     () => ({
@@ -50,7 +43,7 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
       toggle,
       setMode,
     }),
-    [mode],
+    [mode, toggle, setMode],
   );
 
   return (

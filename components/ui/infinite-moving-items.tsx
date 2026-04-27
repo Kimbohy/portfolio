@@ -165,12 +165,12 @@ export const InfiniteMovingItems = ({
       if (direction === "left") {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "forwards"
+          "forwards",
         );
       } else {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "reverse"
+          "reverse",
         );
       }
     }
@@ -192,7 +192,7 @@ export const InfiniteMovingItems = ({
       className={cn(
         "scroller relative z-20 max-w-[1500px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] cursor-grab",
         isDragging && "cursor-grabbing",
-        className
+        className,
       )}
       style={{
         scrollbarWidth: "none",
@@ -211,7 +211,7 @@ export const InfiniteMovingItems = ({
         ref={scrollerRef}
         className={cn(
           "flex min-w-full items-center shrink-0 gap-10 py-4 w-max flex-nowrap select-none",
-          start && !isDragging && "animate-scroll"
+          start && !isDragging && "animate-scroll",
         )}
       >
         {items.map((t, index) => (
@@ -221,7 +221,7 @@ export const InfiniteMovingItems = ({
               alt={t}
               height={80}
               width={80}
-              className="h-10 w-10 md:h-20 md:w-20 object-contain"
+              className="h-10 w-10 md:h-20 md:min-w-20 object-contain"
               draggable={false}
             />
           </li>

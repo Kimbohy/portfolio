@@ -31,7 +31,17 @@ function Tech({ mode = "dev" }: { mode?: "dev" | "ml" }) {
     "n8n",
   ];
 
-  const mlTechs = ["python", "mongodb", "n8n"];
+  const mlTechs = [
+    "python",
+    "jupyter",
+    "n8n",
+    "scikit-learn",
+    "pandas",
+    "numpy",
+    "seaborn",
+    "pyTorch",
+    "tensorFlow",
+  ];
 
   const techs = mode === "ml" ? mlTechs : devTechs;
 

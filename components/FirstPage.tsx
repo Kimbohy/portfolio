@@ -16,7 +16,8 @@ function FirstPage({
   topId = "top",
   aboutId = "about",
 }: FirstPageProps) {
-  const title = mode === "ml" ? "ML Engineer" : "Developer";
+  const title = mode === "ml" ? "Data scientist" : "Developer";
+  const backgroundText = mode === "ml" ? "Data science" : "Developer";
 
   return (
     <div
@@ -36,11 +37,11 @@ function FirstPage({
           min-h-[60px] md:min-h-[100px]
           break-words"
         >
-          <span className="hidden md:inline-block">{title}</span>
+          <span className="hidden md:inline-block text-nowrap">{title}</span>
           <FlipWordsCp mode={mode} />
         </div>
         <div className="w-full mt-[15vh] sm:mt-0">
-          <TextHoverEffect text={title} />
+          <TextHoverEffect text={backgroundText} />
         </div>
         <ScrollButton targetId={aboutId} />
       </div>

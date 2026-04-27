@@ -175,70 +175,28 @@ export const projects: ProjectData[] = [
 
 export const mlProjects: ProjectData[] = [
   {
-    title: "RAG Studio",
-    description: "Knowledge assistant for internal documents",
+    title: "Credit Scoring",
+    description:
+      "Predicting loan default probability from customer financial data across African markets",
     longDescription:
-      "RAG Studio is a fictional retrieval-augmented generation workspace used to test chunking strategies, embedding quality, and response grounding. It combines a lightweight web UI with pipeline automation to compare retrieval settings and prompt templates on curated document sets.",
-    imagePaths: [
-      "/images/vgsales/vgsales1.png",
-      "/images/vgsales/vgsales2.png",
-      "/images/vgsales/vgsales3.png",
-    ],
-    tech: [
-      { name: "python", isMain: true },
-      { name: "nextjs", isMain: true },
-      { name: "typescript" },
-      { name: "nodejs" },
-      { name: "prisma" },
-      { name: "postgreSQL" },
-      { name: "n8n" },
-      { name: "tailwindcss" },
-    ],
-    github: "https://github.com/Kimbohy/rag-studio-mock",
-    website: "https://rag-studio-demo.vercel.app",
+      "Built a robust and generalisable machine learning pipeline to estimate the likelihood of loan default for both existing customers and new applicants. The challenge focused on highly diverse customer profiles and dynamic market conditions across Africa. Beyond prediction accuracy, the solution was designed to support production credit scoring by transforming model probabilities into practical risk bands and scalable score buckets for lending decisions.",
+    imagePaths: ["/images/vgsales/vgsales1.png"],
+    tech: [{ name: "python", isMain: true }, { name: "jupyter" }],
   },
   {
-    title: "Vision QA Lab",
-    description: "Prototype for image question answering",
+    title: "Lumos",
+    description: "AI-powered smart home automation system",
     longDescription:
-      "Vision QA Lab is a fictional multimodal prototype where users submit screenshots and receive structured answers. The project is used as a test bed for preprocessing, prompt routing, confidence scoring, and UI feedback loops in an applied ML workflow.",
-    imagePaths: [
-      "/images/rahona/rahona1.png",
-      "/images/rahona/rahona2.png",
-      "/images/rahona/rahona3.png",
-    ],
+      "Lumos is a smart home project using vocal commands to control devices. It has two versions: one integrated with external LLM API and another using totally local AI with n8n, whisper, and models running on a local machine. The system allows users to manage their smart home devices through natural language commands, providing a seamless and efficient home automation experience.",
+    imagePaths: ["/images/lumos/lumos.png"],
     tech: [
-      { name: "python", isMain: true },
-      { name: "react", isMain: true },
-      { name: "typescript" },
-      { name: "express" },
-      { name: "mongodb" },
-      { name: "chartjs" },
-      { name: "motion" },
-      { name: "tailwindcss" },
+      { name: "n8n", isMain: true },
+      { name: "python" },
+      { name: "gemini" },
+      { name: "flutter" },
+      { name: "arduino" },
+      { name: "dart" },
     ],
-    github: "https://github.com/Kimbohy/vision-qa-lab-mock",
-  },
-  {
-    title: "ForecastFlow",
-    description: "Time-series forecasting experimentation platform",
-    longDescription:
-      "ForecastFlow is a fictional platform focused on feature engineering and forecasting experiments. It lets users compare baselines against advanced models, inspect drift indicators, and track evaluation metrics in a simple dashboard for rapid iteration.",
-    imagePaths: [
-      "/images/lumos/lumos.png",
-      "/images/doquest/do-quest1.png",
-      "/images/doquest/do-quest2.png",
-    ],
-    tech: [
-      { name: "python", isMain: true },
-      { name: "nextjs", isMain: true },
-      { name: "typescript" },
-      { name: "prisma" },
-      { name: "redis" },
-      { name: "chartjs" },
-      { name: "n8n" },
-      { name: "tailwindcss" },
-    ],
-    github: "https://github.com/Kimbohy/forecastflow-mock",
+    github: "https://github.com/Kimbohy/lumos",
   },
 ];

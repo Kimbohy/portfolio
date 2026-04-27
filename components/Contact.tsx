@@ -3,7 +3,6 @@ import Messaging from "./Contact/Messaging";
 import Image from "next/image";
 
 function Contact({
-  mode = "dev",
   sectionId = "contact",
 }: {
   mode?: "dev" | "ml";
@@ -12,13 +11,9 @@ function Contact({
   return (
     <div id={sectionId} className="pt-20 bg-background">
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl text-secondary bg-background">
-        {mode === "ml" ? "Contact for ML" : "Contact"}
+        Contact
       </h2>
-      {mode === "ml" && (
-        <p className="px-3 md:px-5 text-secondary/80 bg-background text-base md:text-lg">
-          Open to collaboration on intelligent products and AI systems.
-        </p>
-      )}
+
       <div className="flex flex-col min-h-screen bg-background pb-8">
         <Messaging />
 

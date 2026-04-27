@@ -1,8 +1,10 @@
 import FirstPage from "./FirstPage";
 import About from "./About";
 import Work from "./Work";
-import Tech from "./Tech";
 import Contact from "./Contact";
+import dynamic from "next/dynamic";
+
+const Tech = dynamic(() => import("./Tech"), { ssr: false });
 
 export default function DevPortfolio() {
   return (
