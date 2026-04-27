@@ -32,6 +32,13 @@ const techList: Tech[] = [
     type: "framework",
   },
   {
+    tech: "arduino",
+    name: "Arduino",
+    desc: "An open-source electronics platform based on easy-to-use hardware and software.",
+    link: "https://www.arduino.cc/",
+    type: "tools",
+  },
+  {
     tech: "bash",
     name: "Bash",
     desc: "A Unix shell and command language.",
@@ -123,6 +130,13 @@ const techList: Tech[] = [
     type: "framework",
   },
   {
+    tech: "gemini",
+    name: "Gemini",
+    desc: "A family of large language models developed by Google.",
+    link: "https://deepmind.google/technologies/gemini/",
+    type: "tools",
+  },
+  {
     tech: "git",
     name: "Git",
     desc: "A distributed version-control system for tracking changes.",
@@ -184,6 +198,13 @@ const techList: Tech[] = [
     desc: "An open-source relational database management system.",
     link: "https://www.mysql.com/",
     type: "database",
+  },
+  {
+    tech: "n8n",
+    name: "n8n",
+    desc: "AI agents and workflows automation tool.",
+    link: "https://n8n.io/",
+    type: "tools",
   },
   {
     tech: "nestjs",
@@ -254,6 +275,13 @@ const techList: Tech[] = [
     desc: "A next-generation ORM for Node.js and TypeScript.",
     link: "https://www.prisma.io/docs/orm",
     type: "database",
+  },
+  {
+    tech: "python",
+    name: "Python",
+    desc: "A high-level, interpreted programming language with dynamic semantics.",
+    link: "https://www.python.org/",
+    type: "language",
   },
   {
     tech: "react",

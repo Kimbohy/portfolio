@@ -52,10 +52,10 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
           <MotionDiv
             key={image}
             layoutId={image}
-            className="w-full md:w-[600px] rounded-xl absolute cursor-pointer overflow-hidden"
+            className="w-full max-h-[400px] md:w-[600px] rounded-xl absolute cursor-pointer overflow-hidden select-none"
             style={{
-              right: `${position}px`,
-              top: `${position}px`,
+              left: `${position}px`,
+              bottom: `${position}px`,
               zIndex: zIndex,
               filter: `brightness(${brightness})`,
             }}
@@ -68,7 +68,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
             transition={{ duration: 0.3 }}
             exit={{ x: "100vw", opacity: 0 }}
             whileHover={index !== 0 ? { x: 10, y: -10 } : undefined}
-            drag={index === 0 ? true : false}
+            drag={index === 0 && imagesList.length != 1 ? true : false}
             dragSnapToOrigin={index === 0}
             dragConstraints={{ left: -170, right: 170, top: -200, bottom: 200 }}
             dragElastic={0.1}

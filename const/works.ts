@@ -155,4 +155,20 @@ export const projects: ProjectData[] = [
     tech: [{ name: "flutter", isMain: true }, { name: "dart" }],
     github: "https://github.com/Kimbohy/do_quest",
   },
+  {
+    title: "Lumos",
+    description: "AI-powered smart home automation system",
+    longDescription:
+      "Lumos is a smart home project using vocal commands to control devices. It has two versions: one integrated with external LLM API and another using totally local AI with n8n, whisper, and models running on a local machine. The system allows users to manage their smart home devices through natural language commands, providing a seamless and efficient home automation experience.",
+    imagePaths: ["/images/lumos/lumos.png"],
+    tech: [
+      { name: "n8n", isMain: true },
+      { name: "python" },
+      { name: "gemini" },
+      { name: "flutter" },
+      { name: "arduino" },
+      { name: "dart" },
+    ],
+    github: "https://github.com/Kimbohy/lumos",
+  },
 ];

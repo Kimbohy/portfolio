@@ -28,6 +28,7 @@ function Tech() {
     "yarn",
     "nuqs",
     "lucide",
+    "n8n",
   ];
 
   // Function to shuffle the array
