@@ -88,13 +88,29 @@ const EducationTimelineItem = ({
   );
 };
 
-const About = () => {
+const About = ({
+  mode = "dev",
+  sectionId = "about",
+}: {
+  mode?: "dev" | "ml";
+  sectionId?: string;
+}) => {
   const titleRef = useRef(null);
   const titleInView = useInView(titleRef, { once: true });
 
+  const introText =
+    mode === "ml"
+      ? "motivated and passionate about machine learning and applied AI, I am a student at MISA (Applied Mathematics, Computer Science, and Statistics). I am eager to apply my knowledge in model development, data analysis, and problem-solving to real-world challenges. With a strong foundation in coding and mathematics, I am focused on building practical AI systems that are reliable and useful."
+      : "motivated and passionate about computer science and technology, I am a student at MISA (Applied Mathematics, Computer Science, and Statistics). I am eager to apply my knowledge in programming and problem-solving to real-world challenges. With a strong foundation in coding and hardware programming, I am looking to further develop my skills through practical experiences and innovative projects.";
+
   return (
-    <div id="about" className="pt-20 md:pt-24 bg-background text-foreground">
-      <h2 className="p-3 md:p-5 text-4xl md:text-6xl">About Me</h2>
+    <div
+      id={sectionId}
+      className="pt-20 md:pt-24 bg-background text-foreground"
+    >
+      <h2 className="p-3 md:p-5 text-4xl md:text-6xl">
+        {mode === "ml" ? "About My ML Path" : "About Me"}
+      </h2>
 
       <section className="py-16 px-8 max-w-6xl mx-auto">
         <MotionDiv
@@ -107,15 +123,7 @@ const About = () => {
             <GlitchText text="I am" />{" "}
             <span className="text-5xl">Lovatiana RABARIJAONA</span>
             , <br />
-            <span>
-              motivated and passionate about computer science and technology, I
-              am a student at MISA (Applied Mathematics, Computer Science, and
-              Statistics). I am eager to apply my knowledge in programming and
-              problem-solving to real-world challenges. With a strong foundation
-              in coding and hardware programming, I am looking to further
-              develop my skills through practical experiences and innovative
-              projects.
-            </span>
+            <span>{introText}</span>
           </p>
         </MotionDiv>
 

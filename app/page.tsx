@@ -1,24 +1,31 @@
-import FirstPage from "@/components/FirstPage";
-import dynamic from "next/dynamic";
+"use client";
 
-// Lazy load components that aren't immediately visible
-const About = dynamic(() => import("@/components/About"));
-const Work = dynamic(() => import("@/components/Work"));
-const Tech = dynamic(() => import("@/components/Tech"));
-const Contact = dynamic(() => import("@/components/Contact"));
-// const TerminalPart = dynamic(() => import("@/components/TerminalPart"));
+import Header from "@/components/FirstPage/Header";
+import DevPortfolio from "@/components/DevPortfolio";
+import MLPortfolio from "@/components/MLPortfolio";
+import { useMode } from "@/context/PortfolioMode";
+import styles from "./page.module.css";
 
-function App() {
+export default function Home() {
+  const { mode } = useMode();
+
   return (
-    <div className="bg-background overflow-x-hidden">
-      <FirstPage />
-      {/* <TerminalPart /> */}
-      <About />
-      <Work />
-      <Tech />
-      <Contact />
-    </div>
+    <main className={styles.main}>
+      <Header />
+
+      <div aria-live="polite" className="sr-only">
+        {mode === "dev" ? "Development mode enabled" : "ML mode enabled"}
+      </div>
+
+      <div className={styles.scene} data-mode={mode}>
+        <div className={`${styles.panel} ${styles.panelDev}`}>
+          <DevPortfolio />
+        </div>
+
+        <div className={`${styles.panel} ${styles.panelMl}`}>
+          <MLPortfolio />
+        </div>
+      </div>
+    </main>
   );
 }
-
-export default App;

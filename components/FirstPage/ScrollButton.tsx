@@ -1,8 +1,12 @@
 "use client";
 
-const ScrollButton: React.FC = () => {
+interface ScrollButtonProps {
+  targetId?: string;
+}
+
+const ScrollButton: React.FC<ScrollButtonProps> = ({ targetId = "about" }) => {
   const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

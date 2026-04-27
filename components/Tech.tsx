@@ -1,7 +1,7 @@
 import { InfiniteMovingItems } from "./ui/infinite-moving-items";
 
-function Tech() {
-  const techs = [
+function Tech({ mode = "dev" }: { mode?: "dev" | "ml" }) {
+  const devTechs = [
     "javascript",
     "typescript",
     "react",
@@ -31,6 +31,10 @@ function Tech() {
     "n8n",
   ];
 
+  const mlTechs = ["python", "mongodb", "n8n"];
+
+  const techs = mode === "ml" ? mlTechs : devTechs;
+
   // Function to shuffle the array
   const shuffleArray = (array: string[]) => {
     const shuffled = [...array];
@@ -44,7 +48,7 @@ function Tech() {
   const shuffledTechs = shuffleArray(techs);
 
   return (
-    <div className="mt-2 md:mt-10">
+    <div className="pt-2 md:pt-10 bg-background">
       <InfiniteMovingItems
         items={shuffledTechs}
         suffix="_b"

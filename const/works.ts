@@ -172,3 +172,73 @@ export const projects: ProjectData[] = [
     github: "https://github.com/Kimbohy/lumos",
   },
 ];
+
+export const mlProjects: ProjectData[] = [
+  {
+    title: "RAG Studio",
+    description: "Knowledge assistant for internal documents",
+    longDescription:
+      "RAG Studio is a fictional retrieval-augmented generation workspace used to test chunking strategies, embedding quality, and response grounding. It combines a lightweight web UI with pipeline automation to compare retrieval settings and prompt templates on curated document sets.",
+    imagePaths: [
+      "/images/vgsales/vgsales1.png",
+      "/images/vgsales/vgsales2.png",
+      "/images/vgsales/vgsales3.png",
+    ],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "nextjs", isMain: true },
+      { name: "typescript" },
+      { name: "nodejs" },
+      { name: "prisma" },
+      { name: "postgreSQL" },
+      { name: "n8n" },
+      { name: "tailwindcss" },
+    ],
+    github: "https://github.com/Kimbohy/rag-studio-mock",
+    website: "https://rag-studio-demo.vercel.app",
+  },
+  {
+    title: "Vision QA Lab",
+    description: "Prototype for image question answering",
+    longDescription:
+      "Vision QA Lab is a fictional multimodal prototype where users submit screenshots and receive structured answers. The project is used as a test bed for preprocessing, prompt routing, confidence scoring, and UI feedback loops in an applied ML workflow.",
+    imagePaths: [
+      "/images/rahona/rahona1.png",
+      "/images/rahona/rahona2.png",
+      "/images/rahona/rahona3.png",
+    ],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "react", isMain: true },
+      { name: "typescript" },
+      { name: "express" },
+      { name: "mongodb" },
+      { name: "chartjs" },
+      { name: "motion" },
+      { name: "tailwindcss" },
+    ],
+    github: "https://github.com/Kimbohy/vision-qa-lab-mock",
+  },
+  {
+    title: "ForecastFlow",
+    description: "Time-series forecasting experimentation platform",
+    longDescription:
+      "ForecastFlow is a fictional platform focused on feature engineering and forecasting experiments. It lets users compare baselines against advanced models, inspect drift indicators, and track evaluation metrics in a simple dashboard for rapid iteration.",
+    imagePaths: [
+      "/images/lumos/lumos.png",
+      "/images/doquest/do-quest1.png",
+      "/images/doquest/do-quest2.png",
+    ],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "nextjs", isMain: true },
+      { name: "typescript" },
+      { name: "prisma" },
+      { name: "redis" },
+      { name: "chartjs" },
+      { name: "n8n" },
+      { name: "tailwindcss" },
+    ],
+    github: "https://github.com/Kimbohy/forecastflow-mock",
+  },
+];

@@ -1,0 +1,98 @@
+.main {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.scene {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  transition:
+    clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.45s ease,
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: clip-path, opacity, transform;
+}
+
+.scene[data-mode="dev"] .panelDev,
+.scene[data-mode="ml"] .panelMl {
+  position: relative;
+  inset: auto;
+  z-index: 2;
+}
+
+.scene[data-mode="dev"] .panelMl,
+.scene[data-mode="ml"] .panelDev {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.scene[data-mode="dev"] .panelDev {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.scene[data-mode="dev"] .panelMl {
+  clip-path: inset(0 0 0 100%);
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+}
+
+.scene[data-mode="ml"] .panelMl {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.scene[data-mode="ml"] .panelDev {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transform: translateX(-40px);
+  pointer-events: none;
+}
+
+.panelMl {
+  --color-primary: #0f766e;
+  --color-primary-light: #14b8a6;
+  --color-primary-dark: #115e59;
+  --color-secondary: #ecfdf5;
+  --color-secondary-light: #ffffff;
+  --color-secondary-dark: #bbf7d0;
+  --color-accent: #22c55e;
+  --color-accent-dark: #16a34a;
+  --color-background: #031412;
+  --color-background-light: #0b2c27;
+  --color-foreground: #ecfdf5;
+  --color-foreground-muted: #86efac;
+  --color-border: #14532d;
+  --color-card: #0f2f2a;
+  --color-card-hover: #16413a;
+  --color-gradient-start: #0f766e;
+  --color-gradient-mid: #22c55e;
+  --color-gradient-end: #84cc16;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    transition:
+      clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.35s ease,
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scene[data-mode="dev"] .panelMl,
+  .scene[data-mode="ml"] .panelDev {
+    transform: translateX(20px);
+  }
+}

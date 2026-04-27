@@ -1,0 +1,46 @@
+.toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: #0f172a;
+  border-radius: 999px;
+  transition:
+    left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.35s ease;
+}
+
+.mlActive .slider {
+  left: 50%;
+  background: #0f766e;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  color: #475569;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.labelActive {
+  color: #ffffff;
+}
