@@ -1,24 +1,91 @@
-import FirstPage from "@/components/FirstPage";
-import dynamic from "next/dynamic";
+"use client";
 
-// Lazy load components that aren't immediately visible
-const About = dynamic(() => import("@/components/About"));
-const Work = dynamic(() => import("@/components/Work"));
-const Tech = dynamic(() => import("@/components/Tech"));
-const Contact = dynamic(() => import("@/components/Contact"));
-// const TerminalPart = dynamic(() => import("@/components/TerminalPart"));
+import { useEffect } from "react";
+import Header from "@/components/FirstPage/Header";
+import DevPortfolio from "@/components/DevPortfolio";
+import MLPortfolio from "@/components/MLPortfolio";
+import { useMode } from "@/context/PortfolioMode";
+import styles from "./page.module.css";
 
-function App() {
+const DEV_SECTION_IDS = new Set(["top", "about", "work", "contact"]);
+const ML_SECTION_IDS = new Set(["top-ml", "about-ml", "work-ml", "contact-ml"]);
+
+export default function Home() {
+  const { mode, setMode } = useMode();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const { hash } = window.location;
+    if (!hash) return;
+
+    const rawId = hash.replace("#", "");
+    const isMlHash = rawId.endsWith("-ml");
+    const baseId = isMlHash ? rawId.replace(/-ml$/, "") : rawId;
+
+    if (!DEV_SECTION_IDS.has(baseId) && !ML_SECTION_IDS.has(rawId)) return;
+
+    const targetMode = isMlHash ? "ml" : "dev";
+    if (targetMode !== mode) {
+      setMode(targetMode);
+    }
+
+    const normalizedId = targetMode === "ml" ? `${baseId}-ml` : baseId;
+    if (rawId !== normalizedId) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}#${normalizedId}`,
+      );
+      const targetEl = document.getElementById(normalizedId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [mode, setMode]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const clearHash = () => {
+      const { hash, pathname, search } = window.location;
+      if (!hash) return;
+
+      const rawId = hash.replace("#", "");
+      const baseId = rawId.endsWith("-ml") ? rawId.replace(/-ml$/, "") : rawId;
+
+      if (!DEV_SECTION_IDS.has(baseId) && !ML_SECTION_IDS.has(rawId)) return;
+
+      window.setTimeout(() => {
+        window.history.replaceState(null, "", `${pathname}${search}`);
+      }, 400);
+    };
+
+    window.addEventListener("hashchange", clearHash);
+    clearHash();
+
+    return () => {
+      window.removeEventListener("hashchange", clearHash);
+    };
+  }, []);
+
   return (
-    <div className="bg-background overflow-x-hidden">
-      <FirstPage />
-      {/* <TerminalPart /> */}
-      <About />
-      <Work />
-      <Tech />
-      <Contact />
-    </div>
+    <main className={styles.main}>
+      <Header />
+
+      <div aria-live="polite" className="sr-only">
+        {mode === "dev" ? "Development mode enabled" : "ML mode enabled"}
+      </div>
+
+      <div className={styles.scene} data-mode={mode}>
+        <div className={`${styles.panel} ${styles.panelDev}`}>
+          <DevPortfolio />
+        </div>
+
+        <div className={`${styles.panel} ${styles.panelMl}`}>
+          <MLPortfolio />
+        </div>
+      </div>
+    </main>
   );
 }
-
-export default App;

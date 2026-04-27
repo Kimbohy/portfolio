@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useId } from "react";
 import { motion } from "motion/react";
 
 export const TextHoverEffect = ({
@@ -10,6 +10,12 @@ export const TextHoverEffect = ({
   duration?: number;
   automatic?: boolean;
 }) => {
+  const rawId = useId();
+  const instanceId = rawId.replace(/:/g, "");
+  const gradientId = `textGradient-${instanceId}`;
+  const revealMaskId = `revealMask-${instanceId}`;
+  const textMaskId = `textMask-${instanceId}`;
+
   const svgRef = useRef<SVGSVGElement>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
@@ -50,23 +56,24 @@ export const TextHoverEffect = ({
       setTimeout(() => setHovered(false), 150);
     };
 
-    if (svgRef.current) {
-      svgRef.current.addEventListener("touchstart", handleTouch, {
+    const svgElement = svgRef.current;
+    if (svgElement) {
+      svgElement.addEventListener("touchstart", handleTouch, {
         passive: false,
       });
-      svgRef.current.addEventListener("touchmove", handleTouch, {
+      svgElement.addEventListener("touchmove", handleTouch, {
         passive: false,
       });
-      svgRef.current.addEventListener("touchend", handleTouchEnd);
-      svgRef.current.addEventListener("touchcancel", handleTouchEnd);
+      svgElement.addEventListener("touchend", handleTouchEnd);
+      svgElement.addEventListener("touchcancel", handleTouchEnd);
     }
 
     return () => {
-      if (svgRef.current) {
-        svgRef.current.removeEventListener("touchstart", handleTouch);
-        svgRef.current.removeEventListener("touchmove", handleTouch);
-        svgRef.current.removeEventListener("touchend", handleTouchEnd);
-        svgRef.current.removeEventListener("touchcancel", handleTouchEnd);
+      if (svgElement) {
+        svgElement.removeEventListener("touchstart", handleTouch);
+        svgElement.removeEventListener("touchmove", handleTouch);
+        svgElement.removeEventListener("touchend", handleTouchEnd);
+        svgElement.removeEventListener("touchcancel", handleTouchEnd);
       }
     };
   }, []);
@@ -85,7 +92,7 @@ export const TextHoverEffect = ({
     >
       <defs>
         <linearGradient
-          id="textGradient"
+          id={gradientId}
           gradientUnits="userSpaceOnUse"
           cx="50%"
           cy="50%"
@@ -108,25 +115,25 @@ export const TextHoverEffect = ({
         </linearGradient>
 
         <motion.radialGradient
-          id="revealMask"
+          id={revealMaskId}
           gradientUnits="userSpaceOnUse"
           r={isTouching ? "30%" : "20%"} // Larger radius on touch
           animate={maskPosition}
           transition={{
-            duration: isTouching ? 0.1 : duration ?? 0,
+            duration: isTouching ? 0.1 : (duration ?? 0),
             ease: "easeOut",
           }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
         </motion.radialGradient>
-        <mask id="textMask">
+        <mask id={textMaskId}>
           <rect
             x="0"
             y="0"
             width="100%"
             height="100%"
-            fill="url(#revealMask)"
+            fill={`url(#${revealMaskId})`}
           />
         </mask>
       </defs>
@@ -165,9 +172,9 @@ export const TextHoverEffect = ({
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        stroke="url(#textGradient)"
+        stroke={`url(#${gradientId})`}
         strokeWidth="0.3"
-        mask="url(#textMask)"
+        mask={`url(#${textMaskId})`}
         className="font-[helvetica] font-bold fill-transparent text-6xl sm:text-6xl md:text-6xl lg:text-6xl"
       >
         {text}

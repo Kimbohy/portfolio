@@ -1,13 +1,20 @@
 import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import NavBut from "./NavBut";
+import ModeToggle from "@/components/FirstPage/ModeToggle";
 
 function MobileMenu({
   isMenuOpen,
   setIsMenuOpen,
+  links,
 }: {
   isMenuOpen?: boolean;
   setIsMenuOpen: (open: boolean) => void;
+  links: {
+    work: string;
+    about: string;
+    contact: string;
+  };
 }) {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -74,21 +81,22 @@ function MobileMenu({
             className="sm:hidden fixed top-[66.4px] left-0 right-0 bg-white/95 dark:bg-black/85 backdrop-blur-lg"
           >
             <div className="flex flex-col items-center gap-8 py-8">
+              <ModeToggle />
               <NavBut
                 text="Work"
-                to="#work"
+                to={links.work}
                 D_lay={0.1}
                 onClick={() => setIsMenuOpen(false)}
               />
               <NavBut
                 text="About"
-                to="#about"
+                to={links.about}
                 D_lay={0.2}
                 onClick={() => setIsMenuOpen(false)}
               />
               <NavBut
                 text="Contact"
-                to="#contact"
+                to={links.contact}
                 D_lay={0.3}
                 onClick={() => setIsMenuOpen(false)}
               />

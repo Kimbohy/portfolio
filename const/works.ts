@@ -172,3 +172,108 @@ export const projects: ProjectData[] = [
     github: "https://github.com/Kimbohy/lumos",
   },
 ];
+
+export const mlProjects: ProjectData[] = [
+  {
+    title: "Credit Scoring",
+    description:
+      "Predicting loan default probability from customer financial data across African markets",
+    longDescription:
+      "Built a robust and generalisable machine learning pipeline to estimate the likelihood of loan default for both existing customers and new applicants. The challenge focused on highly diverse customer profiles and dynamic market conditions across Africa. Beyond prediction accuracy, the solution was designed to support production credit scoring by transforming model probabilities into practical risk bands and scalable score buckets for lending decisions.",
+    imagePaths: ["/images/illustration/credit_scoring.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "scikit-learn" },
+      { name: "jupyter" },
+      { name: "pandas" },
+      { name: "numpy" },
+      { name: "seaborn" },
+    ],
+    github: "https://github.com/Kimbohy/credit-scoring",
+  },
+  {
+    title: "CIFAR Image Classification (CNN)",
+    description:
+      "Image classification on CIFAR using a custom CNN with PyTorch",
+    longDescription:
+      "Implemented a convolutional neural network in PyTorch to classify CIFAR images. The project includes data augmentation, model training with regularization, and evaluation with accuracy and loss curves. It showcases a clean training loop, checkpointing, and reproducible results for small-scale vision benchmarks.",
+    imagePaths: ["/images/illustration/cifar_cnn.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "pytorch" },
+      { name: "jupyter" },
+      { name: "numpy" },
+      { name: "pandas" },
+      { name: "seaborn" },
+    ],
+    // github: "https://github.com/Kimbohy/cifar-cnn-pytorch",
+  },
+  {
+    title: "Financial Health Prediction (FHI)",
+    description:
+      "Classifying SME financial health across Southern Africa using a composite index",
+    longDescription:
+      "Built a predictive model for a Financial Health Index (FHI) that scores SMEs as Low, Medium, or High financial health. The pipeline focuses on four dimensions: savings and assets, debt and repayment ability, resilience to shocks, and access to credit. The output supports targeted interventions and credit strategy by transforming raw features into interpretable health tiers.",
+    imagePaths: ["/images/illustration/financial_health.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "lightgbm" },
+      { name: "scikit-learn" },
+      { name: "pandas" },
+      { name: "numpy" },
+      { name: "jupyter" },
+      { name: "seaborn" },
+    ],
+    github:
+      "https://github.com/Kimbohy/dataorg-financial-health-prediction-challenge",
+  },
+  {
+    title: "EY Biodiversity (Frog) Challenge",
+    description:
+      "Predicting frog species presence from TerraClimate satellite variables",
+    longDescription:
+      "Built a classification model to detect the presence of frog species using monthly climate and water balance variables from the TerraClimate dataset. The work leverages satellite-derived signals (via the Microsoft Planetary Computer) to map biodiversity patterns, providing an accessible, data-driven approach for ecological monitoring and conservation.",
+    imagePaths: ["/images/illustration/biodiversity_frog.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "scikit-learn" },
+      { name: "pandas" },
+      { name: "numpy" },
+      { name: "jupyter" },
+      { name: "seaborn" },
+    ],
+    // github: "https://github.com/Kimbohy/ey-biodiversity-frog-challenge",
+  },
+
+  {
+    title: "GPT-2 Malagasy Fine-Tuning",
+    description:
+      "Fine-tuned GPT-2 for Malagasy language generation using Transformers",
+    longDescription:
+      "Fine-tuned a GPT-2 model on Malagasy text to improve local language fluency and generation quality. The work covers dataset preparation, tokenizer adaptation, and training with PyTorch + Transformers, with evaluation on coherence and lexical coverage for Malagasy.",
+    imagePaths: ["/images/illustration/gpt2_malagasy.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "pytorch" },
+      // { name: "transformers" },
+      { name: "jupyter" },
+    ],
+    // github: "https://github.com/Kimbohy/gpt2-malagasy",
+  },
+  {
+    title: "Lumos",
+    description: "AI-powered smart home automation system",
+    longDescription:
+      "Lumos is a smart home project using vocal commands to control devices. It has two versions: one integrated with external LLM API and another using totally local AI with n8n, whisper, and models running on a local machine. The system allows users to manage their smart home devices through natural language commands, providing a seamless and efficient home automation experience.",
+    imagePaths: ["/images/illustration/lumos.png"],
+    tech: [
+      { name: "n8n", isMain: true },
+      { name: "python" },
+      { name: "gemini" },
+      { name: "flutter" },
+      { name: "arduino" },
+      { name: "dart" },
+    ],
+    github: "https://github.com/Kimbohy/lumos",
+  },
+];

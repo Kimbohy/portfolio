@@ -3,17 +3,35 @@ import { useState, useEffect } from "react";
 import NavBut from "./NavBut";
 import Glitch from "./glitchSvg/Glitch";
 import MobileMenu from "./MobileMenu";
+import ModeToggle from "@/components/FirstPage/ModeToggle";
+import { useMode } from "@/context/PortfolioMode";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { mode } = useMode();
+
+  const links =
+    mode === "ml"
+      ? {
+          about: "#about-ml",
+          work: "#work-ml",
+          contact: "#contact-ml",
+        }
+      : {
+          about: "#about",
+          work: "#work",
+          contact: "#contact",
+        };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -30,14 +48,19 @@ function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden sm:flex justify-end gap-8 lg:gap-16 h-12 items-center">
-          <NavBut text="About" to="#about" D_lay={0.1} />
-          <NavBut text="Work" to="#work" D_lay={0.3} />
-          <NavBut text="Contact" to="#contact" D_lay={0.2} />
+        <nav className="hidden sm:flex justify-end gap-6 lg:gap-10 h-12 items-center">
+          <NavBut text="About" to={links.about} D_lay={0.1} />
+          <NavBut text="Work" to={links.work} D_lay={0.3} />
+          <NavBut text="Contact" to={links.contact} D_lay={0.2} />
+          <ModeToggle />
         </nav>
 
         {/* Mobile Menu */}
-        <MobileMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <MobileMenu
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          links={links}
+        />
       </div>
     </header>
   );

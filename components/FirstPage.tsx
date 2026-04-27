@@ -3,14 +3,29 @@ import Header from "./FirstPage/Header";
 import { TextHoverEffect } from "./ui/text-hover-effect";
 import ScrollButton from "./FirstPage/ScrollButton";
 
-function FirstPage() {
+interface FirstPageProps {
+  mode?: "dev" | "ml";
+  showHeader?: boolean;
+  topId?: string;
+  aboutId?: string;
+}
+
+function FirstPage({
+  mode = "dev",
+  showHeader = true,
+  topId = "top",
+  aboutId = "about",
+}: FirstPageProps) {
+  const title = mode === "ml" ? "Data scientist" : "Developer";
+  const backgroundText = mode === "ml" ? "Data science" : "Developer";
+
   return (
     <div
-      id="top"
+      id={topId}
       className="relative flex flex-col w-full h-screen overflow-hidden bg-background"
     >
       <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-      <Header />
+      {showHeader && <Header />}
       <div className="flex flex-col h-full justify-center relative px-4 sm:px-0">
         <div
           className="absolute 
@@ -22,13 +37,13 @@ function FirstPage() {
           min-h-[60px] md:min-h-[100px]
           break-words"
         >
-          <span className="hidden md:inline-block">Developer</span>
-          <FlipWordsCp />
+          <span className="hidden md:inline-block text-nowrap">{title}</span>
+          <FlipWordsCp mode={mode} />
         </div>
         <div className="w-full mt-[15vh] sm:mt-0">
-          <TextHoverEffect text="Developer" />
+          <TextHoverEffect text={backgroundText} />
         </div>
-        <ScrollButton />
+        <ScrollButton targetId={aboutId} />
       </div>
     </div>
   );

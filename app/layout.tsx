@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ClarityAnalytics from "@/components/ClarityAnalytics";
+import { PortfolioProvider } from "@/context/PortfolioMode";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -66,12 +69,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <Analytics />
-        <SpeedInsights />
-        {process.env.CLARITY_PROJECT_ID && (
-          <ClarityAnalytics projectId={process.env.CLARITY_PROJECT_ID} />
-        )}
+        <Suspense fallback={null}>
+          <NuqsAdapter>
+            <PortfolioProvider>
+              {children}
+              <Analytics />
+              <SpeedInsights />
+              {process.env.CLARITY_PROJECT_ID && (
+                <ClarityAnalytics projectId={process.env.CLARITY_PROJECT_ID} />
+              )}
+            </PortfolioProvider>
+          </NuqsAdapter>
+        </Suspense>
       </body>
     </html>
   );
