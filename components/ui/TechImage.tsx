@@ -30,6 +30,7 @@ export default function TechImage({
         className={
           className + " cursor-pointer hover:translate-y-[-2px] transition-all"
         }
+        sizes="(min-width: 768px) 36px, 28px"
       />
     </motion.div>
   );
@@ -73,6 +74,7 @@ export function TechImageWithTooltip({
         className={
           className + " cursor-pointer hover:translate-y-[-2px] transition-all"
         }
+        sizes="(min-width: 768px) 36px, 28px"
         onClick={() => {
           window.open(tech.link, "_blank");
         }}

@@ -171,6 +171,22 @@ export const projects: ProjectData[] = [
     ],
     github: "https://github.com/Kimbohy/lumos",
   },
+  {
+    title: "Local RAG Agent",
+    description:
+      "Fully local retrieval-augmented generation API with dynamic document ingestion",
+    longDescription:
+      "A Retrieval-Augmented Generation (RAG) system built with FastAPI and LlamaIndex, running entirely on local infrastructure with no external API dependency. Documents are chunked, embedded, and stored in a persistent Chroma vector database, then queried through a local LLM served via Ollama. The API exposes endpoints to query the knowledge base with source citations and to upload PDF files on the fly, which are parsed and incrementally indexed into the existing vector store without re-processing the whole corpus.",
+    imagePaths: ["/images/illustration/rag-agent.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "fastapi" },
+      { name: "llamaindex" },
+      { name: "ollama" },
+      { name: "chromadb" },
+    ],
+    github: "https://github.com/Kimbohy/rag-agent",
+  },
 ];
 
 export const mlProjects: ProjectData[] = [
@@ -275,5 +291,21 @@ export const mlProjects: ProjectData[] = [
       { name: "dart" },
     ],
     github: "https://github.com/Kimbohy/lumos",
+  },
+  {
+    title: "Local RAG Agent",
+    description:
+      "Fully local retrieval-augmented generation API with dynamic document ingestion",
+    longDescription:
+      "A Retrieval-Augmented Generation (RAG) system built with FastAPI and LlamaIndex, running entirely on local infrastructure with no external API dependency. Documents are chunked, embedded, and stored in a persistent Chroma vector database, then queried through a local LLM served via Ollama. The API exposes endpoints to query the knowledge base with source citations and to upload PDF files on the fly, which are parsed and incrementally indexed into the existing vector store without re-processing the whole corpus.",
+    imagePaths: ["/images/illustration/rag-agent.png"],
+    tech: [
+      { name: "python", isMain: true },
+      { name: "fastapi" },
+      { name: "llamaindex" },
+      { name: "ollama" },
+      { name: "chromadb" },
+    ],
+    github: "https://github.com/Kimbohy/rag-agent",
   },
 ];

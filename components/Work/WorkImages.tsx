@@ -93,6 +93,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
               height={400}
               className="w-full h-auto"
               loading={index === 0 ? "eager" : "lazy"}
+              sizes="(min-width: 768px) 600px, 100vw"
               draggable={false}
             />
           </MotionDiv>

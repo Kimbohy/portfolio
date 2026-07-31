@@ -43,6 +43,7 @@ export function TechList({ tech, techDetailsOpen, projectId }: TechListProps) {
             width={36}
             height={36}
             className="w-7 h-7 md:w-9 md:h-9"
+            sizes="(min-width: 768px) 36px, 28px"
           />
         </motion.div>
       );

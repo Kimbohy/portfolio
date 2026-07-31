@@ -18,36 +18,22 @@ function WorkCard({
   const techRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Hover detection
-  useEffect(() => {
-    const techDiv = techRef.current;
-    if (!techDiv) return;
+  const handleTechEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setTechDetailsOpen(true);
+  };
 
-    const handleMouseEnter = () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-      setTechDetailsOpen(true);
-    };
-
-    const handleMouseLeave = () => {
-      timeoutRef.current = setTimeout(() => {
-        setTechDetailsOpen(false);
-      }, 2000);
-    };
-
-    techDiv.addEventListener("mouseenter", handleMouseEnter);
-    techDiv.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      techDiv.removeEventListener("mouseenter", handleMouseEnter);
-      techDiv.removeEventListener("mouseleave", handleMouseLeave);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
+  const handleTechLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setTechDetailsOpen(false);
+    }, 2000);
+  };
 
   // Click outside detection
   useEffect(() => {
@@ -64,6 +50,14 @@ function WorkCard({
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
 
@@ -94,6 +88,7 @@ function WorkCard({
                   alt="GitHub"
                   width={16}
                   height={16}
+                  sizes="16px"
                 />
                 GitHub
               </a>
@@ -111,6 +106,7 @@ function WorkCard({
                     alt={`GitHub Link ${index + 1}`}
                     width={16}
                     height={16}
+                    sizes="16px"
                   />
                   GitHub {index + 1}
                 </a>
@@ -128,6 +124,7 @@ function WorkCard({
                   alt="Website"
                   width={20}
                   height={20}
+                  sizes="20px"
                 />
                 Visit Site
               </a>
@@ -140,6 +137,11 @@ function WorkCard({
                 : "w-full md:w-fit px-2 py-[5px] flex flex-wrap gap-1 justify-center items-center md:justify-start"
             }`}
             ref={techRef}
+            onMouseEnter={handleTechEnter}
+            onMouseLeave={handleTechLeave}
+            onFocus={handleTechEnter}
+            onBlur={handleTechLeave}
+            tabIndex={0}
           >
             <TechList
               tech={tech}

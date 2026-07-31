@@ -30,6 +30,7 @@ function Contact({
               className="mt-1"
               width={16}
               height={16}
+              sizes="16px"
             />
             <span className="text-secondary text-sm md:text-base">
               /Kimbohy
@@ -46,6 +47,7 @@ function Contact({
               alt="LinkedIn"
               width={16}
               height={16}
+              sizes="16px"
             />
             <span className="text-secondary text-sm md:text-base truncate">
               /in/lovatiana-rabarijaona

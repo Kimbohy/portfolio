@@ -47,7 +47,8 @@ export default function Glitch() {
             className={`w-full h-full ${index === currentFrame ? "block" : "hidden"}`}
             width={273}
             height={173}
-            loading={index === 0 ? "eager" : "lazy"} // Prioritize first frame
+            sizes="(min-width: 768px) 100px, 80px"
+            priority={index === 0}
           />
         ))}
       </div>

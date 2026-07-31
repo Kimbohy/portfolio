@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
 export const InfiniteMovingItems = ({
@@ -28,15 +28,24 @@ export const InfiniteMovingItems = ({
   const velocityRef = React.useRef(0);
   const animationRef = React.useRef<number | null>(null);
 
+  const [start, setStart] = useState(false);
+  const repeatedItems = useMemo(() => {
+    const repeatCount = Math.max(3, Math.ceil(36 / Math.max(items.length, 1)));
+    return Array.from({ length: repeatCount }, (_, repeatIndex) =>
+      items.map((item, itemIndex) => ({
+        key: `${repeatIndex}-${itemIndex}-${item}`,
+        value: item,
+      })),
+    ).flat();
+  }, [items]);
+
   useEffect(() => {
-    addAnimation();
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
   }, []);
-  const [start, setStart] = useState(false);
 
   const startDrag = (clientX: number) => {
     if (!containerRef.current) return;
@@ -135,33 +144,13 @@ export const InfiniteMovingItems = ({
   const handleTouchEnd = () => {
     endDrag();
   };
-  function addAnimation() {
+  useEffect(() => {
     if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
-
-      // Duplicate items multiple times for truly infinite effect
-      for (let i = 0; i < 10; i++) {
-        scrollerContent.forEach((item) => {
-          const duplicatedItem = item.cloneNode(true);
-          if (scrollerRef.current) {
-            scrollerRef.current.appendChild(duplicatedItem);
-          }
-        });
-      }
-
-      // Set initial scroll position to middle for bidirectional scrolling
       const scrollWidth = scrollerRef.current.scrollWidth;
       const containerWidth = containerRef.current.offsetWidth;
       const initialScrollLeft = (scrollWidth - containerWidth) / 2;
       containerRef.current.scrollLeft = initialScrollLeft;
 
-      getDirection();
-      getSpeed();
-      setStart(true);
-    }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
       if (direction === "left") {
         containerRef.current.style.setProperty(
           "--animation-direction",
@@ -173,10 +162,7 @@ export const InfiniteMovingItems = ({
           "reverse",
         );
       }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
+
       if (speed === "fast") {
         containerRef.current.style.setProperty("--animation-duration", "20s");
       } else if (speed === "normal") {
@@ -184,8 +170,9 @@ export const InfiniteMovingItems = ({
       } else {
         containerRef.current.style.setProperty("--animation-duration", "1000s");
       }
+      setStart(true);
     }
-  };
+  }, [direction, speed, items.length]);
   return (
     <div
       ref={containerRef}
@@ -214,14 +201,15 @@ export const InfiniteMovingItems = ({
           start && !isDragging && "animate-scroll",
         )}
       >
-        {items.map((t, index) => (
-          <li key={index}>
+        {repeatedItems.map((item) => (
+          <li key={item.key}>
             <Image
-              src={`/images/icons/${t + suffix}.svg`}
-              alt={t}
+              src={`/images/icons/${item.value + suffix}.svg`}
+              alt={item.value}
               height={80}
               width={80}
               className="h-10 w-10 md:h-20 md:min-w-20 object-contain"
+              sizes="(min-width: 768px) 80px, 40px"
               draggable={false}
             />
           </li>
