@@ -73,7 +73,7 @@ export const projects: ProjectData[] = [
     description:
       "Android app that shows where you are in your day, right on your home screen",
     longDescription:
-      "Phase is an Android app built with Flutter that turns a daily schedule of time blocks into a glanceable home screen widget. The widget shows the current phase, a progress gauge, a live countdown and the next block, and adapts to the system's dynamic colors. Schedules are set up by pasting a simple text format, which an LLM can generate from a free-form description using the built-in prompt template, or edited block by block in the app. Key features include weekly alarms per block, Pomodoro-style focus and break cycles inside a block, free-period indicators, and a standard and a compact widget. Everything runs offline with local storage. The widget is written natively in Kotlin and refreshes itself at each phase change, even when the app is closed, and its scheduling engine is validated against the Dart one with shared test cases.",
+      "Phase is an Android app built with Flutter that turns a daily schedule of time blocks into a home screen widget. The widget shows the current phase, a progress gauge, a countdown and the next block, and follows the system's dynamic colors. Key features include schedule import from a simple text format that an LLM can generate, weekly alarms per block, and Pomodoro-style focus cycles.",
     imagePaths: [
       "/images/phase/phase1.png",
       "/images/phase/phase2.png",
@@ -200,48 +200,6 @@ export const projects: ProjectData[] = [
       { name: "dart" },
     ],
     github: "https://github.com/Kimbohy/lumos",
-  },
-  {
-    title: "Local RAG Agent",
-    description:
-      "Fully local retrieval-augmented generation API with dynamic document ingestion",
-    longDescription:
-      "A Retrieval-Augmented Generation (RAG) system built with FastAPI and LlamaIndex, running entirely on local infrastructure with no external API dependency. Documents are chunked, embedded, and stored in a persistent Chroma vector database, then queried through a local LLM served via Ollama. The API exposes endpoints to query the knowledge base with source citations and to upload PDF files on the fly, which are parsed and incrementally indexed into the existing vector store without re-processing the whole corpus.",
-    imagePaths: ["/images/illustration/rag-agent.png"],
-    tech: [
-      { name: "python", isMain: true },
-      { name: "fastapi" },
-      { name: "llamaindex" },
-      { name: "ollama" },
-      { name: "chromadb" },
-    ],
-    github: "https://github.com/Kimbohy/rag-agent",
-  },
-  {
-    title: "Phase",
-    description:
-      "Android app that shows where you are in your day, right on your home screen",
-    longDescription:
-      "Phase is an Android app built with Flutter that turns a daily schedule of time blocks into a glanceable home screen widget. The widget shows the current phase, a progress gauge, a live countdown and the next block, and adapts to the system's dynamic colors. Schedules are set up by pasting a simple text format, which an LLM can generate from a free-form description using the built-in prompt template, or edited block by block in the app. Key features include weekly alarms per block, Pomodoro-style focus and break cycles inside a block, free-period indicators, and a standard and a compact widget. Everything runs offline with local storage. The widget is written natively in Kotlin and refreshes itself at each phase change, even when the app is closed, and its scheduling engine is validated against the Dart one with shared test cases.",
-    imagePaths: [
-      "/images/phase/phase1.png",
-      "/images/phase/phase2.png",
-      "/images/phase/phase3.png",
-      "/images/phase/phase4.png",
-      "/images/phase/phase5.png",
-      "/images/phase/phase6.png",
-      "/images/phase/phase7.png",
-      "/images/phase/phase8.png",
-    ],
-    platform: "mobile",
-    tech: [
-      { name: "flutter", isMain: true },
-      { name: "dart" },
-      { name: "kotlin" },
-      { name: "android" },
-      { name: "riverpod" },
-    ],
-    github: "https://github.com/Kimbohy/phase",
   },
 ];
 

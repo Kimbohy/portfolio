@@ -32,7 +32,7 @@ export default function PhoneImages({ imagePaths }: { imagePaths: string[] }) {
   const step = `max(1.25rem, min(${phoneWidth} * ${VISIBLE_PART}, (100cqw - ${PANEL_PADDING} - ${phoneWidth}) / ${gaps}))`;
 
   return (
-    <div className="flex justify-center items-stretch w-full md:w-[600px] aspect-square md:aspect-[3/2] p-4 rounded-xl bg-secondary/5 ring-1 ring-secondary/10 overflow-hidden [container-type:size]">
+    <div className="flex justify-center items-stretch w-full md:w-[600px] aspect-square md:aspect-[3/2] p-4 rounded-xl bg-secondary/5 ring-1 ring-secondary/10 overflow-hidden [container-type:size] mt-20 ml-4">
       {images.map((image, index) => {
         const brightness = 1 / (1 + index * 0.7);
         return (
