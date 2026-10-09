@@ -4,12 +4,14 @@ import WorkImages from "./WorkImages";
 import { useEffect, useRef, useState } from "react";
 import { TechList } from "./TechList";
 import { ProjectData } from "@/const/works";
+import PhoneImages from "./PhoneImages";
 
 function WorkCard({
   title,
   description,
   longDescription,
   imagePaths,
+  platform = "web",
   tech,
   github,
   website,
@@ -65,9 +67,18 @@ function WorkCard({
     <div className="flex flex-col items-center justify-end min-h-[24rem] gap-28 p-4 md:p-0">
       <div className="flex flex-col lg:flex-row w-full md:pl-20 rounded-lg h-fit">
         <div className="relative w-full md:w-[700px] left-0 md:left-0">
-          <WorkImages imagePaths={imagePaths} />
+          {platform === "mobile" ? (
+            <PhoneImages imagePaths={imagePaths} />
+          ) : (
+            <WorkImages imagePaths={imagePaths} />
+          )}
         </div>
         <div className="flex flex-col items-start p-4 md:p-10 mt-8 md:mt-0">
+          {platform === "mobile" && (
+            <span className="mb-1 text-xs uppercase tracking-widest text-secondary/60">
+              Mobile app
+            </span>
+          )}
           <h3 className="text-3xl md:text-5xl text-secondary">{title}</h3>
           <p className="text-lg md:text-xl text-secondary mb-2">
             {description}
