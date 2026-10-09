@@ -1,81 +1,79 @@
 # Portfolio Website
 
-A modern, interactive portfolio website built with Next.js 15, featuring smooth animations, an interactive terminal, and a responsive design.
+A modern, interactive portfolio built with Next.js 16 (App Router): smooth animations, an interactive terminal, a Dev / ML mode switch and a responsive design.
 
 ## Features
 
-- **Interactive Terminal**: A fully functional terminal component with custom commands
-- **Animated UI**: Smooth animations powered by Framer Motion
-- **Responsive Design**: Mobile-friendly layout with adaptive navigation
-- **Contact Form**: Email integration using Nodemailer
-- **Tech Showcase**: Display of technical skills and projects
-- **Work Portfolio**: Showcase of projects with image galleries
+- **Dev / ML modes**: two portfolios in one page, switchable with a toggle and shareable through `?mode=ml`
+- **Interactive Terminal**: a functional terminal component with custom commands
+- **Animated UI**: animations powered by [Motion](https://motion.dev)
+- **Contact Form**: validated API route + Nodemailer (Gmail SMTP), honeypot anti-spam
+- **Tech Showcase** and **Work Portfolio** with image galleries
+- **SEO**: generated Open Graph image, `robots.txt`, `sitemap.xml`
 
 ## Tech Stack
 
-- **Framework**: Next.js 15.3 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4.1
-- **Animations**: Framer Motion (motion)
-- **Icons**: Lucide React
+- **Framework**: Next.js 16 (App Router, Turbopack) / React 19
+- **Language**: TypeScript 6
+- **Styling**: Tailwind CSS 4
+- **Animations**: Motion
+- **URL state**: nuqs
+- **Validation**: Zod
 - **Email**: Nodemailer
-- **Analytics**: Vercel Analytics & Speed Insights
-- **Package Manager**: pnpm
+- **Analytics**: Vercel Analytics & Speed Insights, Microsoft Clarity
+- **Tooling**: ESLint 10 (flat config), pnpm 12, Node.js 24 LTS
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 20+
-- pnpm 10.15.1+
+- Node.js 24 LTS (22.13+ also works) — see `.nvmrc`
+- pnpm 12 (`corepack enable`)
 
 ### Installation
-
-1. Clone the repository:
 
 ```bash
 git clone https://github.com/Kimbohy/portfolio.git
 cd portfolio
-```
-
-2. Install dependencies:
-
-```bash
+cp .env.example .env.local   # then fill in the values
 pnpm install
-```
-
-3. Run the development server:
-
-```bash
 pnpm dev
-# or for turbopack
-pnpm turbo
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Build for Production
+### Scripts
 
-```bash
-pnpm build
-pnpm start
-```
+| Command          | Description                 |
+| ---------------- | --------------------------- |
+| `pnpm dev`       | Development server          |
+| `pnpm build`     | Production build            |
+| `pnpm start`     | Run the production build    |
+| `pnpm lint`      | ESLint                      |
+| `pnpm typecheck` | TypeScript (`tsc --noEmit`) |
+
+### Environment variables
+
+See `.env.example`. `EMAIL_USER` / `EMAIL_PASSWORD` must be a Gmail address and an
+[App Password](https://myaccount.google.com/apppasswords), never your account password.
 
 ## Project Structure
 
 ```
 ├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   └── page.tsx           # Main page
-├── components/            # React components
-│   ├── FirstPage/         # Landing section components
-│   ├── Terminal/          # Terminal component
-│   ├── Work/              # Portfolio section
-│   ├── Contact/           # Contact form
-│   └── ui/                # Reusable UI components
-├── const/                 # Constants and configuration
-├── public/                # Static assets
-└── utils/                 # Utility functions
+│   ├── api/send-email/    # Contact form API route
+│   ├── layout.tsx         # Root layout, metadata, providers
+│   ├── page.tsx           # Main page (Server Component)
+│   └── opengraph-image.tsx
+├── components/
+│   ├── PortfolioSections.tsx   # Sections of one mode (rendered for dev AND ml)
+│   ├── ModeScene.tsx           # Dev/ML transition wrapper
+│   ├── HashSync.tsx            # #anchor <-> mode handling
+│   ├── FirstPage/  Terminal/  Work/  Contact/  ui/
+├── context/PortfolioMode.tsx   # Mode state (+ URL sync with nuqs)
+├── const/                      # Projects, tech list
+├── public/                     # Static assets
+└── utils/                      # Utilities (cn, email template, ...)
 ```
 
 ## License

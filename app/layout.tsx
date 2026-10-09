@@ -6,7 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import ClarityAnalytics from "@/components/ClarityAnalytics";
 import { PortfolioProvider } from "@/context/PortfolioMode";
 
-const SITE_URL = "https://kimbohy.vercel.app";
+const SITE_URL = "https://lova.is-a.dev";
 const SITE_NAME = "Finoana Lovtiana Rabarijaona";
 const DESCRIPTION =
   "Personal portfolio of Finoana Lovtiana Rabarijaona, a passionate software engineer and AI enthusiast.";
