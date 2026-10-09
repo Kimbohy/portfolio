@@ -95,6 +95,13 @@ const techList: Tech[] = [
     type: "language",
   },
   {
+    tech: "chromadb",
+    name: "ChromaDB",
+    desc: "An open-source vector database for AI applications.",
+    link: "https://www.trychroma.com/",
+    type: "database",
+  },
+  {
     tech: "dart",
     name: "Dart",
     desc: "A client-optimized programming language for apps on multiple platforms.",
@@ -113,6 +120,13 @@ const techList: Tech[] = [
     name: "Express",
     desc: "Fast, unopinionated, minimalist web framework for Node.js.",
     link: "https://expressjs.com/",
+    type: "framework",
+  },
+  {
+    tech: "fastapi",
+    name: "FastAPI",
+    desc: "A modern, fast web framework for building APIs with Python.",
+    link: "https://fastapi.tiangolo.com/",
     type: "framework",
   },
   {
@@ -170,6 +184,27 @@ const techList: Tech[] = [
     desc: "A high-level, often just-in-time compiled, and multi-paradigm programming language.",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     type: "language",
+  },
+  {
+    tech: "jupyter",
+    name: "Jupyter",
+    desc: "An interactive notebook environment for code, data and visualization.",
+    link: "https://jupyter.org/",
+    type: "tools",
+  },
+  {
+    tech: "lightgbm",
+    name: "LightGBM",
+    desc: "A fast gradient boosting framework based on decision trees.",
+    link: "https://lightgbm.readthedocs.io/",
+    type: "library",
+  },
+  {
+    tech: "llamaindex",
+    name: "LlamaIndex",
+    desc: "A data framework for building LLM-powered applications.",
+    link: "https://www.llamaindex.ai/",
+    type: "framework",
   },
   {
     tech: "lucide",
@@ -235,10 +270,31 @@ const techList: Tech[] = [
     type: "framework",
   },
   {
+    tech: "numpy",
+    name: "NumPy",
+    desc: "A Python library for numerical computing.",
+    link: "https://numpy.org/",
+    type: "library",
+  },
+  {
     tech: "nuqs",
     name: "Nuqs",
     desc: "Type-safe search params state manager for React.",
     link: "https://nuqs.dev/",
+    type: "library",
+  },
+  {
+    tech: "ollama",
+    name: "Ollama",
+    desc: "A tool for running large language models locally.",
+    link: "https://ollama.com/",
+    type: "tools",
+  },
+  {
+    tech: "pandas",
+    name: "pandas",
+    desc: "A Python library for data manipulation and analysis.",
+    link: "https://pandas.pydata.org/",
     type: "library",
   },
   {
@@ -284,6 +340,13 @@ const techList: Tech[] = [
     type: "language",
   },
   {
+    tech: "pytorch",
+    name: "PyTorch",
+    desc: "An open-source deep learning framework.",
+    link: "https://pytorch.org/",
+    type: "framework",
+  },
+  {
     tech: "react",
     name: "React",
     desc: "A JavaScript library for building user interfaces.",
@@ -296,6 +359,13 @@ const techList: Tech[] = [
     desc: "An in-memory data structure store used as a database, cache and message broker.",
     link: "https://redis.io/",
     type: "database",
+  },
+  {
+    tech: "scikit-learn",
+    name: "scikit-learn",
+    desc: "A Python library for machine learning and data analysis.",
+    link: "https://scikit-learn.org/",
+    type: "library",
   },
   {
     tech: "shadcn-ui",

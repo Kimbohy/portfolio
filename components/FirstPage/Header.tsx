@@ -51,7 +51,7 @@ function Header() {
         isScrolled
           ? `bg-white/80 dark:bg-black/40 backdrop-blur-sm`
           : "bg-transparent"
-      } ${isMenuOpen && "dark:bg-black/85"}`}
+      } ${isMenuOpen ? "dark:bg-black/85" : ""}`}
     >
       <div className="flex justify-between items-center w-full p-2 md:pr-8 md:pl-6">
         <div className="flex items-center">

@@ -1,13 +1,7 @@
 "use client";
-import dynamic from "next/dynamic";
 import { useRef } from "react";
-import { useInView } from "motion/react";
 import GlitchText from "./GlitchText";
-
-const MotionDiv = dynamic(
-  () => import("motion/react").then((mod) => mod.motion.div),
-  { ssr: false },
-);
+import { motion, useInView } from "motion/react";
 
 const education = [
   {
@@ -57,7 +51,7 @@ const EducationTimelineItem = ({
 
   return (
     <div ref={itemRef}>
-      <MotionDiv
+      <motion.div
         className="relative pl-12 mb-8 last:mb-0"
         initial={{ opacity: 0, x: -50 }}
         animate={itemInView ? { opacity: 1, x: 0 } : {}}
@@ -83,7 +77,7 @@ const EducationTimelineItem = ({
             <GlitchText text={item.description} enabled={itemInView} />
           </p>
         </div>
-      </MotionDiv>
+      </motion.div>
     </div>
   );
 };
@@ -111,7 +105,7 @@ const About = ({
       <h2 className="p-3 md:p-5 text-4xl md:text-6xl">About Me</h2>
 
       <section className="py-16 px-8 max-w-6xl mx-auto">
-        <MotionDiv
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -123,7 +117,7 @@ const About = ({
             , <br />
             <span>{introText}</span>
           </p>
-        </MotionDiv>
+        </motion.div>
 
         <div className="relative py-8">
           <h3 ref={titleRef} className="text-2xl font-bold mb-8">

@@ -1,41 +1,35 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Suspense } from "react";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import ClarityAnalytics from "@/components/ClarityAnalytics";
 import { PortfolioProvider } from "@/context/PortfolioMode";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const SITE_URL = "https://lova.is-a.dev";
+const SITE_NAME = "Finoana Lovtiana Rabarijaona";
+const DESCRIPTION =
+  "Personal portfolio of Finoana Lovtiana Rabarijaona, a passionate software engineer and AI enthusiast.";
 
 export const metadata: Metadata = {
-  title: "Finoana Lovtiana Rabarijaona",
-  description:
-    "Personal portfolio of Finoana Lovtiana Rabarijaona, a passionate software engineer and AI enthusiast.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
+  description: DESCRIPTION,
   keywords: [
     "Finoana Lovtiana Rabarijaona",
     "Finoana Rabarijaona",
-    "Lovtiana Rabarijaona",
+    "Lovatiana Rabarijaona",
     "Finoana Lovtiana",
     "Lovatiana Finoana Rabarijaona",
     "Rabarijaona Finoana Lovatiana",
     "Rabarijaona Lovatiana",
     "Finoana",
-    "Lovtiana",
+    "Lovatiana",
     "Rabarijaona",
     "Software Engineer",
     "AI Enthusiast",
+    "AI Engineer",
+    "ML Engineer",
     "Full-Stack Developer",
     "Tech Portfolio",
     "Projects Showcase",
@@ -46,17 +40,25 @@ export const metadata: Metadata = {
     "Kimbohy",
     "Kimbohy Marisika",
   ],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  alternates: { canonical: "/" },
+  // L'image Open Graph est générée par app/opengraph-image.tsx
   openGraph: {
-    title: "Finoana Lovtiana Rabarijaona - Portfolio",
-    description:
-      "Personal portfolio of Finoana Lovtiana Rabarijaona, a passionate software engineer and AI enthusiast.",
-    url: "https://kimbohy.vercel.app",
-    siteName: "Finoana Lovtiana Rabarijaona Portfolio",
-    images: [
-      "https://kimbohy.vercel.app/kimbohy.svg",
-      "https://kimbohy.vercel.app/images/k.svg",
-    ],
+    type: "website",
+    title: `${SITE_NAME} - Portfolio`,
+    description: DESCRIPTION,
+    url: "/",
+    siteName: `${SITE_NAME} Portfolio`,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} - Portfolio`,
+    description: DESCRIPTION,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0f172a",
 };
 
 export default function RootLayout({
@@ -66,21 +68,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Suspense fallback={null}>
-          <NuqsAdapter>
-            <PortfolioProvider>
-              {children}
-              <Analytics />
-              <SpeedInsights />
-              {process.env.CLARITY_PROJECT_ID && (
-                <ClarityAnalytics projectId={process.env.CLARITY_PROJECT_ID} />
-              )}
-            </PortfolioProvider>
-          </NuqsAdapter>
-        </Suspense>
+      <body className="antialiased">
+        <NuqsAdapter>
+          <PortfolioProvider>
+            {children}
+            <Analytics />
+            <SpeedInsights />
+            {process.env.CLARITY_PROJECT_ID && (
+              <ClarityAnalytics projectId={process.env.CLARITY_PROJECT_ID} />
+            )}
+          </PortfolioProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );

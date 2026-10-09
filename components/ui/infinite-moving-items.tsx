@@ -1,8 +1,15 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { MouseEvent, TouchEvent } from "react";
 import Image from "next/image";
+
+const SPEED_TO_DURATION = {
+  fast: "20s",
+  normal: "40s",
+  slow: "1000s",
+} as const;
 
 export const InfiniteMovingItems = ({
   items,
@@ -13,22 +20,27 @@ export const InfiniteMovingItems = ({
 }: {
   items: string[];
   direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
-  pauseOnHover?: boolean;
+  speed?: keyof typeof SPEED_TO_DURATION;
   suffix?: string;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [lastX, setLastX] = useState(0);
-  const [lastTime, setLastTime] = useState(0);
-  const velocityRef = React.useRef(0);
-  const animationRef = React.useRef<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const velocityRef = useRef(0);
+  // Valeurs de drag : stockées dans une ref (et pas en state) pour ne pas
+  // re-render toute la liste à chaque mouvement de souris.
+  const dragRef = useRef({
+    active: false,
+    startX: 0,
+    scrollLeft: 0,
+    lastX: 0,
+    lastTime: 0,
+  });
 
+  const [isDragging, setIsDragging] = useState(false);
   const [start, setStart] = useState(false);
+
   const repeatedItems = useMemo(() => {
     const repeatCount = Math.max(3, Math.ceil(36 / Math.max(items.length, 1)));
     return Array.from({ length: repeatCount }, (_, repeatIndex) =>
@@ -41,77 +53,55 @@ export const InfiniteMovingItems = ({
 
   useEffect(() => {
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, []);
-
-  const startDrag = (clientX: number) => {
-    if (!containerRef.current) return;
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
-    setIsDragging(true);
-    setStartX(clientX - containerRef.current.offsetLeft);
-    setScrollLeft(containerRef.current.scrollLeft);
-    setLastX(clientX);
-    setLastTime(Date.now());
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    startDrag(e.pageX);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    startDrag(e.touches[0].pageX);
-  };
-
-  const moveDrag = (clientX: number) => {
-    if (!isDragging || !containerRef.current) return;
-
-    const now = Date.now();
-    const deltaX = clientX - lastX;
-    const deltaTime = now - lastTime;
-
-    if (deltaTime > 0) {
-      const currentVelocity = deltaX / deltaTime;
-      velocityRef.current = currentVelocity;
-    }
-
-    const x = clientX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 1;
-    containerRef.current.scrollLeft = scrollLeft - walk;
-    checkAndResetScroll();
-
-    setLastX(clientX);
-    setLastTime(now);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    e.preventDefault();
-    moveDrag(e.pageX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    e.preventDefault();
-    moveDrag(e.touches[0].pageX);
-  };
 
   const checkAndResetScroll = () => {
     if (!containerRef.current || !scrollerRef.current) return;
 
-    const scrollLeft = containerRef.current.scrollLeft;
-    const scrollWidth = scrollerRef.current.scrollWidth;
-    const containerWidth = containerRef.current.offsetWidth;
-    const maxScroll = scrollWidth - containerWidth;
+    const { scrollLeft } = containerRef.current;
+    const maxScroll =
+      scrollerRef.current.scrollWidth - containerRef.current.offsetWidth;
 
-    // Reset position when reaching boundaries for infinite effect
-    if (scrollLeft <= 0) {
-      containerRef.current.scrollLeft = maxScroll / 2;
-    } else if (scrollLeft >= maxScroll) {
+    // Remet au milieu quand on atteint un bord, pour l'effet infini
+    if (scrollLeft <= 0 || scrollLeft >= maxScroll) {
       containerRef.current.scrollLeft = maxScroll / 2;
     }
+  };
+
+  const startDrag = (clientX: number, timeStamp: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+
+    velocityRef.current = 0;
+    dragRef.current = {
+      active: true,
+      startX: clientX - container.offsetLeft,
+      scrollLeft: container.scrollLeft,
+      lastX: clientX,
+      lastTime: timeStamp,
+    };
+    setIsDragging(true);
+  };
+
+  const moveDrag = (clientX: number, timeStamp: number) => {
+    const container = containerRef.current;
+    const drag = dragRef.current;
+    if (!drag.active || !container) return;
+
+    const deltaTime = timeStamp - drag.lastTime;
+    if (deltaTime > 0) {
+      velocityRef.current = (clientX - drag.lastX) / deltaTime;
+    }
+
+    const walk = clientX - container.offsetLeft - drag.startX;
+    container.scrollLeft = drag.scrollLeft - walk;
+    checkAndResetScroll();
+
+    drag.lastX = clientX;
+    drag.lastTime = timeStamp;
   };
 
   const momentumScroll = () => {
@@ -119,7 +109,7 @@ export const InfiniteMovingItems = ({
 
     containerRef.current.scrollLeft -= velocityRef.current * 10;
     checkAndResetScroll();
-    velocityRef.current *= 0.95; // Friction
+    velocityRef.current *= 0.95; // friction
 
     if (Math.abs(velocityRef.current) > 0.1) {
       animationRef.current = requestAnimationFrame(momentumScroll);
@@ -127,57 +117,45 @@ export const InfiniteMovingItems = ({
   };
 
   const endDrag = () => {
+    if (!dragRef.current.active) return;
+    dragRef.current.active = false;
     setIsDragging(false);
-    if (Math.abs(velocityRef.current) > 0.5) {
-      momentumScroll();
-    }
+    if (Math.abs(velocityRef.current) > 0.5) momentumScroll();
   };
 
-  const handleMouseUp = () => {
-    endDrag();
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!dragRef.current.active) return;
+    e.preventDefault();
+    moveDrag(e.pageX, e.timeStamp);
   };
 
-  const handleMouseLeave = () => {
-    endDrag();
+  const handleTouchMove = (e: TouchEvent) => {
+    moveDrag(e.touches[0].pageX, e.timeStamp);
   };
 
-  const handleTouchEnd = () => {
-    endDrag();
-  };
   useEffect(() => {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollWidth = scrollerRef.current.scrollWidth;
-      const containerWidth = containerRef.current.offsetWidth;
-      const initialScrollLeft = (scrollWidth - containerWidth) / 2;
-      containerRef.current.scrollLeft = initialScrollLeft;
+    const container = containerRef.current;
+    const scroller = scrollerRef.current;
+    if (!container || !scroller) return;
 
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards",
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse",
-        );
-      }
-
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "1000s");
-      }
-      setStart(true);
-    }
+    container.scrollLeft = (scroller.scrollWidth - container.offsetWidth) / 2;
+    container.style.setProperty(
+      "--animation-direction",
+      direction === "left" ? "forwards" : "reverse",
+    );
+    container.style.setProperty(
+      "--animation-duration",
+      SPEED_TO_DURATION[speed],
+    );
+    setStart(true);
   }, [direction, speed, items.length]);
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-[1500px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] cursor-grab",
+        // touch-pan-y : le swipe horizontal est géré en JS, le vertical reste natif
+        "scroller relative z-20 max-w-[1500px] touch-pan-y overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] cursor-grab",
         isDragging && "cursor-grabbing",
         className,
       )}
@@ -186,13 +164,13 @@ export const InfiniteMovingItems = ({
         msOverflowStyle: "none",
         WebkitOverflowScrolling: "touch",
       }}
-      onMouseDown={handleMouseDown}
+      onMouseDown={(e) => startDrag(e.pageX, e.timeStamp)}
       onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
+      onMouseUp={endDrag}
+      onMouseLeave={endDrag}
+      onTouchStart={(e) => startDrag(e.touches[0].pageX, e.timeStamp)}
       onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      onTouchEnd={endDrag}
     >
       <ul
         ref={scrollerRef}

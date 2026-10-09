@@ -81,7 +81,7 @@ function WorkCard({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
+                className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-secondary/80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
               >
                 <Image
                   src="/images/icons/github_bl.svg"
@@ -99,7 +99,7 @@ function WorkCard({
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
+                  className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-secondary/80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
                 >
                   <Image
                     src="/images/icons/github_bl.svg"
@@ -117,7 +117,7 @@ function WorkCard({
                 href={website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-opacity-80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
+                className="bg-secondary text-background px-2 py-1 md:px-4 md:py-2 rounded-2xl hover:bg-secondary/80 transition-all text-sm md:text-base flex items-center gap-2 hover:scale-105"
               >
                 <Image
                   src="/images/icons/glob.svg"

@@ -131,3 +131,105 @@ html {
   animation-direction: var(--animation-direction, forwards);
   animation-fill-mode: forwards;
 }
+
+/* GlitchText effect */
+@keyframes _gt_top {
+  0% {
+    clip-path: inset(0 0 90% 0);
+    transform: translate(-4px, -1px);
+  }
+  33% {
+    clip-path: inset(30% 0 50% 0);
+    transform: translate(3px, 1px);
+  }
+  66% {
+    clip-path: inset(60% 0 20% 0);
+    transform: translate(-2px, 0);
+  }
+  100% {
+    clip-path: inset(85% 0 0 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes _gt_bot {
+  0% {
+    clip-path: inset(80% 0 0 0);
+    transform: translate(4px, 1px);
+  }
+  33% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(-3px, -1px);
+  }
+  66% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(2px, 0);
+  }
+  100% {
+    clip-path: inset(0 0 90% 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes _gt_skew {
+  0%,
+  100% {
+    transform: skewX(0deg);
+  }
+  20% {
+    transform: skewX(-3deg);
+  }
+  60% {
+    transform: skewX(2deg);
+  }
+}
+
+/* ::before & ::after sont invisibles par défaut, visibles uniquement avec .gt-on */
+.gt-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.gt-wrap::before,
+.gt-wrap::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.gt-wrap.gt-on {
+  animation: _gt_skew 0.25s steps(2) forwards;
+}
+
+.gt-wrap.gt-on::before {
+  opacity: 1;
+  color: #0ff;
+  mix-blend-mode: screen;
+  animation: _gt_top 0.25s steps(3) forwards;
+}
+
+.gt-wrap.gt-on::after {
+  opacity: 1;
+  color: #f0f;
+  mix-blend-mode: screen;
+  animation: _gt_bot 0.25s steps(3) forwards;
+}
+
+/* Accessibilité : respecte la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-scroll,
+  .animate-bounce-dot,
+  .gt-wrap.gt-on,
+  .gt-wrap.gt-on::before,
+  .gt-wrap.gt-on::after {
+    animation: none;
+  }
+}
