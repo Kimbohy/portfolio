@@ -1,40 +1,15 @@
 import { motion } from "motion/react";
-import { useState } from "react";
 import Image from "next/image";
+import { useImageStack } from "./useImageStack";
 
 const MotionDiv = motion.div;
 const STACK_OFFSET = 12;
 
+/** Pile d'images "desktop / web" (ratio ~3:2). */
 export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
-  const [imagesList, setImagesList] = useState<string[]>(imagePaths);
-  const [isExchanging, setIsExchanging] = useState(false);
-  const stackPadding = Math.max(imagesList.length - 1, 0) * STACK_OFFSET;
-
-  // Change the clicked image to be the first image
-  const handleExchange = (clickedIndex: number) => {
-    setIsExchanging(true);
-    setTimeout(() => {
-      const newImagesList = [...imagesList];
-      const [clickedImage] = newImagesList.splice(clickedIndex, 1);
-      newImagesList.unshift(clickedImage);
-      setImagesList(newImagesList);
-      setIsExchanging(false);
-    }, 150);
-  };
-
-  // Handle swipe left - move to next image
-  const handleSwipe = () => {
-    setIsExchanging(true);
-    setTimeout(() => {
-      const newImagesList = [...imagesList];
-      const firstImage = newImagesList.shift();
-      if (firstImage) {
-        newImagesList.push(firstImage);
-      }
-      setImagesList(newImagesList);
-      setIsExchanging(false);
-    }, 150);
-  };
+  const { images, isExchanging, bringToFront, rotate } =
+    useImageStack(imagePaths);
+  const stackPadding = Math.max(images.length - 1, 0) * STACK_OFFSET;
 
   return (
     <div
@@ -44,7 +19,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
         paddingRight: `${stackPadding}px`,
       }}
     >
-      {imagesList.map((image, index) => {
+      {images.map((image, index) => {
         const position = index * STACK_OFFSET;
         const zIndex = 10 - index;
         const brightness = index === 0 ? 1 : 1 / (index + 1);
@@ -59,7 +34,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
               zIndex: zIndex,
               filter: `brightness(${brightness})`,
             }}
-            onClick={() => handleExchange(index)}
+            onClick={() => bringToFront(index)}
             animate={{
               x: 0,
               y: 0,
@@ -68,7 +43,7 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
             transition={{ duration: 0.3 }}
             exit={{ x: "100vw", opacity: 0 }}
             whileHover={index !== 0 ? { x: 10, y: -10 } : undefined}
-            drag={index === 0 && imagesList.length != 1 ? true : false}
+            drag={index === 0 && images.length != 1 ? true : false}
             dragSnapToOrigin={index === 0}
             dragConstraints={{ left: -170, right: 170, top: -200, bottom: 200 }}
             dragElastic={0.1}
@@ -76,12 +51,10 @@ export default function WorkImages({ imagePaths }: { imagePaths: string[] }) {
               if (index === 0) {
                 const swipeThreshold = 40;
                 if (
-                  info.offset.x > swipeThreshold ||
-                  info.offset.x < -swipeThreshold ||
-                  info.offset.y < -swipeThreshold ||
-                  info.offset.y > swipeThreshold
+                  Math.abs(info.offset.x) > swipeThreshold ||
+                  Math.abs(info.offset.y) > swipeThreshold
                 ) {
-                  handleSwipe();
+                  rotate();
                 }
               }
             }}
