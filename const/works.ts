@@ -46,28 +46,6 @@ export const projects: ProjectData[] = [
     website: "https://cards-tor.vercel.app",
   },
   {
-    title: "Whatapp",
-    description: "Real-time messaging application",
-    longDescription:
-      "Whatapp is a real-time messaging platform inspired by WhatsApp, built with React and NestJS. It integrates MongoDB for data storage and Redis for caching, while leveraging Socket.io for real-time communication. The application provides user authentication, chat creation, message exchange, and live updates, offering a practical learning experience in scalable backend architecture and modern frontend development.",
-    imagePaths: [
-      "/images/whatapp/whatapp1.png",
-      "/images/whatapp/whatapp2.png",
-      "/images/whatapp/whatapp3.png",
-      "/images/whatapp/whatapp4.png",
-    ],
-    tech: [
-      { name: "react", isMain: true },
-      { name: "nestjs", isMain: true },
-      { name: "mongodb" },
-      { name: "redis" },
-      { name: "socket.io" },
-      { name: "tailwindcss" },
-    ],
-    github: "https://github.com/Kimbohy/whatapp",
-    // website: "https://whatapp.vercel.app",
-  },
-  {
     title: "Video Games Sales Analytics",
     description: "Web application for analyzing video game sales data",
     longDescription:
@@ -89,6 +67,32 @@ export const projects: ProjectData[] = [
       { name: "csharp" },
     ],
     github: "https://github.com/Kimbohy/video_game_sales_analytics_platform",
+  },
+  {
+    title: "Phase",
+    description:
+      "Android app that shows where you are in your day, right on your home screen",
+    longDescription:
+      "Phase is an Android app built with Flutter that turns a daily schedule of time blocks into a glanceable home screen widget. The widget shows the current phase, a progress gauge, a live countdown and the next block, and adapts to the system's dynamic colors. Schedules are set up by pasting a simple text format, which an LLM can generate from a free-form description using the built-in prompt template, or edited block by block in the app. Key features include weekly alarms per block, Pomodoro-style focus and break cycles inside a block, free-period indicators, and a standard and a compact widget. Everything runs offline with local storage. The widget is written natively in Kotlin and refreshes itself at each phase change, even when the app is closed, and its scheduling engine is validated against the Dart one with shared test cases.",
+    imagePaths: [
+      "/images/phase/phase1.png",
+      "/images/phase/phase2.png",
+      "/images/phase/phase3.png",
+      "/images/phase/phase4.png",
+      "/images/phase/phase5.png",
+      "/images/phase/phase6.png",
+      "/images/phase/phase7.png",
+      "/images/phase/phase8.png",
+    ],
+    platform: "mobile",
+    tech: [
+      { name: "flutter", isMain: true },
+      { name: "dart" },
+      { name: "kotlin" },
+      { name: "android" },
+      { name: "riverpod" },
+    ],
+    github: "https://github.com/Kimbohy/phase",
   },
   {
     title: "Ta Lenta",
@@ -140,6 +144,28 @@ export const projects: ProjectData[] = [
       "https://github.com/Kimbohy/rahona-client",
       "https://github.com/Kimbohy/rahona-server",
     ],
+  },
+  {
+    title: "Whatapp",
+    description: "Real-time messaging application",
+    longDescription:
+      "Whatapp is a real-time messaging platform inspired by WhatsApp, built with React and NestJS. It integrates MongoDB for data storage and Redis for caching, while leveraging Socket.io for real-time communication. The application provides user authentication, chat creation, message exchange, and live updates, offering a practical learning experience in scalable backend architecture and modern frontend development.",
+    imagePaths: [
+      "/images/whatapp/whatapp1.png",
+      "/images/whatapp/whatapp2.png",
+      "/images/whatapp/whatapp3.png",
+      "/images/whatapp/whatapp4.png",
+    ],
+    tech: [
+      { name: "react", isMain: true },
+      { name: "nestjs", isMain: true },
+      { name: "mongodb" },
+      { name: "redis" },
+      { name: "socket.io" },
+      { name: "tailwindcss" },
+    ],
+    github: "https://github.com/Kimbohy/whatapp",
+    // website: "https://whatapp.vercel.app",
   },
   {
     title: "DoQuest",
