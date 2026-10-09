@@ -2,14 +2,25 @@
 
 import {
   createContext,
-  useContext,
+  Suspense,
   useCallback,
+  useContext,
+  useEffect,
   useMemo,
+  useRef,
+  useState,
   type ReactNode,
 } from "react";
-import { useQueryState } from "nuqs";
+import { parseAsStringLiteral, useQueryState } from "nuqs";
 
-export type Mode = "dev" | "ml";
+export const MODES = ["dev", "ml"] as const;
+export type Mode = (typeof MODES)[number];
+
+const modeParser = parseAsStringLiteral(MODES)
+  .withDefault("dev")
+  .withOptions({ history: "replace", shallow: true, clearOnDefault: true });
+
+type UrlSetter = (mode: Mode) => unknown;
 
 interface ModeContextType {
   mode: Mode;
@@ -17,24 +28,54 @@ interface ModeContextType {
   setMode: (mode: Mode) => void;
 }
 
-const ModeContext = createContext<ModeContextType>({
-  mode: "dev",
-  toggle: () => undefined,
-  setMode: () => undefined,
-});
+const ModeContext = createContext<ModeContextType | null>(null);
+
+/**
+ * Synchronise le mode avec le paramètre d'URL `?mode=ml`.
+ *
+ * Ce composant est le SEUL à lire les search params. Il est isolé dans son
+ * propre <Suspense> : sans ça, `useSearchParams` (utilisé en interne par nuqs)
+ * force Next.js à rendre TOUTE la page côté client (bailout CSR).
+ */
+function ModeUrlSync({
+  onUrlModeChange,
+  registerUrlSetter,
+}: {
+  onUrlModeChange: (mode: Mode) => void;
+  registerUrlSetter: (setter: UrlSetter | null) => void;
+}) {
+  const [urlMode, setUrlMode] = useQueryState("mode", modeParser);
+
+  useEffect(() => {
+    registerUrlSetter(setUrlMode);
+    return () => registerUrlSetter(null);
+  }, [registerUrlSetter, setUrlMode]);
+
+  // URL -> état (arrivée sur ?mode=ml, retour arrière, etc.)
+  useEffect(() => {
+    onUrlModeChange(urlMode);
+  }, [urlMode, onUrlModeChange]);
+
+  return null;
+}
 
 export function PortfolioProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useQueryState<Mode>("mode", {
-    defaultValue: "dev",
-    history: "replace",
-    shallow: true,
-    clearOnDefault: true,
-    parse: (value) => (value === "ml" ? "ml" : "dev"),
-    serialize: (value) => value,
-  });
+  // Le rendu serveur démarre toujours en "dev" ; l'URL est appliquée après hydratation.
+  const [mode, setModeState] = useState<Mode>("dev");
+  const urlSetterRef = useRef<UrlSetter | null>(null);
+
+  const registerUrlSetter = useCallback((setter: UrlSetter | null) => {
+    urlSetterRef.current = setter;
+  }, []);
+
+  // état -> URL
+  const setMode = useCallback((next: Mode) => {
+    setModeState(next);
+    void urlSetterRef.current?.(next);
+  }, []);
 
   const toggle = useCallback(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
+    if (window.location.hash) {
       window.history.replaceState(
         null,
         "",
@@ -44,20 +85,28 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
     setMode(mode === "dev" ? "ml" : "dev");
   }, [mode, setMode]);
 
-  const contextValue = useMemo(
-    () => ({
-      mode,
-      toggle,
-      setMode,
-    }),
+  const value = useMemo(
+    () => ({ mode, toggle, setMode }),
     [mode, toggle, setMode],
   );
 
   return (
-    <ModeContext.Provider value={contextValue}>{children}</ModeContext.Provider>
+    <ModeContext.Provider value={value}>
+      {children}
+      <Suspense fallback={null}>
+        <ModeUrlSync
+          onUrlModeChange={setModeState}
+          registerUrlSetter={registerUrlSetter}
+        />
+      </Suspense>
+    </ModeContext.Provider>
   );
 }
 
 export function useMode() {
-  return useContext(ModeContext);
+  const context = useContext(ModeContext);
+  if (!context) {
+    throw new Error("useMode must be used within a <PortfolioProvider>");
+  }
+  return context;
 }

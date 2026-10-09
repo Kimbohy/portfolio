@@ -1,54 +1,43 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
+  "name": "portfolio",
+  "version": "0.2.0",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "next dev",
-    "turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.2",
-    "@vercel/analytics": "^1.5.0",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.562.0",
-    "motion": "^12.0.1",
-    "next": "15.3.8",
-    "nodemailer": "^6.9.16",
-    "nuqs": "^2.8.9",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "tailwind-merge": "^2.6.0"
+    "lucide-react": "^1.53.0",
+    "motion": "^14.0.0",
+    "next": "^16.4.0",
+    "nodemailer": "^10.0.16",
+    "nuqs": "^2.10.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.7",
-    "@types/node": "^20",
-    "@types/nodemailer": "^6.4.17",
-    "@types/react": "19.1.6",
-    "@types/react-dom": "19.1.5",
-    "eslint": "^9.27.0",
-    "eslint-config-next": "15.3.2",
-    "postcss": "^8",
-    "tailwindcss": "^4.1.0",
-    "typescript": "^5"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.12.0",
+    "eslint-config-next": "^16.4.0",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3"
   },
-  "packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a",
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.1.6",
-      "@types/react-dom": "19.1.5"
-    },
-    "onlyBuiltDependencies": [
-      "@tailwindcss/oxide",
-      "@vercel/speed-insights",
-      "sharp",
-      "unrs-resolver"
-    ]
-  }
+  "packageManager": "pnpm@12.10.1"
 }
